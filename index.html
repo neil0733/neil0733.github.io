@@ -25,14 +25,12 @@
 			const cylmaterial = new THREE.MeshBasicMaterial( {color: 312328} );
 			const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
 			scene.add( cylinder );
+			cylinder.position.x = 5;
+			cylinder.position.y = 5;
 
-			camera.position.z = 5;
+			camera.position.z = 15;
 
-			function animate() {
-				renderer.render( scene, camera );
-			};
-
-			animate();
+			renderer.render( scene, camera );
 		</script>
 	</body>
 </html>
