@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>My first three.js app</title>
+		<title>My gallery</title>
 		<style>
 			body { margin: 0; }
 		</style>
@@ -17,18 +17,33 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
-			const geometry = new THREE.BoxGeometry( 5, 10, 0.5 );
-			const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-			const cube = new THREE.Mesh( geometry, material );
-			scene.add( cube );
+			const Gbackwall = new THREE.BoxGeometry( 10, 5, 0.5 );
+			const Mbackwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+			const backwall = new THREE.Mesh( Gbackwall, Mbackwall );
+			backwall.position.set(0, 2.5, 0);
+			scene.add( backwall );
+			const Gleftwall = new THREE.BoxGeometry( 0.5, 5, 20 );
+			const Mleftwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+			const leftwall = new THREE.Mesh( Gleftwall, Mleftwall );
+			leftwall.position.set(-5, 2.5, 10);
+			scene.add( leftwall );
+			const Grightwall = new THREE.BoxGeometry( 0.5, 5, 20 );
+			const Mrightwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+			const rightwall = new THREE.Mesh( Grightwall, Mrightwall );
+			rightwall.position.set(5, 2.5, 10);
+			scene.add( rightwall );
+			const Gfloor = new THREE.BoxGeometry( 10, 0.5, 20 );
+			const Mfloor = new THREE.MeshBasicMaterial( { color: 0x888888 } );
+			const floor = new THREE.Mesh( Gfloor, Mfloor );
+			floor.position.set(0, 0, 10);
+			scene.add( floor );
 			const cylgeometry = new THREE.CylinderGeometry( 0.4, 0.4, 1, 32 );
 			const cylmaterial = new THREE.MeshBasicMaterial( {color: 0x312328 } );
 			const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
+			cylinder.position.set(2, 0.5, 5);
 			scene.add( cylinder );
-			cylinder.position.x = 5;
-			cylinder.position.y = 5;
 
-			camera.position.z = 15;
+			camera.position.set(0, 1.7, 20);
 
 			renderer.render( scene, camera );
 		</script>
