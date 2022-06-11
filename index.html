@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<script src="js/three.js"></script>
+		<script src="js/PointerLockControls.js"></script>
 		<script>
 			const scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -16,6 +17,7 @@
 			const renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
+			const plc = new THREE.PointerLockControls( camera, renderer.domElement );
 
 			const Gbackwall = new THREE.BoxGeometry( 10, 5, 0.5 );
 			const Mbackwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
@@ -45,7 +47,57 @@
 
 			camera.position.set(0, 1.7, 20);
 
-			renderer.render( scene, camera );
+			function mousemove(event){
+				plc.lock();
+				renderer.render( scene, camera );	
+			};
+			window.addEventListener('mousemove', mousemove);
+			const onKeyDown = function(event) {
+  switch (event.keyCode) {
+    case 38: // up
+    case 87: // w
+      moveForward = true
+      break
+    case 37: // left
+    case 65: // a
+      moveLeft = true
+      break
+    case 40: // down
+    case 83: // s
+      moveBackward = true
+      break
+    case 39: // right
+    case 68: // d
+      moveRight = true
+      break
+    case 32: // space
+      if (canJump === true) velocity.y += 350 // 跳躍高度
+      canJump = false
+      break
+  }
+};
+const onKeyUp = function(event) {
+  switch (event.keyCode) {
+    case 38: // up
+    case 87: // w
+      moveForward = false
+      break
+    case 37: // left
+    case 65: // a
+      moveLeft = false
+      break
+    case 40: // down
+    case 83: // s
+      moveBackward = false
+      break
+    case 39: // right
+    case 68: // d
+      moveRight = false
+      break
+  }
+};
+window.addEventListener('keydown', onKeyDown, false);
+window.addEventListener('keyup', onKeyUp, false);
 		</script>
 	</body>
 </html>
