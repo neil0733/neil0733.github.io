@@ -8,6 +8,7 @@
 		</style>
 	</head>
 	<body>
+	    <button onclick="Start()">Start</button>
 		<script src="js/three.js"></script>
 		<script src="js/PointerLockControls.js"></script>
 		<script>
@@ -47,57 +48,31 @@
 
 			camera.position.set(0, 1.7, 20);
 
-			function mousemove(event){
+			function Start(){
 				plc.lock();
-				renderer.render( scene, camera );	
 			};
-			window.addEventListener('mousemove', mousemove);
-			const onKeyDown = function(event) {
-  switch (event.keyCode) {
-    case 38: // up
-    case 87: // w
-      moveForward = true
-      break
-    case 37: // left
-    case 65: // a
-      moveLeft = true
-      break
-    case 40: // down
-    case 83: // s
-      moveBackward = true
-      break
-    case 39: // right
-    case 68: // d
-      moveRight = true
-      break
-    case 32: // space
-      if (canJump === true) velocity.y += 350 // 跳躍高度
-      canJump = false
-      break
-  }
+			window.addEventListener('keydown', (event)=>{
+			let speed = 0.2;
+  			switch (event.keyCode) {
+  			    case 87: // w
+   			        plc.moveForward(speed);
+  			    break;
+  			    case 65: // a
+ 			        plc.moveRight(-speed);
+ 			    break;
+  			    case 83: // s
+  			        plc.moveForward(-speed);
+   			    break;
+                case 68: // d
+                    plc.moveRight(speed);
+                break;
+           }
+           });
+function Drawscene(){
+renderer.render( scene, camera );
+window.requestAnimationFrame(Drawscene);
 };
-const onKeyUp = function(event) {
-  switch (event.keyCode) {
-    case 38: // up
-    case 87: // w
-      moveForward = false
-      break
-    case 37: // left
-    case 65: // a
-      moveLeft = false
-      break
-    case 40: // down
-    case 83: // s
-      moveBackward = false
-      break
-    case 39: // right
-    case 68: // d
-      moveRight = false
-      break
-  }
-};
-window.addEventListener('keydown', onKeyDown, false);
-window.addEventListener('keyup', onKeyUp, false);
+Drawscene();
 		</script>
 	</body>
 </html>
