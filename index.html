@@ -74,9 +74,16 @@
 	rightwall.position.set(5, 2.5, 10);
 	scene.add( rightwall );
 	//5.4. 載入 地板
-	const floor = new THREE.Mesh(new THREE.PlaneGeometry( 10, 20 ), new THREE.MeshStandardMaterial({ map: Floorbasecolor, normalMap: FloornormalMap, displacementMap: FloordisplacementMap, displacementScale: 0.05, roughnessMap: FloorglossMap, roughness: 0.25 }));
-	floor.material.wrapS = floor.material.wrapT = THREE.RepeatWrapping;
-	floor.material.repeat.x = 5;
+	const Mfloor = new THREE.MeshStandardMaterial({
+		map: Floorbasecolor,
+		normalMap: FloornormalMap,
+		displacementMap: FloordisplacementMap,
+		displacementScale: 0.05,
+		roughnessMap: FloorglossMap, roughness: 0.25
+	});
+	Mfloor.wrapS = Mfloor.wrapT = THREE.RepeatWrapping;
+	Mfloor.repeat.x = 5;
+	const floor = new THREE.Mesh(new THREE.PlaneGeometry( 10, 20 ), Mfloor);
 	floor.position.set(0, 0, 10);
 	floor.rotation.x = - Math.PI / 2;
 	scene.add( floor );
