@@ -24,9 +24,11 @@
 	
 	//3. 視角控制 設定：使用 Pointer Lock Controls
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
+	//3.1. 啟動視角控制：按下 start 按鈕後，滑鼠才會被鎖定
 	function Start(){
 		plc.lock();
 	};
+	//3.2. WASD 控制視角移動
 	window.addEventListener('keydown', (event)=>{
 	let speed = 0.2;
   	switch (event.keyCode) {
@@ -45,8 +47,14 @@
     }
     });
 
+	//4. 載入 Texture
 	const textureLoader = new THREE.TextureLoader();
+	const Floorbasecolor = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_basecolor.jpg");
+	const FloornormalMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_normalMap.jpg");
+	const FloordisplacementMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_displacementMap.png");
+	const FloorglossMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_glossMap.jpg");
 
+	//5. 載入 物品
 	const Gfrontwall = new THREE.BoxGeometry( 10, 5, 0.5 );
 	const Mfrontwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
 	const frontwall = new THREE.Mesh( Gfrontwall, Mfrontwall );
@@ -62,11 +70,11 @@
 	const rightwall = new THREE.Mesh( Grightwall, Mrightwall );
 	rightwall.position.set(5, 2.5, 10);
 	scene.add( rightwall );
-	const Gfloor = new THREE.BoxGeometry( 10, 0.5, 20 );
-	const Mfloor = new THREE.MeshBasicMaterial( { color: 0x888888 } );
-	const floor = new THREE.Mesh( Gfloor, Mfloor );
+	//5.4. 載入 地板
+	const floor = new THREE.Mesh(new THREE.BoxGeometry( 10, 0.5, 20 ), new THREE.MeshStandardMaterial({ map: Floorbasecolor, normalMap: FloornormalMap, displacementMap: FloordisplacementMap, displacementScale: 0.05, roughnessMap: FloorglossMap, roughness: 0.25 }));
 	floor.position.set(0, 0, 10);
 	scene.add( floor );
+	//5.4. 載入 圓柱
 	const cylgeometry = new THREE.CylinderGeometry( 0.4, 0.4, 1, 32 );
 	const cylmaterial = new THREE.MeshBasicMaterial( {color: 0x312328 } );
 	const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
