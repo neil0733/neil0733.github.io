@@ -58,7 +58,7 @@
 	const Gfrontwall = new THREE.BoxGeometry( 10, 5, 0.5 );
 	const Mfrontwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
 	const frontwall = new THREE.Mesh( Gfrontwall, Mfrontwall );
-	backwall.position.set(0, 2.5, 0);
+	frontwall.position.set(0, 2.5, 0);
 	scene.add( frontwall );
 	const Gleftwall = new THREE.BoxGeometry( 0.5, 5, 20 );
 	const Mleftwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
