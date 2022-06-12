@@ -72,8 +72,8 @@
 	scene.add( rightwall );
 	//5.4. 載入 地板
 	const floor = new THREE.Mesh(new THREE.BoxGeometry( 10, 0.5, 20 ), new THREE.MeshStandardMaterial({ map: Floorbasecolor, normalMap: FloornormalMap, displacementMap: FloordisplacementMap, displacementScale: 0.05, roughnessMap: FloorglossMap, roughness: 0.25 }));
-	floor.material.normalMap.wrapS = plane.material.normalMap.wrapT = THREE.RepeatWrapping
-	floor.material.normalMap.repeat.x = plane.material.normalMap.repeat.y = 5
+	floor.material.normalMap.wrapS = floor.material.normalMap.wrapT = THREE.RepeatWrapping
+	floor.material.normalMap.repeat.set( 5, 5 );
 	floor.position.set(0, 0, 10);
 	scene.add( floor );
 	//5.5. 載入 圓柱
