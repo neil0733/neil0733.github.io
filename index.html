@@ -64,6 +64,7 @@
 	const FloorglossMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_glossMap.jpg");
 	FloorglossMap.wrapS = FloorglossMap.wrapT = THREE.RepeatWrapping;
 	FloorglossMap.repeat.set( 5, 5 );
+	const Selfbasecolor = textureLoader.load("./Materials/self.jpg");
 
 
 	//5. 載入 物品
@@ -100,6 +101,14 @@
 	const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
 	cylinder.position.set(2, 0.5, 5);
 	scene.add( cylinder );
+	//5.6. 載入 自拍
+	const Mself = new THREE.MeshStandardMaterial({
+		map: Selfbasecolor
+	});
+	const self = new THREE.Mesh(new THREE.PlaneGeometry( 2, 2 ), Mself);
+	self.position.set(-4.5, 2.5, 10);
+	self.rotation.y = - Math.PI / 2;
+	scene.add( self );
 
 	const light = new THREE.PointLight( 0xffffff, 0.5, 100 );
 	light.position.set( 0, 5, 10 );
