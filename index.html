@@ -45,7 +45,11 @@
             plc.moveRight(speed);
         break;
 		case 69: // e
-            plc.unlock();
+		    if (plc.isLocked == true) {
+				plc.unlock();
+			} else {
+				plc.lock();
+			};
         break;
     }
     });
