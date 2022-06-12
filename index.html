@@ -53,11 +53,18 @@
 	//4. 載入 Texture
 	const textureLoader = new THREE.TextureLoader();
 	const Floorbasecolor = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_basecolor.jpg");
-	const FloornormalMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_normalMap.jpg");
-	const FloordisplacementMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_displacementMap.jpg");
-	const FloorglossMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_glossMap.jpg");
 	Floorbasecolor.wrapS = Floorbasecolor.wrapT = THREE.RepeatWrapping;
-	Floorbasecolor.repeat.set( 4, 4 );
+	Floorbasecolor.repeat.set( 5, 5 );
+	const FloornormalMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_normalMap.jpg");
+	FloornormalMap.wrapS = FloornormalMap.wrapT = THREE.RepeatWrapping;
+	FloornormalMap.repeat.set( 5, 5 );
+	const FloordisplacementMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_displacementMap.jpg");
+	FloordisplacementMap.wrapS = FloordisplacementMap.wrapT = THREE.RepeatWrapping;
+	FloordisplacementMap.repeat.set( 5, 5 );
+	const FloorglossMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_glossMap.jpg");
+	FloorglossMap.wrapS = FloorglossMap.wrapT = THREE.RepeatWrapping;
+	FloorglossMap.repeat.set( 5, 5 );
+
 
 	//5. 載入 物品
 	const Gfrontwall = new THREE.BoxGeometry( 10, 5, 0.5 );
