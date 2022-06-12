@@ -56,9 +56,8 @@
 	const FloornormalMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_normalMap.jpg");
 	const FloordisplacementMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_displacementMap.jpg");
 	const FloorglossMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_glossMap.jpg");
-	textureLoader.wrapS = THREE.RepeatWrapping;
-	textureLoader.wrapT = THREE.RepeatWrapping;
-	textureLoader.repeat.set( 4, 4 );
+	Floorbasecolor.wrapS = Floorbasecolor.wrapT = THREE.RepeatWrapping;
+	Floorbasecolor.repeat.set( 4, 4 );
 
 	//5. 載入 物品
 	const Gfrontwall = new THREE.BoxGeometry( 10, 5, 0.5 );
