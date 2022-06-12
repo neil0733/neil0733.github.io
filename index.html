@@ -8,7 +8,6 @@
 		</style>
 	</head>
 <body>
-<button onclick="Start()">Start</button>
 <script src="js/three.js"></script>
 <script src="js/PointerLockControls.js"></script>
 <script>
@@ -24,11 +23,8 @@
 	
 	//3. 視角控制 設定：使用 Pointer Lock Controls
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
-	//3.1. 啟動視角控制：按下 start 按鈕後，滑鼠才會被鎖定
-	function Start(){
-		plc.lock();
-	};
-	//3.2. WASD 控制視角移動
+
+	//3.1. WASD 控制視角移動
 	window.addEventListener('keydown', (event)=>{
 	let speed = 0.2;
   	switch (event.keyCode) {
