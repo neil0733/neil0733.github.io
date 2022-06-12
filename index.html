@@ -81,7 +81,9 @@
 	cylinder.position.set(2, 0.5, 5);
 	scene.add( cylinder );
 
-
+	const light = new THREE.PointLight( 0xff0000, 1, 100 );
+	light.position.set( 0, 5, 10 );
+	scene.add( light );
 
 
 	function Drawscene(){
