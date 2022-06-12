@@ -7,72 +7,80 @@
 			body { margin: 0; }
 		</style>
 	</head>
-	<body>
-	    <button onclick="Start()">Start</button>
-		<script src="js/three.js"></script>
-		<script src="js/PointerLockControls.js"></script>
-		<script>
-			const scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 1000 );
+<body>
+<button onclick="Start()">Start</button>
+<script src="js/three.js"></script>
+<script src="js/PointerLockControls.js"></script>
+<script>
+	const scene = new THREE.Scene();
+	//1. camera 設定
+	var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 1000 );
+	camera.position.set(0, 1.7, 20);
 
-			const renderer = new THREE.WebGLRenderer();
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
-			const plc = new THREE.PointerLockControls( camera, renderer.domElement );
+	//2. renderer 設定
+	const renderer = new THREE.WebGLRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
+	
+	//3. 視角控制 設定：使用 Pointer Lock Controls
+	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
+	function Start(){
+		plc.lock();
+	};
+	window.addEventListener('keydown', (event)=>{
+	let speed = 0.2;
+  	switch (event.keyCode) {
+  		case 87: // w
+   			plc.moveForward(speed);
+  		break;
+  		case 65: // a
+ 			plc.moveRight(-speed);
+ 		break;
+  		case 83: // s
+  			plc.moveForward(-speed);
+   		break;
+        case 68: // d
+            plc.moveRight(speed);
+        break;
+    }
+    });
 
-			const Gbackwall = new THREE.BoxGeometry( 10, 5, 0.5 );
-			const Mbackwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
-			const backwall = new THREE.Mesh( Gbackwall, Mbackwall );
-			backwall.position.set(0, 2.5, 0);
-			scene.add( backwall );
-			const Gleftwall = new THREE.BoxGeometry( 0.5, 5, 20 );
-			const Mleftwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
-			const leftwall = new THREE.Mesh( Gleftwall, Mleftwall );
-			leftwall.position.set(-5, 2.5, 10);
-			scene.add( leftwall );
-			const Grightwall = new THREE.BoxGeometry( 0.5, 5, 20 );
-			const Mrightwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
-			const rightwall = new THREE.Mesh( Grightwall, Mrightwall );
-			rightwall.position.set(5, 2.5, 10);
-			scene.add( rightwall );
-			const Gfloor = new THREE.BoxGeometry( 10, 0.5, 20 );
-			const Mfloor = new THREE.MeshBasicMaterial( { color: 0x888888 } );
-			const floor = new THREE.Mesh( Gfloor, Mfloor );
-			floor.position.set(0, 0, 10);
-			scene.add( floor );
-			const cylgeometry = new THREE.CylinderGeometry( 0.4, 0.4, 1, 32 );
-			const cylmaterial = new THREE.MeshBasicMaterial( {color: 0x312328 } );
-			const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
-			cylinder.position.set(2, 0.5, 5);
-			scene.add( cylinder );
+	const textureLoader = new THREE.TextureLoader();
 
-			camera.position.set(0, 1.7, 20);
+	const Gfrontwall = new THREE.BoxGeometry( 10, 5, 0.5 );
+	const Mfrontwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+	const frontwall = new THREE.Mesh( Gfrontwall, Mfrontwall );
+	backwall.position.set(0, 2.5, 0);
+	scene.add( frontwall );
+	const Gleftwall = new THREE.BoxGeometry( 0.5, 5, 20 );
+	const Mleftwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+	const leftwall = new THREE.Mesh( Gleftwall, Mleftwall );
+	leftwall.position.set(-5, 2.5, 10);
+	scene.add( leftwall );
+	const Grightwall = new THREE.BoxGeometry( 0.5, 5, 20 );
+	const Mrightwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+	const rightwall = new THREE.Mesh( Grightwall, Mrightwall );
+	rightwall.position.set(5, 2.5, 10);
+	scene.add( rightwall );
+	const Gfloor = new THREE.BoxGeometry( 10, 0.5, 20 );
+	const Mfloor = new THREE.MeshBasicMaterial( { color: 0x888888 } );
+	const floor = new THREE.Mesh( Gfloor, Mfloor );
+	floor.position.set(0, 0, 10);
+	scene.add( floor );
+	const cylgeometry = new THREE.CylinderGeometry( 0.4, 0.4, 1, 32 );
+	const cylmaterial = new THREE.MeshBasicMaterial( {color: 0x312328 } );
+	const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
+	cylinder.position.set(2, 0.5, 5);
+	scene.add( cylinder );
 
-			function Start(){
-				plc.lock();
-			};
-			window.addEventListener('keydown', (event)=>{
-			let speed = 0.2;
-  			switch (event.keyCode) {
-  			    case 87: // w
-   			        plc.moveForward(speed);
-  			    break;
-  			    case 65: // a
- 			        plc.moveRight(-speed);
- 			    break;
-  			    case 83: // s
-  			        plc.moveForward(-speed);
-   			    break;
-                case 68: // d
-                    plc.moveRight(speed);
-                break;
-           }
-           });
-function Drawscene(){
-renderer.render( scene, camera );
-window.requestAnimationFrame(Drawscene);
-};
-Drawscene();
-		</script>
-	</body>
+
+
+
+	function Drawscene(){
+		renderer.render( scene, camera );
+		window.requestAnimationFrame(Drawscene);
+	};
+	Drawscene();
+</script>
+</body>
 </html>
