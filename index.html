@@ -56,6 +56,9 @@
 	const FloornormalMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_normalMap.jpg");
 	const FloordisplacementMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_displacementMap.jpg");
 	const FloorglossMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_glossMap.jpg");
+	textureLoader.wrapS = THREE.RepeatWrapping;
+	textureLoader.wrapT = THREE.RepeatWrapping;
+	textureLoader.repeat.set( 4, 4 );
 
 	//5. 載入 物品
 	const Gfrontwall = new THREE.BoxGeometry( 10, 5, 0.5 );
@@ -81,8 +84,6 @@
 		displacementScale: 0.05,
 		roughnessMap: FloorglossMap, roughness: 0.25
 	});
-	Mfloor.wrapS = Mfloor.wrapT = THREE.RepeatWrapping;
-	Mfloor.repeat.x = 5;
 	const floor = new THREE.Mesh(new THREE.PlaneGeometry( 10, 20 ), Mfloor);
 	floor.position.set(0, 0, 10);
 	floor.rotation.x = - Math.PI / 2;
