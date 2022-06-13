@@ -20,6 +20,8 @@
 	//2. renderer 設定
 	const renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.shadowMap.enabled = true
+    renderer.shadowMap.type = 2 // THREE.PCFSoftShadowMap
 	document.body.appendChild( renderer.domElement );
 	
 	//3. 視角控制 設定：使用 Pointer Lock Controls
@@ -71,7 +73,7 @@
 
 	//5. 載入 物品
 	//5.1. 載入 牆壁
-	const Mwall = new THREE.MeshBasicMaterial( { color: 0xDAC9A6 } );
+	const Mwall = nnew THREE.MeshLambertMaterial({ color: 0xDAC9A6 });
 	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 5 ), Mwall);
 	wall1.position.set(15, 2.5, 0);
 	wall1.rotation.y = -Math.PI / 2;
