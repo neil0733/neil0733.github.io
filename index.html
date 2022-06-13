@@ -15,6 +15,7 @@
 	//1. camera 設定
 	var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 1000 );
 	camera.position.set(-10, 1.7, -10);
+	camera.rotation.y = Math.PI;
 
 	//2. renderer 設定
 	const renderer = new THREE.WebGLRenderer();
@@ -23,7 +24,6 @@
 	
 	//3. 視角控制 設定：使用 Pointer Lock Controls
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
-
 	//3.1. WASD 控制視角移動，E 控制滑鼠鎖定
 	window.addEventListener('keydown', (event)=>{
 	let speed = 0.1;
@@ -80,7 +80,7 @@
 	wall1.position.set(0, 2.5, 15);
 	scene.add( wall2 );
 	const wall3 = new THREE.Mesh(new THREE.PlaneGeometry( 10, 5 ), Mwall);
-	wall3.position.set(-15, 2.5, 0);
+	wall3.position.set(15, 2.5, 0);
 	wall3.rotation.y = -Math.PI / 2;
 	scene.add( wall3 );
 	const wall4 = new THREE.Mesh(new THREE.PlaneGeometry( 20, 5 ), Mwall);
