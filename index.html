@@ -73,7 +73,7 @@
 
 	//5. 載入 物品
 	//5.1. 載入 牆壁
-	const Mwall = nnew THREE.MeshLambertMaterial({ color: 0xDAC9A6 });
+	const Mwall = new THREE.MeshLambertMaterial({ color: 0xDAC9A6 });
 	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 5 ), Mwall);
 	wall1.position.set(15, 2.5, 0);
 	wall1.rotation.y = -Math.PI / 2;
