@@ -127,8 +127,13 @@
 	scene.add( light );
 	const rectLight = new THREE.RectAreaLight( 0xffffff, 1,  0.5, 2 );
 	rectLight.position.set( 10, 5, -10 );
-	rectLight.lookAt( 0, 0, 0 );
-	scene.add( rectLight )
+	rectLight.lookAt( 0, -1, 0 );
+	scene.add( rectLight );
+	const spotLight = new THREE.SpotLight( 0xffffff );
+	spotLight.position.set( 10, 4, -10 );
+	spotLight.castShadow = true;
+	spotLight.target = selfy;
+	scene.add( spotLight );
 
 	function Drawscene(){
 		renderer.render( scene, camera );
