@@ -131,6 +131,8 @@
 	scene.add( rectLight );
 	const spotLight = new THREE.SpotLight( 0xffffff );
 	spotLight.position.set( 10, 4, -10 );
+	spotLight.angle = Math.PI/10;
+	spotLight.penumbra = 1;
 	spotLight.castShadow = true;
 	spotLight.target = selfy;
 	scene.add( spotLight );
