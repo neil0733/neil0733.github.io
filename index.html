@@ -55,36 +55,43 @@
 	//4.1. 載入 地板的 Texture
 	const Floorbasecolor = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_basecolor.jpg");
 	Floorbasecolor.wrapS = Floorbasecolor.wrapT = THREE.RepeatWrapping;
-	Floorbasecolor.repeat.set( 5, 5 );
+	Floorbasecolor.repeat.set( 6, 6 );
 	const FloornormalMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_normalMap.jpg");
 	FloornormalMap.wrapS = FloornormalMap.wrapT = THREE.RepeatWrapping;
-	FloornormalMap.repeat.set( 5, 5 );
+	FloornormalMap.repeat.set( 6, 6 );
 	const FloordisplacementMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_displacementMap.jpg");
 	FloordisplacementMap.wrapS = FloordisplacementMap.wrapT = THREE.RepeatWrapping;
-	FloordisplacementMap.repeat.set( 5, 5 );
+	FloordisplacementMap.repeat.set( 6, 6 );
 	const FloorglossMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_glossMap.jpg");
 	FloorglossMap.wrapS = FloorglossMap.wrapT = THREE.RepeatWrapping;
-	FloorglossMap.repeat.set( 5, 5 );
+	FloorglossMap.repeat.set( 6, 6 );
 	//4.2. 載入 自拍照的 Texture
 	const Selfybasecolor = textureLoader.load("./Materials/self.jpg");
 
 
 	//5. 載入 物品
-	const Gfrontwall = new THREE.BoxGeometry( 10, 5, 0.5 );
-	const Mfrontwall = new THREE.MeshBasicMaterial( { color: 0xDAC9A6 } );
-	const frontwall = new THREE.Mesh( Gfrontwall, Mfrontwall );
-	frontwall.position.set(0, 2.5, 0);
-	scene.add( frontwall );
-	const Gleftwall = new THREE.BoxGeometry( 0.5, 5, 20 );
-	const Mleftwall = new THREE.MeshBasicMaterial( { color: 0xDAC9A6 } );
-	const leftwall = new THREE.Mesh( Gleftwall, Mleftwall );
-	leftwall.position.set(-5, 2.5, 10);
-	scene.add( leftwall );
-	const Grightwall = new THREE.BoxGeometry( 0.5, 5, 20 );
-	const Mrightwall = new THREE.MeshBasicMaterial( { color: 0xDAC9A6 } );
-	const rightwall = new THREE.Mesh( Grightwall, Mrightwall );
-	rightwall.position.set(5, 2.5, 10);
-	scene.add( rightwall );
+	//5.1. 載入 牆壁
+	const Mwall = new THREE.MeshBasicMaterial( { color: 0xDAC9A6 } );
+	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 5 ), Mwall);
+	wall1.position.set(-15, 2.5, 0);
+	wall1.rotation.y = Math.PI / 2;
+	scene.add( wall1 );
+	const wall2 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 5 ), Mwall);
+	wall1.position.set(0, 2.5, 15);
+	scene.add( wall2 );
+	const wall3 = new THREE.Mesh(new THREE.PlaneGeometry( 10, 5 ), Mwall);
+	wall3.position.set(-15, 2.5, 0);
+	wall3.rotation.y = -Math.PI / 2;
+	scene.add( wall3 );
+	const wall4 = new THREE.Mesh(new THREE.PlaneGeometry( 20, 5 ), Mwall);
+	wall4.position.set(5, 2.5, 5);
+	wall4.rotation.y = -Math.PI;
+	scene.add( wall4 );
+	const wall5 = new THREE.Mesh(new THREE.PlaneGeometry( 20, 5 ), Mwall);
+	wall5.position.set(-5, 2.5, -5);
+	wall5.rotation.y = -Math.PI / 2;
+	scene.add( wall5 );
+
 	//5.4. 載入 地板
 	const Mfloor = new THREE.MeshStandardMaterial({
 		map: Floorbasecolor,
@@ -93,8 +100,8 @@
 		displacementScale: 0.05,
 		roughnessMap: FloorglossMap, roughness: 0.25
 	});
-	const floor = new THREE.Mesh(new THREE.PlaneGeometry( 10, 20 ), Mfloor);
-	floor.position.set(0, 0, 10);
+	const floor = new THREE.Mesh(new THREE.PlaneGeometry( 30, 30 ), Mfloor);
+	floor.position.set(0, 0, 0);
 	floor.rotation.x = - Math.PI / 2;
 	scene.add( floor );
 	//5.5. 載入 圓柱
