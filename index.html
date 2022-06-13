@@ -71,17 +71,17 @@
 
 	//5. 載入 物品
 	const Gfrontwall = new THREE.BoxGeometry( 10, 5, 0.5 );
-	const Mfrontwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+	const Mfrontwall = new THREE.MeshBasicMaterial( { color: 0xDAC9A6 } );
 	const frontwall = new THREE.Mesh( Gfrontwall, Mfrontwall );
 	frontwall.position.set(0, 2.5, 0);
 	scene.add( frontwall );
 	const Gleftwall = new THREE.BoxGeometry( 0.5, 5, 20 );
-	const Mleftwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+	const Mleftwall = new THREE.MeshBasicMaterial( { color: 0xDAC9A6 } );
 	const leftwall = new THREE.Mesh( Gleftwall, Mleftwall );
 	leftwall.position.set(-5, 2.5, 10);
 	scene.add( leftwall );
 	const Grightwall = new THREE.BoxGeometry( 0.5, 5, 20 );
-	const Mrightwall = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+	const Mrightwall = new THREE.MeshBasicMaterial( { color: 0xDAC9A6 } );
 	const rightwall = new THREE.Mesh( Grightwall, Mrightwall );
 	rightwall.position.set(5, 2.5, 10);
 	scene.add( rightwall );
