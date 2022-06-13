@@ -24,7 +24,7 @@
 	//3. 視角控制 設定：使用 Pointer Lock Controls
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
 
-	//3.1. WASD 控制視角移動
+	//3.1. WASD 控制視角移動，E 控制滑鼠鎖定
 	window.addEventListener('keydown', (event)=>{
 	let speed = 0.1;
   	switch (event.keyCode) {
@@ -52,6 +52,7 @@
 
 	//4. 載入 Texture
 	const textureLoader = new THREE.TextureLoader();
+	//4.1. 載入 地板的 Texture
 	const Floorbasecolor = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_basecolor.jpg");
 	Floorbasecolor.wrapS = Floorbasecolor.wrapT = THREE.RepeatWrapping;
 	Floorbasecolor.repeat.set( 5, 5 );
@@ -64,6 +65,7 @@
 	const FloorglossMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_glossMap.jpg");
 	FloorglossMap.wrapS = FloorglossMap.wrapT = THREE.RepeatWrapping;
 	FloorglossMap.repeat.set( 5, 5 );
+	//4.2. 載入 自拍照的 Texture
 	const Selfybasecolor = textureLoader.load("./Materials/self.jpg");
 
 
@@ -109,7 +111,8 @@
 	selfy.position.set(-4, 2.5, 15);
 	selfy.rotation.y = Math.PI / 2;
 	scene.add( selfy );
-
+	
+	//6. 載入 光線
 	const light = new THREE.PointLight( 0xffffff, 0.5, 100 );
 	light.position.set( 0, 5, 10 );
 	scene.add( light );
