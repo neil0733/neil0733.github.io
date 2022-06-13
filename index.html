@@ -13,7 +13,7 @@
 <script>
 	const scene = new THREE.Scene();
 	//1. camera 設定
-	var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 1000 );
+	var camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 1000 );
 	camera.position.set(10, 1.7, -10);
 	camera.rotation.y = Math.PI;
 
@@ -73,7 +73,7 @@
 
 	//5. 載入 物品
 	//5.1. 載入 牆壁
-	const Mwall = new THREE.MeshLambertMaterial({ color: 0x577C8A });
+	const Mwall = new THREE.MeshStandardMaterial({ color: 0x577C8A, roughness : 0.7});
 	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 5 ), Mwall);
 	wall1.position.set(15, 2.5, 0);
 	wall1.rotation.y = -Math.PI / 2;
@@ -94,7 +94,7 @@
 	wall5.rotation.y = Math.PI / 2;
 	scene.add( wall5 );
 	//5.2. 載入 天花板
-	const Mcelling = new THREE.MeshLambertMaterial({ color: 0x9B90C2 });
+	const Mcelling = new THREE.MeshStandardMaterial({ color: 0x9B90C2 });
 	const celling = new THREE.Mesh(new THREE.PlaneGeometry( 30, 30 ), Mcelling);
 	celling.position.set(0, 5, 0);
 	celling.rotation.x = Math.PI/2;
@@ -104,8 +104,8 @@
 		map: Floorbasecolor,
 		normalMap: FloornormalMap,
 		displacementMap: FloordisplacementMap,
-		displacementScale: 0.05,
-		roughnessMap: FloorglossMap, roughness: 0.25
+		displacementScale: 0.1,
+		roughnessMap: FloorglossMap, roughness: 0.6
 	});
 	const floor = new THREE.Mesh(new THREE.PlaneGeometry( 30, 30 ), Mfloor);
 	floor.position.set(0, 0, 0);
@@ -113,7 +113,7 @@
 	scene.add( floor );
 	//5.5. 載入 圓柱
 	const cylgeometry = new THREE.CylinderGeometry( 0.4, 0.4, 1, 32 );
-	const cylmaterial = new THREE.MeshLambertMaterial( {color: 0x312328 } );
+	const cylmaterial = new THREE.MeshStandardMaterial( {color: 0x312328 } );
 	const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
 	cylinder.position.set(7, 0.5, 7);
 	scene.add( cylinder );
@@ -122,32 +122,55 @@
 		map: Selfybasecolor
 	});
 	const selfy = new THREE.Mesh(new THREE.PlaneGeometry( 2, 2 ), Mselfy);
-	selfy.position.set(14.5, 2.5, -10);
+	selfy.position.set(14.8, 2.5, -10);
 	selfy.rotation.y = -Math.PI / 2;
 	scene.add( selfy );
 	
 	//6. 載入 光線
-	const Alight = new THREE.AmbientLight( 0x404040 ); // soft white light
+	const Alight = new THREE.AmbientLight( 0x151515 ); // soft white light
 	scene.add( Alight );
-	/*
-	const lightcolor = 0x91989F;
-	const light1 = new THREE.PointLight( lightcolor, 0.3, 100 );
-	light1.position.set( 10, 5, -10 );
+
+	const lightcolor = 0xFAD689;
+	const lightstrength = 0.1;
+	const light1 = new THREE.PointLight( lightcolor, lightstrength, 100 );
+	light1.position.set( 10, 4.5, -10 );
+	light1.castShadow = true;
 	scene.add( light1 );
-	const light2 = new THREE.PointLight( lightcolor, 0.3, 100 );
-	light2.position.set( 10, 5, -5 );
+	const light2 = new THREE.PointLight( lightcolor, lightstrength, 100 );
+	light2.position.set( 10, 4.5, -5 );
+	light2.castShadow = true;
 	scene.add( light2 );
-	const light3 = new THREE.PointLight( lightcolor, 0.3, 100 );
-	light3.position.set( 10, 5, 0 );
+	const light3 = new THREE.PointLight( lightcolor, lightstrength, 100 );
+	light3.position.set( 10, 4.5, 0 );
+	light3.castShadow = true;
 	scene.add( light3 );
-	const light4 = new THREE.PointLight( lightcolor, 0.3, 100 );
-	light4.position.set( 10, 5, 5 );
+	const light4 = new THREE.PointLight( lightcolor, lightstrength, 100 );
+	light4.position.set( 10, 4.5, 5 );
+	light4.castShadow = true;
 	scene.add( light4 );
-	*/
-	const spotLight = new THREE.SpotLight( 0xffffff );
+	const light5 = new THREE.PointLight( lightcolor, lightstrength, 100 );
+	light5.position.set( 10, 4.5, 10 );
+	light5.castShadow = true;
+	scene.add( light5 );
+	const light6 = new THREE.PointLight( lightcolor, lightstrength, 100 );
+	light6.position.set( 5, 4.5, 10 );
+	light6.castShadow = true;
+	scene.add( light6 );
+	const light7 = new THREE.PointLight( lightcolor, lightstrength, 100 );
+	light7.position.set( 0, 4.5, 10 );
+	light7.castShadow = true;
+	scene.add( light7 );
+	const light8 = new THREE.PointLight( lightcolor, lightstrength, 100 );
+	light8.position.set( -5, 4.5, 10 );
+	light8.castShadow = true;
+	scene.add( light8 );
+	const light9 = new THREE.PointLight( lightcolor, lightstrength, 100 );
+	light9.position.set( -10, 4.5, 10 );
+	light9.castShadow = true;
+	scene.add( light9 );
+	
+	const spotLight = new THREE.SpotLight( 0xffffff, 1, 0, Math.PI/7, 1 ,1.5);
 	spotLight.position.set( 10, 4, -10 );
-	spotLight.angle = Math.PI/8;
-	spotLight.penumbra = 1;
 	spotLight.castShadow = true;
 	spotLight.target = selfy;
 	scene.add( spotLight );
