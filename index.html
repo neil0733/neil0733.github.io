@@ -93,7 +93,12 @@
 	wall5.position.set(5, 2.5, -5);
 	wall5.rotation.y = Math.PI / 2;
 	scene.add( wall5 );
-
+	//5.2. 載入 天花板
+	const Mcelling = new THREE.MeshLambertMaterial({ color: 0x566C73 });
+	const celling = new THREE.Mesh(new THREE.PlaneGeometry( 30, 30 ), Mcelling);
+	celling.position.set(0, 5, 0);
+	celling.rotation.x = Math.PI;
+	scene.add( celling );
 	//5.4. 載入 地板
 	const Mfloor = new THREE.MeshStandardMaterial({
 		map: Floorbasecolor,
@@ -122,6 +127,8 @@
 	scene.add( selfy );
 	
 	//6. 載入 光線
+	const Alight = new THREE.AmbientLight( 0x404040 ); // soft white light
+	scene.add( Alight );
 	const lightcolor = 0x91989F;
 	const light1 = new THREE.PointLight( lightcolor, 0.3, 100 );
 	light1.position.set( 10, 5, -10 );
@@ -137,7 +144,7 @@
 	scene.add( light4 );
 	const spotLight = new THREE.SpotLight( 0xffffff );
 	spotLight.position.set( 10, 4, -10 );
-	spotLight.angle = Math.PI/10;
+	spotLight.angle = Math.PI/8;
 	spotLight.penumbra = 1;
 	spotLight.castShadow = true;
 	spotLight.target = selfy;
