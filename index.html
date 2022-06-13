@@ -128,6 +128,10 @@
 	const light = new THREE.PointLight( 0xFAD689, 2, 100 );
 	light.position.set( 0, 5, 0 );
 	scene.add( light );
+	const rectLight = new THREE.RectAreaLight( 0xffffff, 10,  0.5, 2 );
+	rectLight.position.set( 10, 5, -10 );
+	rectLight.lookAt( 0, 0, 0 );
+	scene.add( rectLight )
 
 	function Drawscene(){
 		renderer.render( scene, camera );
