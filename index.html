@@ -122,16 +122,17 @@
 	scene.add( selfy );
 	
 	//6. 載入 光線
-	const light1 = new THREE.PointLight( 0xFAD689, 0.2, 100 );
+	const lightcolor = 0x91989F;
+	const light1 = new THREE.PointLight( lightcolor, 0.2, 100 );
 	light1.position.set( 10, 5, -10 );
 	scene.add( light1 );
-	const light2 = new THREE.PointLight( 0xFAD689, 0.2, 100 );
+	const light2 = new THREE.PointLight( lightcolor, 0.2, 100 );
 	light2.position.set( 10, 5, -5 );
 	scene.add( light2 );
-	const light3 = new THREE.PointLight( 0xFAD689, 0.2, 100 );
+	const light3 = new THREE.PointLight( lightcolor, 0.2, 100 );
 	light3.position.set( 10, 5, 0 );
 	scene.add( light3 );
-	const light4 = new THREE.PointLight( 0xFAD689, 0.2, 100 );
+	const light4 = new THREE.PointLight( lightcolor, 0.2, 100 );
 	light4.position.set( 10, 5, 5 );
 	scene.add( light4 );
 	const spotLight = new THREE.SpotLight( 0xffffff );
