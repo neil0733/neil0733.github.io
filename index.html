@@ -122,13 +122,18 @@
 	scene.add( selfy );
 	
 	//6. 載入 光線
-	const light = new THREE.PointLight( 0xFAD689, 1, 100 );
-	light.position.set( 10, 5, 5 );
-	scene.add( light );
-	const rectLight = new THREE.RectAreaLight( 0xffffff, 3, 0.5, 2 );
-	rectLight.position.set( 10, 5, -10 );
-	rectLight.lookAt( 0, 0, 0 );
-	scene.add( rectLight );
+	const light1 = new THREE.PointLight( 0xFAD689, 0.7, 100 );
+	light1.position.set( 10, 5, -10 );
+	scene.add( light1 );
+	const light2 = new THREE.PointLight( 0xFAD689, 0.7, 100 );
+	light2.position.set( 10, 5, -5 );
+	scene.add( light2 );
+	const light3 = new THREE.PointLight( 0xFAD689, 0.7, 100 );
+	light3.position.set( 10, 5, 0 );
+	scene.add( light3 );
+	const light4 = new THREE.PointLight( 0xFAD689, 0.7, 100 );
+	light4.position.set( 10, 5, 5 );
+	scene.add( light4 );
 	const spotLight = new THREE.SpotLight( 0xffffff );
 	spotLight.position.set( 10, 4, -10 );
 	spotLight.angle = Math.PI/10;
