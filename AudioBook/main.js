@@ -23,29 +23,7 @@ let mySidebar = document.querySelector("#mySidebar");
 let curr_track = document.createElement('audio');
 
 // Define the tracks that have to be played
-let track_list = [
-  {
-	name: "01",
-	Chapter: "12 Diseases of the Oral Cavity and Oropharynx",
-    book: "ENT Secrets",
-    image: "1IDnvf5MHOjkM3rZYwApMxDbWZWMI0m56",
-    path: "1L9zKDzhdlG2pCbr8WTEmPUNOhmInOGLr"
-  },
-  {
-	name: "02",
-	Chapter: "12 Diseases of the Oral Cavity and Oropharynx",
-    book: "ENT Secrets",
-    image: "1IDnvf5MHOjkM3rZYwApMxDbWZWMI0m56",
-    path: "1L9sv48i5w5fJ1-hMEUNMreMfBaVl8CwP"
-  },
-  {
-	name: "03",
-	Chapter: "12 Diseases of the Oral Cavity and Oropharynx",
-    book: "ENT Secrets",
-    image: "1IDnvf5MHOjkM3rZYwApMxDbWZWMI0m56",
-    path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Chad_Crouch/Arps/Chad_Crouch_-_Shipping_Lanes.mp3",
-  },
-];
+let track_list = require('booklist.json'); ;
 
 document.body.onload = addElement;
 function addElement () {
