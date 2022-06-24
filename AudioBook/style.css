@@ -134,9 +134,10 @@ i.fa-play-circle, i.fa-pause-circle, i.fa-step-forward, i.fa-step-backward {
 }
 
 .sidebar button {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 8px 8px;
   text-decoration: none;
-  font-size: 25px;
+  background-color: black;
+  font-size: 15px;
   color: #818181;
   display: block;
   transition: 0.3s;

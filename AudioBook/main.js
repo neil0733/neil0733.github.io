@@ -1,4 +1,3 @@
-let now_playing = document.querySelector(".now-playing");
 let track_art = document.querySelector(".track-art");
 let track_Chapter = document.querySelector(".track-Chapter");
 let track_name = document.querySelector(".track-name");
@@ -52,7 +51,7 @@ function addElement () {
   for(i=0;i<track_list.length;i++){
 	  var newBtn = document.createElement("button");
 	  var j = i + 1;
-	  var newContent = document.createTextNode(j);
+	  var newContent = document.createTextNode(track_list[i].Chapter + track_list[i].name);
 	  newBtn.appendChild(newContent);
 	  newBtn.value = i;
 	  newBtn.onclick = function() {selectTrack(this)};
@@ -83,7 +82,6 @@ function loadTrack(track_index) {
   track_Chapter.textContent = track_list[track_index].Chapter;
   track_name.textContent = track_list[track_index].name;
   track_book.textContent = track_list[track_index].book;
-  now_playing.textContent = "PLAYING " + (track_index + 1) + " OF " + track_list.length;
 
   updateTimer = setInterval(seekUpdate, 1000);
   curr_track.addEventListener("ended", nextTrack);
