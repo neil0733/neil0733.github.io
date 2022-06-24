@@ -23,7 +23,29 @@ let mySidebar = document.querySelector("#mySidebar");
 let curr_track = document.createElement('audio');
 
 // Define the tracks that have to be played
-let track_list = require('booklist.json'); ;
+let track_list = [
+  {
+    "name": "12-01",
+    "Chapter": "12 Diseases of the Oral Cavity and Oropharynx",
+    "book": "ENT Secrets",
+    "image": "1IDnvf5MHOjkM3rZYwApMxDbWZWMI0m56",
+    "path": "1L9zKDzhdlG2pCbr8WTEmPUNOhmInOGLr"
+  },
+  {
+    "name": "12-02",
+    "Chapter": "12 Diseases of the Oral Cavity and Oropharynx",
+    "book": "ENT Secrets",
+    "image": "1IDnvf5MHOjkM3rZYwApMxDbWZWMI0m56",
+    "path": "1L9sv48i5w5fJ1-hMEUNMreMfBaVl8CwP"
+  },
+  {
+    "name": "12-03",
+    "Chapter": "12 Diseases of the Oral Cavity and Oropharynx",
+    "book": "ENT Secrets",
+    "image": "1IDnvf5MHOjkM3rZYwApMxDbWZWMI0m56",
+    "path": "1LF3mJpPjQe1IBfhmpw1aAkmYpFRWZpZS"
+  }
+];
 
 document.body.onload = addElement;
 function addElement () {
