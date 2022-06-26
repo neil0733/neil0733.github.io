@@ -22,57 +22,7 @@ let mySidebar = document.querySelector("#mySidebar");
 let curr_track = document.createElement('audio');
 
 // Define the tracks that have to be played
-let track_list = [
-  {
-    "name": "12-01",
-    "Chapter": "12 Diseases of the Oral Cavity and Oropharynx",
-    "book": "ENT Secrets",
-    "image": "1IDnvf5MHOjkM3rZYwApMxDbWZWMI0m56",
-    "path": "1L9zKDzhdlG2pCbr8WTEmPUNOhmInOGLr"
-  },
-  {
-    "name": "12-02",
-    "Chapter": "12 Diseases of the Oral Cavity and Oropharynx",
-    "book": "ENT Secrets",
-    "image": "1IDnvf5MHOjkM3rZYwApMxDbWZWMI0m56",
-    "path": "1L9sv48i5w5fJ1-hMEUNMreMfBaVl8CwP"
-  },
-  {
-    "name": "12-03",
-    "Chapter": "12 Diseases of the Oral Cavity and Oropharynx",
-    "book": "ENT Secrets",
-    "image": "1IDnvf5MHOjkM3rZYwApMxDbWZWMI0m56",
-    "path": "1LF3mJpPjQe1IBfhmpw1aAkmYpFRWZpZS"
-  },
-  {
-    "name": "13-01",
-    "Chapter": "13 Altered Mental Status and Coma",
-    "book": "Emergency Medicine Secrets",
-    "image": "1wJ1WNArZ54S2reFDfnrG86CdnvBtAeDt",
-    "path": "1RGKkXsMLK_2Rec-yoQNpbu7-wiUBnbQu"
-  },
-  {
-    "name": "13-02",
-    "Chapter": "13 Altered Mental Status and Coma",
-    "book": "Emergency Medicine Secrets",
-    "image": "1wJ1WNArZ54S2reFDfnrG86CdnvBtAeDt",
-    "path": "1w9T-0XrJ_krmHg2tPoi8IXll9KYG7tqS"
-  },
-  {
-    "name": "13-03",
-    "Chapter": "13 Altered Mental Status and Coma",
-    "book": "Emergency Medicine Secrets",
-    "image": "1wJ1WNArZ54S2reFDfnrG86CdnvBtAeDt",
-    "path": "1wLj0d8yq0ILU-MUfWSrBrfLAxECu_EAD"
-  },
-  {
-    "name": "14-01",
-    "Chapter": "14 Fever",
-    "book": "Emergency Medicine Secrets",
-    "image": "1wJ1WNArZ54S2reFDfnrG86CdnvBtAeDt",
-    "path": "1wNJDj1xxMbVWdIezl1F92IFZGjzlu8X9"
-  }
-];
+let track_list = JSON.parse(list);
 
 document.body.onload = addElement;
 function addElement () {
