@@ -12,6 +12,8 @@ let volume_slider = document.querySelector(".volume_slider");
 let curr_time = document.querySelector(".current-time");
 let total_duration = document.querySelector(".total-duration");
 
+let bookholder = document.querySelector("#bookholder");
+
 let track_index = 0;
 let isPlaying = false;
 let updateTimer;
@@ -60,6 +62,7 @@ function loadTrack(track_index) {
   track_Chapter.textContent = track_list[track_index].Chapter;
   track_name.textContent = track_list[track_index].name;
   track_book.textContent = track_list[track_index].book;
+  bookholder.src = "https://docs.google.com/document/d/e/" + track_list[track_index].gdoc + "/pub?embedded=true";
 
   updateTimer = setInterval(seekUpdate, 1000);
   curr_track.addEventListener("ended", nextTrack);
