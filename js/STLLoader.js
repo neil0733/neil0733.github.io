@@ -1,35 +1,3 @@
-Skip to content
-Product 
-Team
-Enterprise
-Explore 
-Marketplace
-Pricing 
-Search
-Sign in
-Sign up
-mrdoob
-/
-three.js
-Public
-Code
-Issues
-353
-Pull requests
-150
-Actions
-Wiki
-Security
-Insights
-three.js/examples/js/loaders/STLLoader.js /
-@mrdoob
-mrdoob Updated examples builds.
-Latest commit 6c29fd3 on 19 Jan
- History
- 21 contributors
-@mrdoob@Mugen87@gero3@zinefer@AlbertoPa@cnspaha@neverhood311@alteredq@phutidus@matb@erasta@dnewman-polar3d
-371 lines (252 sloc)  9.61 KB
-
 ( function () {
 
 	/**
@@ -401,17 +369,3 @@ Latest commit 6c29fd3 on 19 Jan
 	THREE.STLLoader = STLLoader;
 
 } )();
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
