@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -10,7 +9,6 @@
 <body>
 <script src="js/three.js"></script>
 <script src="js/OrbitControls.js"></script>
-<script src="js/stats.module.js"></script>
 <script src="js/STLLoader.js"></script>
 <script>
 	const scene = new THREE.Scene();
@@ -31,10 +29,10 @@ renderer.outputEncoding = THREE.sRGBEncoding
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
-const controls = new THREE.OrbitControls(camera, renderer.domElement)
+const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
-const loader = new THREE.STLLoader()
+const loader = new STLLoader()
 loader.load(
     'ear.stl',
     function (geometry) {
@@ -56,9 +54,6 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight)
     render()
 }
-
-const stats = THREE.Stats()
-document.body.appendChild(stats.dom)
 
 function animate() {
     requestAnimationFrame(animate)
