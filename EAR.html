@@ -14,8 +14,8 @@
 const scene = new THREE.Scene();
 
 const lightcolor = 0x404040;
-const lightstrength = 1;
-const light1 = new THREE.PointLight( lightcolor, lightstrength, 100 );
+const lightstrength = 100;
+const light1 = new THREE.PointLight( lightcolor, lightstrength );
 light1.position.set( 0, 0, 60 );
 light1.castShadow = true;
 scene.add( light1 );
