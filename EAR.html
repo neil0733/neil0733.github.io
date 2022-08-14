@@ -32,7 +32,7 @@ document.body.appendChild(renderer.domElement)
 const controls = new THREE.OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
-const loader = new STLLoader()
+const loader = new THREE.STLLoader()
 loader.load(
     'ear.stl',
     function (geometry) {
