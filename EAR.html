@@ -28,7 +28,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 )
-camera.position.z = 120
+camera.position.z = 30
 
 const renderer = new THREE.WebGLRenderer()
 renderer.outputEncoding = THREE.sRGBEncoding
@@ -45,7 +45,7 @@ const normal = textureLoader.load( "EarSkinNormal.jpg" );
 const material = new THREE.MeshStandardMaterial({
     map: texture,
 	displacementMap: normal,
-    displacementScale: 0.5
+    displacementScale: 0.1
 })
 
 const loader = new THREE.STLLoader()
@@ -53,7 +53,7 @@ loader.load(
     'ear.stl',
     function (geometry) {
         const mesh = new THREE.Mesh(geometry, material)
-        //mesh.scale.set(0.1, 0.1, 0.1)
+        mesh.scale.set(0.1, 0.1, 0.1)
         scene.add(mesh)
     },
     (xhr) => {
