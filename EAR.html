@@ -44,7 +44,8 @@ const normal = textureLoader.load( "EarSkinNormal.jpg" );
 
 const material = new THREE.MeshStandardMaterial({
     map: texture,
-	normalMap: normal
+	displacementMap: normal,
+    displacementScale: 0.5
 })
 
 const loader = new THREE.STLLoader()
@@ -52,6 +53,7 @@ loader.load(
     'ear.stl',
     function (geometry) {
         const mesh = new THREE.Mesh(geometry, material)
+        mesh.scale.set(0.1, 0.1, 0.1)
         scene.add(mesh)
     },
     (xhr) => {
