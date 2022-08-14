@@ -32,8 +32,12 @@ document.body.appendChild(renderer.domElement)
 const controls = new THREE.OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
-let material = new THREE.MeshBasicMaterial({
-  color: 0xFFF000,  // 物件顏色
+const texture = new THREE.TextureLoader().load( "EarSkin.jpg" );
+const normal = new THREE.TextureLoader().load( "EarSkinNormal.jpg" );
+
+const material = new THREE.MeshStandardMaterial({
+    color: 0xE5B5A1,
+    normalMap: normal
 })
 
 const loader = new THREE.STLLoader()
