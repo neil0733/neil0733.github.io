@@ -6,10 +6,12 @@
 			body { margin: 0; }
 		</style>
 	</head>
+    <div class="label" id="test">test</div>
 <body>
 <script src="js/three.js"></script>
 <script src="js/OrbitControls.js"></script>
 <script src="js/STLLoader.js"></script>
+<script src="js/CSS2DRenderer.js"></script>
 <script>
 const scene = new THREE.Scene();
 
@@ -42,14 +44,37 @@ camera.position.z = 10
 const renderer = new THREE.WebGLRenderer()
 renderer.outputEncoding = THREE.sRGBEncoding
 renderer.setSize(window.innerWidth, window.innerHeight)
+renderer.setClearColor(0x004477);
 document.body.appendChild(renderer.domElement)
 
 const controls = new THREE.OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
+const laberDiv = document.getElementById("test")
+let pointLabel = new THREE.CSS2DObject(laberDiv);   
+pointLabel.position.set( 0, 4, 4 );    
+scene.add(pointLabel);
+
+labelRenderer = new THREE.CSS2DRenderer()
+labelRenderer.setSize(50, 50)
+labelRenderer.domElement.style.position = 'absolute'
+labelRenderer.domElement.style.top = 0;
+document.body.appendChild(labelRenderer.domElement)   
+
 const textureLoader = new THREE.TextureLoader();
 const texture = textureLoader.load( "https://neil0733.github.io/EarSkin.jpg" );
 const normal = textureLoader.load( "https://neil0733.github.io/EarSkinNormal.jpg" );
+
+const linematerial = new THREE.LineBasicMaterial({color: 0x0000ff});
+const linegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -2, 3, 2 ),new THREE.Vector3( 0, 4, 3 ) ] );
+const line = new THREE.Line( linegeometry, linematerial );
+scene.add( line );
+
+const size = 10;
+const divisions = 10;
+
+const gridHelper = new THREE.GridHelper( size, divisions );
+scene.add( gridHelper );
 
 const material = new THREE.MeshStandardMaterial({
     map: texture,
@@ -62,6 +87,7 @@ loader.load(
     function (geometry) {
         const mesh = new THREE.Mesh(geometry, material)
         mesh.scale.set(0.1, 0.1, 0.1)
+        mesh.position.set(0, 0, -3)
         scene.add(mesh)
     },
     (xhr) => {
@@ -90,6 +116,7 @@ function animate() {
 
 function render() {
     renderer.render(scene, camera)
+    labelRenderer.render( scene, camera )
 }
 
 animate()
