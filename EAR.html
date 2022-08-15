@@ -14,13 +14,22 @@
 const scene = new THREE.Scene();
 
 const lightcolor = 0x404040;
-const lightstrength = 100;
+const lightstrength = 50;
 const light1 = new THREE.PointLight( lightcolor, lightstrength );
-light1.position.set( 0, 0, 90 );
-light1.castShadow = true;
+light1.position.set( 0, 0, 30 );
 scene.add( light1 );
-const AmbientLight = new THREE.AmbientLight( 0x404040, 100 ); // soft white light
-scene.add( AmbientLight );
+const light2 = new THREE.PointLight( lightcolor, 30 );
+light2.position.set( 10, 0, 0 );
+scene.add( light2 );
+const light3 = new THREE.PointLight( lightcolor, 30 );
+light3.position.set( -10, 0, 0 );
+scene.add( light3 );
+const light4 = new THREE.PointLight( lightcolor, 30 );
+light4.position.set( 0, 10, 0 );
+scene.add( light4 );
+const light5 = new THREE.PointLight( lightcolor, 30 );
+light5.position.set( 0, -10, 0 );
+scene.add( light5 );
 
 const camera = new THREE.PerspectiveCamera(
     75,
@@ -28,7 +37,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 )
-camera.position.z = 30
+camera.position.z = 10
 
 const renderer = new THREE.WebGLRenderer()
 renderer.outputEncoding = THREE.sRGBEncoding
@@ -39,18 +48,17 @@ const controls = new THREE.OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
 const textureLoader = new THREE.TextureLoader();
-const texture = textureLoader.load( "EarSkin.jpg" );
-const normal = textureLoader.load( "EarSkinNormal.jpg" );
+const texture = textureLoader.load( "https://neil0733.github.io/EarSkin.jpg" );
+const normal = textureLoader.load( "https://neil0733.github.io/EarSkinNormal.jpg" );
 
 const material = new THREE.MeshStandardMaterial({
     map: texture,
-	displacementMap: normal,
-    displacementScale: 0.1
+	normalMap: normal
 })
 
 const loader = new THREE.STLLoader()
 loader.load(
-    'ear.stl',
+    'https://neil0733.github.io/ear.stl',
     function (geometry) {
         const mesh = new THREE.Mesh(geometry, material)
         mesh.scale.set(0.1, 0.1, 0.1)
