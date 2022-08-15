@@ -8,6 +8,7 @@
 	</head>
     <div class="label" id="SAC">sup. antihelix crura</div>
     <div class="label" id="IAC">inf. antihelix crura</div>
+    <div class="label" id="DT">Darwin’s tubercle</div>
 <body>
 <script src="js/three.js"></script>
 <script src="js/OrbitControls.js"></script>
@@ -73,6 +74,14 @@ scene.add(IACLabel)
 const IAClinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -1, 2, 1 ),new THREE.Vector3( -2, 2, 3 ) ] );
 const IACline = new THREE.Line( IAClinegeometry, linematerial );
 scene.add( IACline );
+
+const DT = document.getElementById("DT")
+let DTLabel = new THREE.CSS2DObject(DT)
+DTLabel.position.set( -5, 2, 2 )
+scene.add(DTLabel)
+const DTlinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -3.8, 2.6, 1.5 ),new THREE.Vector3( -5, 2, 2 ) ] );
+const DTline = new THREE.Line( DTlinegeometry, linematerial );
+scene.add( DTline );
  
 const textureLoader = new THREE.TextureLoader();
 const texture = textureLoader.load( "https://neil0733.github.io/EarSkin.jpg" );
@@ -88,9 +97,9 @@ loader.load(
     'https://neil0733.github.io/ear.stl',
     function (geometry) {
         const mesh = new THREE.Mesh(geometry, material)
-        mesh.scale.set(10, 10, 10)
-        mesh.rotation.set(4.712, 0, 1.57077)
-        mesh.position.set(-1, -4.5, -1.5)
+        mesh.scale.set(0.2, 0.2, 0.2)
+        //mesh.rotation.set(4.712, 0, 1.57077)
+        mesh.position.set(-1, 0.5, -2)
         scene.add(mesh)
     },
     (xhr) => {
