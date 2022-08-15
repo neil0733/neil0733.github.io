@@ -59,10 +59,10 @@ controls.enableDamping = true
 
 const SAC = document.getElementById("SAC")
 let SACLabel = new THREE.CSS2DObject(SAC)
-SACLabel.position.set( 0, 3, 3 )
+SACLabel.position.set( -2, 3, 3 )
 scene.add(SACLabel)
 const linematerial = new THREE.LineBasicMaterial({color: 0x0000ff});
-const SAClinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -2, 3, 1.5 ),new THREE.Vector3( 0, 3, 3 ) ] );
+const SAClinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -1.5, 3, 1.5 ),new THREE.Vector3( -2, 3, 3 ) ] );
 const SACline = new THREE.Line( SAClinegeometry, linematerial );
 scene.add( SACline );
 
@@ -88,8 +88,9 @@ loader.load(
     'https://neil0733.github.io/ear.stl',
     function (geometry) {
         const mesh = new THREE.Mesh(geometry, material)
-        mesh.scale.set(0.1, 0.1, 0.1)
-        mesh.position.set(0, 0, -3)
+        mesh.scale.set(10, 10, 10)
+        mesh.rotation.set(4.712, 0, 1.57077)
+        mesh.position.set(-1, -4.5, -1.5)
         scene.add(mesh)
     },
     (xhr) => {
