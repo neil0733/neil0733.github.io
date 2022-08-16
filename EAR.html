@@ -8,17 +8,22 @@
 			    border:2px #006442 solid;
 				background-color:#A2D7DD;
 			}
+			.label:hover {
+				background-color:#A2D700;
+			}
+			.note{display: none}
 		</style>
 	</head>
-    <div class="label" id="SAC">sup. antihelix crura</div>
-    <div class="label" id="IAC">inf. antihelix crura</div>
-    <div class="label" id="DT">Darwin’s tubercle</div>
+    <div class="label" id="SAC" onmousedown="play(this)">superior antihelix crura<div class="note">a small prominence at the postero-superior aspect of helix.</div></div>
+    <div class="label" id="IAC" onmousedown="play(this)">inferior antihelix crura</div>
+    <div class="label" id="DT" onmousedown="play(this)">Darwin’s tubercle</div>
 <body>
 <script src="js/three.js"></script>
 <script src="js/OrbitControls.js"></script>
 <script src="js/STLLoader.js"></script>
 <script src="js/CSS2DRenderer.js"></script>
 <script>
+
 const scene = new THREE.Scene();
 
 const lightcolor = 0x404040;
@@ -133,6 +138,17 @@ function animate() {
 function render() {
     renderer.render(scene, camera)
     labelRenderer.render( scene, camera )
+}
+
+function play(explain) {
+    console.log(explain.innerText)
+    let speech = new SpeechSynthesisUtterance();
+    speech.lang = "en";
+    let voices = [];
+    voices = window.speechSynthesis.getVoices();
+    speech.voice = voices[111];
+    speech.text = explain.innerText;
+    window.speechSynthesis.speak(speech);
 }
 
 animate()
