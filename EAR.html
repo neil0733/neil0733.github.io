@@ -14,9 +14,9 @@
 			.note{display: none}
 		</style>
 	</head>
-    <div class="label" id="SAC" onmousedown="play(this)">superior antihelix crura<div class="note">a small prominence at the postero-superior aspect of helix.</div></div>
-    <div class="label" id="IAC" onmousedown="play(this)">inferior antihelix crura</div>
-    <div class="label" id="DT" onmousedown="play(this)">Darwin’s tubercle</div>
+    <div class="label" id="SAC" onmousedown="play(this)">superior antihelix crura<div class="note"></div></div>
+    <div class="label" id="IAC" onmousedown="play(this)">inferior antihelix crura<div class="note"></div></div>
+    <div class="label" id="DT" onmousedown="play(this)" >Darwin’s tubercle<div class="note">a small prominence at the postero-superior aspect of helix.</div></div>
 <body>
 <script src="js/three.js"></script>
 <script src="js/OrbitControls.js"></script>
@@ -141,7 +141,8 @@ function render() {
 }
 
 function play(explain) {
-    console.log(explain.innerText)
+	explain.childNodes[1].style.display = "block";
+    console.log(explain.innerText);
     let speech = new SpeechSynthesisUtterance();
     speech.lang = "en";
     let voices = [];
@@ -149,6 +150,7 @@ function play(explain) {
     speech.voice = voices[111];
     speech.text = explain.innerText;
     window.speechSynthesis.speak(speech);
+	explain.childNodes[1].style.display = "none";
 }
 
 animate()
