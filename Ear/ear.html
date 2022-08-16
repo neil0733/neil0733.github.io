@@ -29,21 +29,21 @@
 const scene = new THREE.Scene();
 
 const lightcolor = 0x404040;
-const lightstrength = 50;
+const lightstrength = 3;
 const light1 = new THREE.PointLight( lightcolor, lightstrength );
-light1.position.set( 0, 0, 30 );
+light1.position.set( -1, 0.5, 3 );
 scene.add( light1 );
-const light2 = new THREE.PointLight( lightcolor, 30 );
-light2.position.set( 10, 0, 0 );
+const light2 = new THREE.PointLight( lightcolor, 3);
+light2.position.set( 9, 0.5, -2 );
 scene.add( light2 );
-const light3 = new THREE.PointLight( lightcolor, 30 );
-light3.position.set( -10, 0, 0 );
+const light3 = new THREE.PointLight( lightcolor, 3 );
+light3.position.set( -11, 0.5, -2 );
 scene.add( light3 );
-const light4 = new THREE.PointLight( lightcolor, 30 );
-light4.position.set( 0, 10, 0 );
+const light4 = new THREE.PointLight( lightcolor, 3 );
+light4.position.set( -1, 10.5, -2 );
 scene.add( light4 );
-const light5 = new THREE.PointLight( lightcolor, 30 );
-light5.position.set( 0, -10, 0 );
+const light5 = new THREE.PointLight( lightcolor, 3 );
+light5.position.set( -1, -9.5, -2 );
 scene.add( light5 );
 
 const camera = new THREE.PerspectiveCamera(
@@ -110,13 +110,8 @@ const AHlinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vect
 const AHline = new THREE.Line( AHlinegeometry, linematerial );
 scene.add( AHline );
 
-const textureLoader = new THREE.TextureLoader();
-const texture = textureLoader.load( "https://neil0733.github.io/Ear/EarSkin.jpg" );
-const normal = textureLoader.load( "https://neil0733.github.io/Ear/EarSkinNormal.jpg" );
-
 const material = new THREE.MeshStandardMaterial({
-    map: texture,
-	normalMap: normal
+    color: 0xFFBD45
 })
 
 const loader = new THREE.STLLoader()
