@@ -14,14 +14,16 @@
 			.note{display: none}
 		</style>
 	</head>
-    <div class="label" id="SAC" onmousedown="play(this)">superior antihelix crura<div class="note"></div></div>
-    <div class="label" id="IAC" onmousedown="play(this)">inferior antihelix crura<div class="note"></div></div>
-    <div class="label" id="DT" onmousedown="play(this)" >Darwin’s tubercle<div class="note">a small prominence at the postero-superior aspect of helix.</div></div>
+    <div class="label" id="SAC" onmousedown="play(this)">superior antihelix crura<div class="note">superior to triangular fossa and inferior to scaphoid fossa</div></div>
+    <div class="label" id="IAC" onmousedown="play(this)">inferior antihelix crura<div class="note">inferior to triangular fossa</div></div></div></div>
+    <div class="label" id="DT" onmousedown="play(this)" >Darwin’s tubercle<div class="note">a small prominence at the postero-superior aspect of helix</div></div>
+	<div class="label" id="H" onmousedown="play(this)" >helix<div class="note"></div></div>
+	<div class="label" id="AH" onmousedown="play(this)" >antihelix<div class="note">prominence that anterior to and parallel with the helix</div></div>
 <body>
-<script src="js/three.js"></script>
-<script src="js/OrbitControls.js"></script>
-<script src="js/STLLoader.js"></script>
-<script src="js/CSS2DRenderer.js"></script>
+<script src="../js/three.js"></script>
+<script src="../js/OrbitControls.js"></script>
+<script src="../js/STLLoader.js"></script>
+<script src="../js/CSS2DRenderer.js"></script>
 <script>
 
 const scene = new THREE.Scene();
@@ -92,6 +94,22 @@ const DTlinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vect
 const DTline = new THREE.Line( DTlinegeometry, linematerial );
 scene.add( DTline );
  
+const H = document.getElementById("H")
+let HLabel = new THREE.CSS2DObject(H)
+HLabel.position.set( -5, 1, 2 )
+scene.add(HLabel)
+const Hlinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -4, 1.6, 1 ),new THREE.Vector3( -5, 1, 2 ) ] );
+const Hline = new THREE.Line( Hlinegeometry, linematerial );
+scene.add( Hline );
+
+const AH = document.getElementById("AH")
+let AHLabel = new THREE.CSS2DObject(AH)
+AHLabel.position.set( -4, 0, 2 )
+scene.add(AHLabel)
+const AHlinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -3.1, 0.6, 1.5 ),new THREE.Vector3( -4, 0, 2 ) ] );
+const AHline = new THREE.Line( AHlinegeometry, linematerial );
+scene.add( AHline );
+
 const textureLoader = new THREE.TextureLoader();
 const texture = textureLoader.load( "https://neil0733.github.io/EarSkin.jpg" );
 const normal = textureLoader.load( "https://neil0733.github.io/EarSkinNormal.jpg" );
