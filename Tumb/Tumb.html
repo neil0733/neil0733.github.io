@@ -8,8 +8,8 @@
 		</style>
 	</head>
 <body>
-<script src="js/three.js"></script>
-<script src="js/PointerLockControls.js"></script>
+<script src="../js/three.js"></script>
+<script src="../js/PointerLockControls.js"></script>
 <script src="../js/GLTFLoader.js"></script>
 <script src="../js/CSS2DRenderer.js"></script>
 <script>
@@ -57,48 +57,41 @@
 	//4. 載入 Texture
 	const textureLoader = new THREE.TextureLoader();
 	//4.1. 載入 地板的 Texture
-	const Floorbasecolor = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_basecolor.jpg");
+	const Floorbasecolor = textureLoader.load("https://neil0733.github.io/Materials/WoodFlooring/WoodFlooring_basecolor.jpg");
 	Floorbasecolor.wrapS = Floorbasecolor.wrapT = THREE.RepeatWrapping;
 	Floorbasecolor.repeat.set( 15, 15 );
-	const FloornormalMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_normalMap.jpg");
+	const FloornormalMap = textureLoader.load("https://neil0733.github.io/Materials/WoodFlooring/WoodFlooring_normalMap.jpg");
 	FloornormalMap.wrapS = FloornormalMap.wrapT = THREE.RepeatWrapping;
 	FloornormalMap.repeat.set( 15, 15 );
-	const FloordisplacementMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_displacementMap.jpg");
+	const FloordisplacementMap = textureLoader.load("https://neil0733.github.io/Materials/WoodFlooring/WoodFlooring_displacementMap.jpg");
 	FloordisplacementMap.wrapS = FloordisplacementMap.wrapT = THREE.RepeatWrapping;
 	FloordisplacementMap.repeat.set( 15, 15 );
-	const FloorglossMap = textureLoader.load("./Materials/WoodFlooring/WoodFlooring_glossMap.jpg");
+	const FloorglossMap = textureLoader.load("https://neil0733.github.io/Materials/WoodFlooring/WoodFlooring_glossMap.jpg");
 	FloorglossMap.wrapS = FloorglossMap.wrapT = THREE.RepeatWrapping;
 	FloorglossMap.repeat.set( 15, 15 );
-	//4.2. 載入 自拍照的 Texture
-	const Selfybasecolor = textureLoader.load("./Materials/self.jpg");
-
 
 	//5. 載入 物品
 	//5.1. 載入 牆壁
 	const Mwall = new THREE.MeshStandardMaterial({ color: 0x577C8A, roughness : 0.7});
-	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 5 ), Mwall);
-	wall1.position.set(15, 2.5, 0);
+	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 7 ), Mwall);
+	wall1.position.set(15, 3.5, 0);
 	wall1.rotation.y = -Math.PI / 2;
 	scene.add( wall1 );
-	const wall2 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 5 ), Mwall);
-	wall2.position.set(0, 2.5, 15);
+	const wall2 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 7 ), Mwall);
+	wall2.position.set(0, 3.5, 15);
 	wall2.rotation.y = Math.PI;
 	scene.add( wall2 );
-	const wall3 = new THREE.Mesh(new THREE.PlaneGeometry( 10, 5 ), Mwall);
-	wall3.position.set(-15, 2.5, 10);
+	const wall3 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 7 ), Mwall);
+	wall3.position.set(-15, 3.5, 0);
 	wall3.rotation.y = Math.PI / 2;
 	scene.add( wall3 );
-	const wall4 = new THREE.Mesh(new THREE.PlaneGeometry( 20, 5 ), Mwall);
-	wall4.position.set(-5, 2.5, 5);
+	const wall4 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 7 ), Mwall);
+	wall4.position.set(0, 3.5, -15);
 	scene.add( wall4 );
-	const wall5 = new THREE.Mesh(new THREE.PlaneGeometry( 20, 5 ), Mwall);
-	wall5.position.set(5, 2.5, -5);
-	wall5.rotation.y = Math.PI / 2;
-	scene.add( wall5 );
 	//5.2. 載入 天花板
 	const Mcelling = new THREE.MeshStandardMaterial({ color: 0x9B90C2 });
 	const celling = new THREE.Mesh(new THREE.PlaneGeometry( 30, 30 ), Mcelling);
-	celling.position.set(0, 5, 0);
+	celling.position.set(0, 7, 0);
 	celling.rotation.x = Math.PI/2;
 	scene.add( celling );
 	//5.4. 載入 地板
@@ -121,9 +114,9 @@
 		function (gltfScene) {
 			loadedModel = gltfScene;
 			// console.log(loadedModel);
-			gltfScene.scene.rotation.y = Math.PI / 2;
-			gltfScene.scene.position.set(-1, 0.5, -2);
-			//gltfScene.scene.scale.set(0.2, 0.2, 0.2);
+			gltfScene.scene.rotation.y = - Math.PI / 2;
+			gltfScene.scene.position.set(8, 0, -8);
+			gltfScene.scene.scale.set(0.05, 0.05, 0.05);
 			scene.add(gltfScene.scene);
 		},
 		(xhr) => {
@@ -139,37 +132,37 @@
 	scene.add( Alight );
 
 	const lightcolor = 0xFAD689;
-	const lightstrength = 0.1;
+	const lightstrength = 0.2;
 	const light1 = new THREE.PointLight( lightcolor, lightstrength, 100 );
 	light1.position.set( 10, 4.5, -10 );
 	light1.castShadow = true;
 	scene.add( light1 );
 	const light2 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light2.position.set( 10, 4.5, -5 );
+	light2.position.set( 10, 4.5, 0 );
 	light2.castShadow = true;
 	scene.add( light2 );
 	const light3 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light3.position.set( 10, 4.5, 0 );
+	light3.position.set( 10, 4.5, 10 );
 	light3.castShadow = true;
 	scene.add( light3 );
 	const light4 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light4.position.set( 10, 4.5, 5 );
+	light4.position.set( 0, 4.5, -10 );
 	light4.castShadow = true;
 	scene.add( light4 );
 	const light5 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light5.position.set( 10, 4.5, 10 );
+	light5.position.set( 0, 4.5, 0 );
 	light5.castShadow = true;
 	scene.add( light5 );
 	const light6 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light6.position.set( 5, 4.5, 10 );
+	light6.position.set( 0, 4.5, 10 );
 	light6.castShadow = true;
 	scene.add( light6 );
 	const light7 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light7.position.set( 0, 4.5, 10 );
+	light7.position.set( -10, 4.5, -10 );
 	light7.castShadow = true;
 	scene.add( light7 );
 	const light8 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light8.position.set( -5, 4.5, 10 );
+	light8.position.set( -10, 4.5, 0 );
 	light8.castShadow = true;
 	scene.add( light8 );
 	const light9 = new THREE.PointLight( lightcolor, lightstrength, 100 );
@@ -177,11 +170,11 @@
 	light9.castShadow = true;
 	scene.add( light9 );
 	
-	const spotLight = new THREE.SpotLight( 0xffffff, 1, 0, Math.PI/7, 1 ,1.5);
-	spotLight.position.set( 10, 4, -10 );
-	spotLight.castShadow = true;
-	spotLight.target = selfy;
-	scene.add( spotLight );
+	//const spotLight = new THREE.SpotLight( 0xffffff, 1, 0, Math.PI/7, 1 ,1.5);
+	//spotLight.position.set( 10, 4, -10 );
+	//spotLight.castShadow = true;
+	//spotLight.target = gltfScene.scene;
+	//scene.add( spotLight );
 
 	function Drawscene(){
 		renderer.render( scene, camera );
