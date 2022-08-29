@@ -149,11 +149,11 @@
 	//5.5.2 載入 巴克禮墓 指示牌
 	const Barclay = document.getElementById("Barclay")
 	let BarclayLabel = new THREE.CSS2DObject(Barclay)
-	BarclayLabel.position.set( 9, 2, -8 )
+	BarclayLabel.position.set( 9, 1.5, -8 )
 	scene.add(BarclayLabel)
 	//5.5.3 載入 巴克禮墓 指示線
 	const linematerial = new THREE.LineBasicMaterial({color: 0xA5BA93});
-	const Barclaylinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( 8, 1, -8 ),new THREE.Vector3( 9, 2, -8 ) ] );
+	const Barclaylinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( 8.3, 1, -8 ),new THREE.Vector3( 9, 1.5, -8 ) ] );
 	const Barclayline = new THREE.Line( Barclaylinegeometry, linematerial );
 	scene.add( Barclayline );
 	
