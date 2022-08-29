@@ -5,8 +5,17 @@
 		<title>My gallery</title>
 		<style>
 			body { margin: 0; }
+			.label{
+			    border:2px #006442 solid;
+				background-color:#A2D7DD;
+			}
+			.label:hover {
+				background-color:#A2D700;
+			}
+			.note{display: none}
 		</style>
 	</head>
+	<div class="label" id="Barclay" onmousedown="play(this)">巴克禮墓<div class="note">superior to triangular fossa and inferior to scaphoid fossa</div></div>
 <body>
 <script src="https://neil0733.github.io/js/three.js"></script>
 <script src="https://neil0733.github.io/js/PointerLockControls.js"></script>
@@ -25,6 +34,12 @@
 	renderer.shadowMap.enabled = true
     renderer.shadowMap.type = 2 // THREE.PCFSoftShadowMap
 	document.body.appendChild( renderer.domElement );
+	//2.1. label 的 renderer 設定
+	labelRenderer = new THREE.CSS2DRenderer();
+	labelRenderer.setSize( window.innerWidth, window.innerHeight);
+	labelRenderer.domElement.style.position = 'absolute';
+	labelRenderer.domElement.style.top = 0;
+	document.body.appendChild(labelRenderer.domElement);
 	
 	//3. 視角控制 設定：使用 Pointer Lock Controls
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
@@ -113,11 +128,16 @@
 		'https://neil0733.github.io/Tumb/Barclay.glb', 
 		function (gltfScene) {
 			loadedModel = gltfScene;
-			// console.log(loadedModel);
 			gltfScene.scene.rotation.y = - Math.PI / 2;
 			gltfScene.scene.position.set(8, 0, -8);
 			gltfScene.scene.scale.set(0.05, 0.05, 0.05);
 			scene.add(gltfScene.scene);
+			// 幫巴克禮墓加聚光燈;
+			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/7, 1 ,1.5);
+			spotLight.position.set( 8, 2, -12 );
+			spotLight.castShadow = true;
+			spotLight.target = gltfScene.scene;
+			scene.add( spotLight );
 		},
 		(xhr) => {
 			console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
@@ -126,13 +146,23 @@
 			console.log(error)
 		}
 	)
+	//5.5.2 載入 巴克禮墓 指示牌
+	const Barclay = document.getElementById("Barclay")
+	let BarclayLabel = new THREE.CSS2DObject(Barclay)
+	BarclayLabel.position.set( 9, 2, -8 )
+	scene.add(BarclayLabel)
+	//5.5.3 載入 巴克禮墓 指示線
+	const linematerial = new THREE.LineBasicMaterial({color: 0xA5BA93});
+	const Barclaylinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( 8, 1, -8 ),new THREE.Vector3( 9, 2, -8 ) ] );
+	const Barclayline = new THREE.Line( Barclaylinegeometry, linematerial );
+	scene.add( Barclayline );
 	
 	//6. 載入 光線
 	const Alight = new THREE.AmbientLight( 0x151515 ); // soft white light
 	scene.add( Alight );
 
 	const lightcolor = 0xFAD689;
-	const lightstrength = 0.2;
+	const lightstrength = 0.13;
 	const light1 = new THREE.PointLight( lightcolor, lightstrength, 100 );
 	light1.position.set( 10, 4.5, -10 );
 	light1.castShadow = true;
@@ -170,14 +200,11 @@
 	light9.castShadow = true;
 	scene.add( light9 );
 	
-	//const spotLight = new THREE.SpotLight( 0xffffff, 1, 0, Math.PI/7, 1 ,1.5);
-	//spotLight.position.set( 10, 4, -10 );
-	//spotLight.castShadow = true;
-	//spotLight.target = gltfScene.scene;
-	//scene.add( spotLight );
+	
 
 	function Drawscene(){
 		renderer.render( scene, camera );
+		labelRenderer.render( scene, camera )
 		window.requestAnimationFrame(Drawscene);
 	};
 	Drawscene();
