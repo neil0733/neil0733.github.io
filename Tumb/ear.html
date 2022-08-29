@@ -1,0 +1,174 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ear</title>
+		<style>
+			body { margin: 0; }
+			.label{
+			    border:2px #006442 solid;
+				background-color:#A2D7DD;
+			}
+			.label:hover {
+				background-color:#A2D700;
+			}
+			.note{display: none}
+		</style>
+	</head>
+    <div class="label" id="SAC" onmousedown="play(this)">superior antihelix crura<div class="note">superior to triangular fossa and inferior to scaphoid fossa</div></div>
+    <div class="label" id="IAC" onmousedown="play(this)">inferior antihelix crura<div class="note">inferior to triangular fossa</div></div></div></div>
+    <div class="label" id="DT" onmousedown="play(this)" >Darwin’s tubercle<div class="note">a small prominence at the postero-superior aspect of helix</div></div>
+	<div class="label" id="H" onmousedown="play(this)" >helix<div class="note"></div></div>
+	<div class="label" id="AH" onmousedown="play(this)" >antihelix<div class="note">prominence that anterior to and parallel with the helix</div></div>
+<body>
+<script src="../js/three.js"></script>
+<script src="../js/OrbitControls.js"></script>
+<script src="../js/GLTFLoader.js"></script>
+<script src="../js/CSS2DRenderer.js"></script>
+<script>
+
+const scene = new THREE.Scene();
+
+const lightcolor = 0x404040;
+const lightstrength = 3;
+const light1 = new THREE.PointLight( lightcolor, lightstrength );
+light1.position.set( -1, 0.5, 3 );
+scene.add( light1 );
+const light2 = new THREE.PointLight( lightcolor, 3);
+light2.position.set( 9, 0.5, -2 );
+scene.add( light2 );
+const light3 = new THREE.PointLight( lightcolor, 3 );
+light3.position.set( -11, 0.5, -2 );
+scene.add( light3 );
+const light4 = new THREE.PointLight( lightcolor, 3 );
+light4.position.set( -1, 10.5, -2 );
+scene.add( light4 );
+const light5 = new THREE.PointLight( lightcolor, 3 );
+light5.position.set( -1, -9.5, -2 );
+scene.add( light5 );
+
+const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+)
+camera.position.z = 10
+
+const renderer = new THREE.WebGLRenderer()
+renderer.outputEncoding = THREE.sRGBEncoding
+renderer.setSize(window.innerWidth, window.innerHeight)
+renderer.setClearColor(0x86ABA5);
+document.body.appendChild(renderer.domElement)
+
+labelRenderer = new THREE.CSS2DRenderer()
+labelRenderer.setSize( window.innerWidth, window.innerHeight)
+labelRenderer.domElement.style.position = 'absolute'
+labelRenderer.domElement.style.top = 0
+document.body.appendChild(labelRenderer.domElement)  
+
+const controls = new THREE.OrbitControls(camera, labelRenderer.domElement)
+controls.enableDamping = true
+
+const SAC = document.getElementById("SAC")
+let SACLabel = new THREE.CSS2DObject(SAC)
+SACLabel.position.set( -2, 3, 3 )
+scene.add(SACLabel)
+const linematerial = new THREE.LineBasicMaterial({color: 0xA5BA93});
+const SAClinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -1.5, 3, 1.5 ),new THREE.Vector3( -2, 3, 3 ) ] );
+const SACline = new THREE.Line( SAClinegeometry, linematerial );
+scene.add( SACline );
+
+const IAC = document.getElementById("IAC")
+let IACLabel = new THREE.CSS2DObject(IAC)
+IACLabel.position.set( -2, 2, 3 )
+scene.add(IACLabel)
+const IAClinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -1, 2, 1 ),new THREE.Vector3( -2, 2, 3 ) ] );
+const IACline = new THREE.Line( IAClinegeometry, linematerial );
+scene.add( IACline );
+
+const DT = document.getElementById("DT")
+let DTLabel = new THREE.CSS2DObject(DT)
+DTLabel.position.set( -5, 2, 2 )
+scene.add(DTLabel)
+const DTlinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -3.8, 2.6, 1.5 ),new THREE.Vector3( -5, 2, 2 ) ] );
+const DTline = new THREE.Line( DTlinegeometry, linematerial );
+scene.add( DTline );
+ 
+const H = document.getElementById("H")
+let HLabel = new THREE.CSS2DObject(H)
+HLabel.position.set( -5, 1, 2 )
+scene.add(HLabel)
+const Hlinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -4, 1.6, 1 ),new THREE.Vector3( -5, 1, 2 ) ] );
+const Hline = new THREE.Line( Hlinegeometry, linematerial );
+scene.add( Hline );
+
+const AH = document.getElementById("AH")
+let AHLabel = new THREE.CSS2DObject(AH)
+AHLabel.position.set( -4, 0, 2 )
+scene.add(AHLabel)
+const AHlinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( -3.1, 0.6, 1.5 ),new THREE.Vector3( -4, 0, 2 ) ] );
+const AHline = new THREE.Line( AHlinegeometry, linematerial );
+scene.add( AHline );
+
+const material = new THREE.MeshStandardMaterial({
+    color: 0xFFBD45
+})
+
+let loadedModel
+const glftLoader = new THREE.GLTFLoader();
+glftLoader.load(
+    'https://neil0733.github.io/Ear/EAR.glb', 
+    function (gltfScene) {
+        loadedModel = gltfScene;
+        // console.log(loadedModel);
+        gltfScene.scene.rotation.y = Math.PI / 2;
+        gltfScene.scene.position.set(-1, 0.5, -2);
+        //gltfScene.scene.scale.set(0.2, 0.2, 0.2);
+        scene.add(gltfScene.scene);
+    },
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+    },
+    (error) => {
+        console.log(error)
+    }
+)
+
+window.addEventListener('resize', onWindowResize, false)
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight
+    camera.updateProjectionMatrix()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    render()
+}
+
+function animate() {
+    requestAnimationFrame(animate)
+
+    controls.update()
+
+    render()
+}
+
+function render() {
+    renderer.render(scene, camera)
+    labelRenderer.render( scene, camera )
+}
+
+function play(explain) {
+	explain.childNodes[1].style.display = "block";
+    console.log(explain.innerText);
+    let speech = new SpeechSynthesisUtterance();
+    speech.lang = "en";
+    let voices = [];
+    voices = window.speechSynthesis.getVoices();
+    speech.voice = voices[111];
+    speech.text = explain.innerText;
+    window.speechSynthesis.speak(speech);
+	explain.childNodes[1].style.display = "none";
+}
+
+animate()
+</script>
+</body>
+</html>
