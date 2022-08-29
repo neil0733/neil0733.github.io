@@ -114,15 +114,17 @@ const material = new THREE.MeshStandardMaterial({
     color: 0xFFBD45
 })
 
-const loader = new THREE.STLLoader()
-loader.load(
-    'https://neil0733.github.io/Ear/ear.stl',
-    function (geometry) {
-        const mesh = new THREE.Mesh(geometry, material)
-        mesh.scale.set(0.2, 0.2, 0.2)
-        //mesh.rotation.set(4.712, 0, 1.57077)
-        mesh.position.set(-1, 0.5, -2)
-        scene.add(mesh)
+let loadedModel
+const glftLoader = new THREE.GLTFLoader();
+glftLoader.load(
+    'https://neil0733.github.io/Ear/EAR.glb', 
+    function (gltfScene) {
+        loadedModel = gltfScene;
+        // console.log(loadedModel);
+        gltfScene.scene.rotation.y = Math.PI / 8;
+        gltfScene.scene.position.set(-1, 0.5, -2);
+        gltfScene.scene.scale.set(0.2, 0.2, 0.2);
+        test.scene.add(gltfScene.scene);
     },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
@@ -131,6 +133,7 @@ loader.load(
         console.log(error)
     }
 )
+
 
 window.addEventListener('resize', onWindowResize, false)
 function onWindowResize() {
