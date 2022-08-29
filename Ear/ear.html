@@ -110,6 +110,10 @@ const AHlinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vect
 const AHline = new THREE.Line( AHlinegeometry, linematerial );
 scene.add( AHline );
 
+const material = new THREE.MeshStandardMaterial({
+    color: 0xFFBD45
+})
+
 let loadedModel
 const glftLoader = new THREE.GLTFLoader();
 glftLoader.load(
@@ -117,10 +121,10 @@ glftLoader.load(
     function (gltfScene) {
         loadedModel = gltfScene;
         // console.log(loadedModel);
-        gltfScene.scene.rotation.y = Math.PI / 8;
+        gltfScene.scene.rotation.y = Math.PI / 2;
         gltfScene.scene.position.set(-1, 0.5, -2);
-        gltfScene.scene.scale.set(0.2, 0.2, 0.2);
-        scene.scene.add(gltfScene.scene);
+        //gltfScene.scene.scale.set(0.2, 0.2, 0.2);
+        scene.add(gltfScene.scene);
     },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
@@ -129,7 +133,6 @@ glftLoader.load(
         console.log(error)
     }
 )
-
 
 window.addEventListener('resize', onWindowResize, false)
 function onWindowResize() {
