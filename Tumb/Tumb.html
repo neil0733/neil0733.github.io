@@ -12,7 +12,6 @@
 			.label:hover {
 				background-color:#A2D700;
 			}
-			.note{display: none}
 			/* The Modal (background) */
 			.modal {
 			    display: none; /* Hidden by default */
@@ -35,24 +34,22 @@
 				border: 1px solid #888;
 				width: 80%;
 			}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
+			/* The Close Button */
+			.close {
+				color: #aaaaaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+			}
+			.close:hover,
+			.close:focus {
+				color: #000;
+				text-decoration: none;
+				cursor: pointer;
+			}
 		</style>
 	</head>
-	<div class="label" id="Barclay" onmousedown="play(this)">巴克禮墓<div class="note">superior to triangular fossa and inferior to scaphoid fossa</div></div>
+	<div class="label" id="Barclay" onmousedown="play(this)">巴克禮墓</div>
 	<div id="Barclay_Modal" class="modal">
 	    <div class="modal-content">
 		    <span class="close"  onmousedown="off(this)">&times;</span>
