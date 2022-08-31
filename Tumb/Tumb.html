@@ -55,7 +55,7 @@
 	<div class="label" id="Barclay" onmousedown="play(this)">巴克禮墓<div class="note">superior to triangular fossa and inferior to scaphoid fossa</div></div>
 	<div id="Barclay_Modal" class="modal">
 	    <div class="modal-content">
-		    <span class="close"  onmousedown="close(this)">&times;</span>
+		    <span class="close"  onmousedown="off(this)">&times;</span>
 			<img src="https://neil0733.github.io/Tumb/Barclay.jpg" width="320" height="429"></img>
             <p>巴克禮：以下為文案。<br>圖片取自"<a href="https://tcnn.org.tw/archives/47147">我的性命獻互祢──巴克禮牧師誕生170年紀念</a>"</p>
 	    </div>
@@ -69,7 +69,7 @@
 	const scene = new THREE.Scene();
 	//1. camera 設定
 	var camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 1000 );
-	camera.position.set(10, 1.7, -10);
+	camera.position.set(0, 1.7, -14);
 	camera.rotation.y = Math.PI;
 
 	//2. renderer 設定
@@ -207,7 +207,7 @@
 		'https://neil0733.github.io/Tumb/excavator.glb', 
 		function (gltfScene) {
 			loadedexcavator = gltfScene;
-			gltfScene.scene.rotation.y = - Math.PI / 2;
+			gltfScene.scene.rotation.y = 0;
 			gltfScene.scene.position.set(0, 1, 0);
 			gltfScene.scene.scale.set(1, 1, 1);
 			scene.add(gltfScene.scene);
@@ -256,7 +256,16 @@
 	light9.position.set( -10, 4.5, 10 );
 	light9.castShadow = true;
 	scene.add( light9 );
-	
+
+	function play(label){
+	    modal = document.getElementById("Barclay_Modal");
+	    modal.style.display = "block";
+	};
+	function off(label){
+	    console.log("click");
+	    label.parentNode.parentNode.style.display = "none";
+	};
+
 	function Drawscene(){
 		renderer.render( scene, camera );
 		labelRenderer.render( scene, camera )
@@ -264,14 +273,7 @@
 	};
 	Drawscene();
 	
-	function play(label){
-	    modal = document.getElementById("Barclay_Modal");
-	    modal.style.display = "block";
-	};
-	function close(label){
-	    console.log("click");
-	    label.parentNode.parentNode.style.display = "none";
-	};
+
 </script>
 </body>
 </html>
