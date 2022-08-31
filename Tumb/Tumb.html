@@ -13,9 +13,53 @@
 				background-color:#A2D700;
 			}
 			.note{display: none}
+			/* The Modal (background) */
+			.modal {
+			    display: none; /* Hidden by default */
+				position: fixed; /* Stay in place */
+				z-index: 1; /* Sit on top */
+				padding-top: 100px; /* Location of the box */
+				left: 0;
+				top: 0;
+				width: 100%; /* Full width */
+				height: 100%; /* Full height */
+				overflow: auto; /* Enable scroll if needed */
+				background-color: rgb(0,0,0); /* Fallback color */
+				background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+			}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 		</style>
 	</head>
 	<div class="label" id="Barclay" onmousedown="play(this)">巴克禮墓<div class="note">superior to triangular fossa and inferior to scaphoid fossa</div></div>
+	<div id="Barclay_Modal" class="modal">
+	    <div class="modal-content">
+		    <span class="close"  onmousedown="close(this)">&times;</span>
+            <p>巴克禮：以下為文案</p>
+	    </div>
+	</div>
 <body>
 <script src="https://neil0733.github.io/js/three.js"></script>
 <script src="https://neil0733.github.io/js/PointerLockControls.js"></script>
@@ -213,14 +257,21 @@
 	light9.castShadow = true;
 	scene.add( light9 );
 	
-	
-
 	function Drawscene(){
 		renderer.render( scene, camera );
 		labelRenderer.render( scene, camera )
 		window.requestAnimationFrame(Drawscene);
 	};
 	Drawscene();
+	
+	function play(label){
+	    modal = document.getElementById("Barclay_Modal");
+	    modal.style.display = "block";
+	};
+	function close(label){
+	    console.log("click");
+	    label.parentNode.parentNode.style.display = "none";
+	};
 </script>
 </body>
 </html>
