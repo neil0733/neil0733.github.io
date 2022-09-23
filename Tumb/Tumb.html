@@ -85,6 +85,7 @@
 	//3. 視角控制 設定：使用 Pointer Lock Controls
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
 	//3.1. WASD 控制視角移動，E 控制滑鼠鎖定
+	//改善：參考網址：https://github.com/mrdoob/three.js/blob/master/examples/misc_controls_pointerlock.html
 	window.addEventListener('keydown', (event)=>{
 	let speed = 0.1;
   	switch (event.keyCode) {
