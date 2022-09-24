@@ -84,6 +84,7 @@
 	</head>
 
 <body>
+
 <div class="label" id="Barclay" onmousedown="play(this)">巴克禮墓</div>
 <div id="Barclay_Modal" class="modal">
 	<div class="modal-content">
@@ -92,11 +93,15 @@
         <p>巴克禮：以下為文案。<br>圖片取自"<a href="https://tcnn.org.tw/archives/47147">我的性命獻互祢──巴克禮牧師誕生170年紀念</a>"</p>
 	</div>
 </div>
+
 <div id="blocker">
     <div id="instructions">
         <span style="font-size:80px">南山公墓x元宇宙</span>
+		<button type="button"  onclick="alert('Hello world!')">導覽模式</button>
+		<button type="button"  onclick="alert('Hello world!')">參觀模式</button>
     </div>
 </div>
+
 <script src="https://neil0733.github.io/js/three.js"></script>
 <script src="https://neil0733.github.io/js/PointerLockControls.js"></script>
 <script src="https://neil0733.github.io/js/GLTFLoader.js"></script>
@@ -378,7 +383,7 @@
 	function Drawscene(){
 	    pointerLockControlsRender()
 		renderer.render( scene, camera );
-		labelRenderer.render( scene, camera )
+		labelRenderer.render( scene, camera );
 		window.requestAnimationFrame(Drawscene);
 	};
 	Drawscene();
