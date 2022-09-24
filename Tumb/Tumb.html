@@ -5,6 +5,13 @@
 		<title>南山公墓x元宇宙</title>
 		<style>
 			body { margin: 0; }
+			#title{
+				background-color: #fefefe;
+				margin: auto;
+				padding: 20px;
+				border: 1px solid #888;
+				width: 80%;
+			}
 			.label{
 			    border:2px #006442 solid;
 				background-color:#A2D7DD;
@@ -84,33 +91,92 @@
 	
 	//3. 視角控制 設定：使用 Pointer Lock Controls
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
+	let moveForward = false
+let moveBackward = false
+let moveLeft = false
+let moveRight = false
 	//3.1. WASD 控制視角移動，E 控制滑鼠鎖定
-	//改善：參考網址：https://github.com/mrdoob/three.js/blob/master/examples/misc_controls_pointerlock.html
-	window.addEventListener('keydown', (event)=>{
-	let speed = 0.1;
-  	switch (event.keyCode) {
-  		case 87: // w
-   			plc.moveForward(speed);
-  		break;
-  		case 65: // a
- 			plc.moveRight(-speed);
- 		break;
-  		case 83: // s
-  			plc.moveForward(-speed);
-   		break;
-        case 68: // d
-            plc.moveRight(speed);
-        break;
-		case 69: // e
-		    if (plc.isLocked == true) {
-				plc.unlock();
-			} else {
-				plc.lock();
-			};
-        break;
+	  const onKeyDown = function(event) {
+    switch (event.keyCode) {
+      case 38: // up
+      case 87: // w
+        moveForward = true
+        break
+      case 37: // left
+      case 65: // a
+        moveLeft = true
+        break
+      case 40: // down
+      case 83: // s
+        moveBackward = true
+        break
+      case 39: // right
+      case 68: // d
+        moveRight = true
+        break
+      case 69: // e
+		if (plc.isLocked == true) {
+			plc.unlock();
+		} else {
+			plc.lock();
+		};
     }
-    });
+  }
+  const onKeyUp = function(event) {
+    switch (event.keyCode) {
+      case 38: // up
+      case 87: // w
+        moveForward = false
+        break
+      case 37: // left
+      case 65: // a
+        moveLeft = false
+        break
+      case 40: // down
+      case 83: // s
+        moveBackward = false
+        break
+      case 39: // right
+      case 68: // d
+        moveRight = false
+        break
+    }
+  }
+  document.addEventListener('keydown', onKeyDown, false)
+  document.addEventListener('keyup', onKeyUp, false)
+let prevTime = Date.now() // 初始時間
+let velocity = new THREE.Vector3() // 移動速度向量
+let direction = new THREE.Vector3() // 移動方向向量
 
+function pointerLockControlsRender() {
+  if (plc.isLocked === true) {
+    // 使用 Raycaster 判斷腳下是否與場景中物體相交
+    //raycaster.ray.origin.copy(plc.getObject().position) // 複製控制器的位置
+   // const intersections = raycaster.intersectObjects(scene.children, true) // 判斷是否在任何物體上
+   // const onObject = intersections.length > 0
+
+    // 計算時間差
+    const time = Date.now()
+    const delta = (time - prevTime) / 1000 // 大約為 0.016
+
+    // 設定初始速度變化
+    velocity.x -= velocity.x * 10.0 * delta
+    velocity.z -= velocity.z * 10.0 * delta
+
+    // 判斷按鍵朝什麼方向移動，並設定對應方向速度變化
+    direction.z = Number(moveForward) - Number(moveBackward)
+    direction.x = Number(moveLeft) - Number(moveRight)
+    // direction.normalize() // 向量正規化（長度為 1），確保每個方向保持一定移動量
+    if (moveForward || moveBackward) velocity.z -= direction.z * 400.0 * delta
+    if (moveLeft || moveRight) velocity.x -= direction.x * 400.0 * delta
+
+    // 根據速度值移動控制器位置
+    plc.getObject().translateX(velocity.x * delta)
+    plc.getObject().translateZ(velocity.z * delta)
+
+    prevTime = time
+  }
+}
 	//4. 載入 Texture
 	const textureLoader = new THREE.TextureLoader();
 	//4.1. 載入 地板的 Texture
@@ -265,6 +331,7 @@
 	};
 
 	function Drawscene(){
+	    pointerLockControlsRender()
 		renderer.render( scene, camera );
 		labelRenderer.render( scene, camera )
 		window.requestAnimationFrame(Drawscene);
