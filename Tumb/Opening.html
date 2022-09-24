@@ -41,6 +41,12 @@
 			.button:hover {
 				background-color: rgba(240, 240, 240, 0.7);
 			}
+			#transition {
+				display: flex;
+				width: 1%;
+				height: 1%;
+				background-color: rgba(200, 200, 200, 1);
+			}
 		</style>
 	</head>
 
@@ -50,16 +56,18 @@
     <div id="instructions">
         <span style="font-size:80px">南山公墓x元宇宙</span><br>
 		<br>
-		<button type="button" class="button" id="guide">導覽模式</button><br>
+		<button type="button" class="button" id="guide" onmouseup="LinkToGuide()">導覽模式</button><br>
 		<br>
 		<button type="button" class="button" id="view">參觀模式</button>
     </div>
 </div>
+<div id="transition"></div>
 
 <script src="https://neil0733.github.io/js/three.js"></script>
 <script src="https://neil0733.github.io/js/PointerLockControls.js"></script>
 <script src="https://neil0733.github.io/js/GLTFLoader.js"></script>
 <script src="https://neil0733.github.io/js/CSS2DRenderer.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script>
 	const scene = new THREE.Scene();
 	//1. camera 設定
@@ -89,22 +97,6 @@
 	        camera.position.set(5, 1.7, -12+i);
 	    };
 	}, 30);
-	/**var interval2 = window.setInterval(function(){
-	    camera.rotation.y = Math.PI/2;
-	    i=i+0.01;
-		camera.position.set(0+i, 1.7, -14);
-		if (i > 3){
-	        clearInterval(interval2);
-			i = 0;
-	    };
-	}, 30);
-	**/
-	
-
-	
-	let prevTime = Date.now() // 初始時間
-	let velocity = new THREE.Vector3() // 移動速度向量
-	let direction = new THREE.Vector3() // 移動方向向量
 	
 	//4. 載入 Texture
 	const textureLoader = new THREE.TextureLoader();
@@ -246,6 +238,18 @@
 	};
 	Drawscene();
 	
+	function LinkToGuide(){
+		const trans = document.getElementById('transition');
+        anime({
+			targets: trans,
+			width: '100%',
+			height: '100%',
+			easing: 'easeInOutQuad',
+			direction: 'normal',
+			duration: 500,
+			loop: false
+		});
+	}
 
 </script>
 </body>
