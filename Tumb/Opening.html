@@ -4,50 +4,7 @@
 		<meta charset="utf-8">
 		<title>南山公墓x元宇宙</title>
 		<style>
-			body { margin: 0; }
-			.label{
-			    border:2px #006442 solid;
-				background-color:#A2D7DD;
-			}
-			.label:hover {
-				background-color:#A2D700;
-			}
-			/* The Modal (background) */
-			.modal {
-			    display: none; /* Hidden by default */
-				position: fixed; /* Stay in place */
-				z-index: 1; /* Sit on top */
-				padding-top: 100px; /* Location of the box */
-				left: 0;
-				top: 0;
-				width: 100%; /* Full width */
-				height: 100%; /* Full height */
-				overflow: auto; /* Enable scroll if needed */
-				background-color: rgb(0,0,0); /* Fallback color */
-				background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-			}
-			/* Modal Content */
-			.modal-content {
-			    background-color: #fefefe;
-				margin: auto;
-				padding: 20px;
-				border: 1px solid #888;
-				width: 80%;
-			}
-			/* The Close Button */
-			.close {
-				color: #aaaaaa;
-				float: right;
-				font-size: 28px;
-				font-weight: bold;
-			}
-			.close:hover,
-			.close:focus {
-				color: #000;
-				text-decoration: none;
-				cursor: pointer;
-			}
-			
+			body { margin: 0; }	
 			#blocker {
 			    position: absolute;
 				width: 100%;
@@ -72,26 +29,16 @@
 				box-align: center;
 				color: #ffffff;
 				text-align: center;
-				cursor: pointer;
 			}
 		</style>
 	</head>
 
 <body>
 
-<div class="label" id="Barclay" onmousedown="play(this)">巴克禮墓</div>
-<div id="Barclay_Modal" class="modal">
-	<div class="modal-content">
-		<span class="close"  onmousedown="off(this)">&times;</span>
-		<img src="https://neil0733.github.io/Tumb/Barclay.jpg" width="320" height="429"></img>
-        <p>巴克禮：以下為文案。<br>圖片取自"<a href="https://tcnn.org.tw/archives/47147">我的性命獻互祢──巴克禮牧師誕生170年紀念</a>"</p>
-	</div>
-</div>
-
 <div id="blocker">
     <div id="instructions">
         <span style="font-size:80px">南山公墓x元宇宙</span>
-		<button type="button"  id="guide">導覽模式</button>
+		<button type="button" id="guide">導覽模式</button>
 		<button type="button"  onclick="alert('Hello world!')">參觀模式</button>
     </div>
 </div>
@@ -113,118 +60,39 @@
 	renderer.shadowMap.enabled = true
     renderer.shadowMap.type = 2 // THREE.PCFSoftShadowMap
 	document.body.appendChild( renderer.domElement );
-	//2.1. label 的 renderer 設定
-	labelRenderer = new THREE.CSS2DRenderer();
-	labelRenderer.setSize( window.innerWidth, window.innerHeight);
-	labelRenderer.domElement.style.position = 'absolute';
-	labelRenderer.domElement.style.top = 0;
-	document.body.appendChild(labelRenderer.domElement);
 	
 	//3. 視角控制 設定：使用 Pointer Lock Controls
-	//參考：https://github.com/DezChuang/ironman-three.js/blob/master/day21_pointerLockControls1/index.js
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
-	let moveForward = false
-	let moveBackward = false
-	let moveLeft = false
-	let moveRight = false
 	
-	const blocker = document.getElementById('blocker')
-    const instructions = document.getElementById('instructions')
-	plc.addEventListener('lock', function() {
-      instructions.style.display = 'none'
-      blocker.style.display = 'none'
-    })
-    plc.addEventListener('unlock', function() {
-      blocker.style.display = 'inline'
-      instructions.style.display = ''
-    })
+	var i = 0;
+	var interval1 = window.setInterval(function(){
+	    i=i+0.01;
+		camera.position.set(0, 1.7, -14+i);
+		if (i > 6){
+		    camera.rotation.y = Math.PI/2;
+	        camera.position.set(0-i, 1.7, -14);
+	    }else if (i > 3){
+		    camera.rotation.y = Math.PI/2*3;
+	        camera.position.set(5, 1.7, -12+i);
+	    };
+	}, 30);
+	/**var interval2 = window.setInterval(function(){
+	    camera.rotation.y = Math.PI/2;
+	    i=i+0.01;
+		camera.position.set(0+i, 1.7, -14);
+		if (i > 3){
+	        clearInterval(interval2);
+			i = 0;
+	    };
+	}, 30);
+	**/
 	
-	//3.1. WASD 控制視角移動，E 控制滑鼠鎖定
-	const onKeyDown = function(event) {
-	    switch (event.keyCode) {
-		    case 38: // up
-			case 87: // w
-			    moveForward = true
-			break
-			case 37: // left
-			case 65: // a
-			    moveLeft = true
-			break
-			case 40: // down
-			case 83: // s
-			    moveBackward = true
-			break
-			case 39: // right
-			case 68: // d
-			    moveRight = true
-			break
-			case 69: // e
-			    if (plc.isLocked == true) {
-				    plc.unlock();
-				} else {
-					plc.lock();
-				};
-		}
-	}
-	const onKeyUp = function(event) {
-	    switch (event.keyCode) {
-		    case 38: // up
-			case 87: // w
-			    moveForward = false
-			break
-			case 37: // left
-			case 65: // a
-			    moveLeft = false
-			break
-			case 40: // down
-			case 83: // s
-			    moveBackward = false
-			break
-			case 39: // right
-			case 68: // d
-			    moveRight = false
-			break
-		}
-	}
-	if (blocker.style.display == 'inline') {
-		    console.log("1");
-		    var intervalID = setInterval(function() {console.log("1")}, 1000);
-		}
-	document.addEventListener('keydown', onKeyDown, false)
-	document.addEventListener('keyup', onKeyUp, false)
+
+	
 	let prevTime = Date.now() // 初始時間
 	let velocity = new THREE.Vector3() // 移動速度向量
 	let direction = new THREE.Vector3() // 移動方向向量
 	
-	function pointerLockControlsRender() {
-	    if (plc.isLocked === true) {
-        // 使用 Raycaster 判斷腳下是否與場景中物體相交
-        //raycaster.ray.origin.copy(plc.getObject().position) // 複製控制器的位置
-        // const intersections = raycaster.intersectObjects(scene.children, true) // 判斷是否在任何物體上
-        // const onObject = intersections.length > 0
-		
-		// 計算時間差
-		const time = Date.now()
-		const delta = (time - prevTime) / 1000 // 大約為 0.016
-
-        // 設定初始速度變化
-        velocity.x -= velocity.x * 10.0 * delta
-        velocity.z -= velocity.z * 10.0 * delta
-
-        // 判斷按鍵朝什麼方向移動，並設定對應方向速度變化
-        direction.z = Number(moveForward) - Number(moveBackward)
-        direction.x = Number(moveLeft) - Number(moveRight)
-        // direction.normalize() // 向量正規化（長度為 1），確保每個方向保持一定移動量
-        if (moveForward || moveBackward) velocity.z -= direction.z * 50.0 * delta
-        if (moveLeft || moveRight) velocity.x -= direction.x * 50.0 * delta
-
-        // 根據速度值移動控制器位置
-        plc.moveRight(velocity.x * delta)
-        plc.moveForward(-velocity.z * delta)
-
-        prevTime = time
-        }
-    }
 	//4. 載入 Texture
 	const textureLoader = new THREE.TextureLoader();
 	//4.1. 載入 地板的 Texture
@@ -302,16 +170,6 @@
 			console.log(error)
 		}
 	)
-	//5.5.2 載入 巴克禮墓 指示牌
-	const Barclay = document.getElementById("Barclay")
-	let BarclayLabel = new THREE.CSS2DObject(Barclay)
-	BarclayLabel.position.set( 9, 1.5, -8 )
-	scene.add(BarclayLabel)
-	//5.5.3 載入 巴克禮墓 指示線
-	const linematerial = new THREE.LineBasicMaterial({color: 0xA5BA93});
-	const Barclaylinegeometry = new THREE.BufferGeometry().setFromPoints( [new THREE.Vector3( 8.3, 1, -8 ),new THREE.Vector3( 9, 1.5, -8 ) ] );
-	const Barclayline = new THREE.Line( Barclaylinegeometry, linematerial );
-	scene.add( Barclayline );
 	//5.6 載入 推土機
 	let loadedexcavator
 	const glftLoader1 = new THREE.GLTFLoader();
@@ -369,19 +227,8 @@
 	light9.castShadow = true;
 	scene.add( light9 );
 
-	function play(label){
-	    modal = document.getElementById("Barclay_Modal");
-	    modal.style.display = "block";
-	};
-	function off(label){
-	    console.log("click");
-	    label.parentNode.parentNode.style.display = "none";
-	};
-
 	function Drawscene(){
-	    pointerLockControlsRender();
 		renderer.render( scene, camera );
-		labelRenderer.render( scene, camera );
 		window.requestAnimationFrame(Drawscene);
 	};
 	Drawscene();
