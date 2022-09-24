@@ -54,17 +54,49 @@
 				text-decoration: none;
 				cursor: pointer;
 			}
+			
+			#blocker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#instructions {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+}
 		</style>
 	</head>
-	<div class="label" id="Barclay" onmousedown="play(this)">巴克禮墓</div>
-	<div id="Barclay_Modal" class="modal">
-	    <div class="modal-content">
-		    <span class="close"  onmousedown="off(this)">&times;</span>
-			<img src="https://neil0733.github.io/Tumb/Barclay.jpg" width="320" height="429"></img>
-            <p>巴克禮：以下為文案。<br>圖片取自"<a href="https://tcnn.org.tw/archives/47147">我的性命獻互祢──巴克禮牧師誕生170年紀念</a>"</p>
-	    </div>
-	</div>
+
 <body>
+<div class="label" id="Barclay" onmousedown="play(this)">巴克禮墓</div>
+<div id="Barclay_Modal" class="modal">
+	<div class="modal-content">
+		<span class="close"  onmousedown="off(this)">&times;</span>
+		<img src="https://neil0733.github.io/Tumb/Barclay.jpg" width="320" height="429"></img>
+        <p>巴克禮：以下為文案。<br>圖片取自"<a href="https://tcnn.org.tw/archives/47147">我的性命獻互祢──巴克禮牧師誕生170年紀念</a>"</p>
+	</div>
+</div>
+<div id="blocker">
+    <div id="instructions">
+        <span style="font-size:80px">南山公墓x元宇宙</span>
+    </div>
+</div>
 <script src="https://neil0733.github.io/js/three.js"></script>
 <script src="https://neil0733.github.io/js/PointerLockControls.js"></script>
 <script src="https://neil0733.github.io/js/GLTFLoader.js"></script>
@@ -96,6 +128,18 @@
 	let moveBackward = false
 	let moveLeft = false
 	let moveRight = false
+	
+	const blocker = document.getElementById('blocker')
+    const instructions = document.getElementById('instructions')
+	plc.addEventListener('lock', function() {
+      instructions.style.display = 'none'
+      blocker.style.display = 'none'
+    })
+    plc.addEventListener('unlock', function() {
+      blocker.style.display = 'block'
+      instructions.style.display = ''
+    })
+	
 	//3.1. WASD 控制視角移動，E 控制滑鼠鎖定
 	const onKeyDown = function(event) {
 	    switch (event.keyCode) {
