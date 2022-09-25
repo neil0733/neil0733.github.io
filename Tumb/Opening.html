@@ -199,6 +199,12 @@
 			gltfScene.scene.position.set(0.35, 0.1, -8);
 			gltfScene.scene.scale.set(0.07, 0.07, 0.07);
 			scene.add(gltfScene.scene);
+			// 幫護國神山加聚光燈;
+			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/7, 1 ,1.5);
+			spotLight.position.set(0.35, 0.1, -10);
+			spotLight.castShadow = true;
+			spotLight.target = gltfScene.scene;
+			scene.add( spotLight );
 		}
 	)
 
