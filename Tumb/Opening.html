@@ -89,7 +89,7 @@
 	var i = 0;
 	var interval1 = window.setInterval(function(){
 	    i=i+0.01;
-		camera.position.set(0, 0.8, -12+i);
+		camera.position.set(0, 0.8, -17+i);
 		if (i > 6){
 		    camera.rotation.y = Math.PI/2;
 	        camera.position.set(0-i, 1.7, -14);
@@ -104,38 +104,38 @@
 	//4.1. 載入 地板的 Texture
 	const Floorbasecolor = textureLoader.load("https://neil0733.github.io/Tumb/WoodFloor/WoodFlooring_basecolor.jpg");
 	Floorbasecolor.wrapS = Floorbasecolor.wrapT = THREE.RepeatWrapping;
-	Floorbasecolor.repeat.set( 15, 15 );
+	Floorbasecolor.repeat.set( 20, 20 );
 	const FloornormalMap = textureLoader.load("https://neil0733.github.io/Tumb/WoodFloor/WoodFlooring_normalMap.jpg");
 	FloornormalMap.wrapS = FloornormalMap.wrapT = THREE.RepeatWrapping;
-	FloornormalMap.repeat.set( 15, 15 );
+	FloornormalMap.repeat.set( 20, 20 );
 	const FloordisplacementMap = textureLoader.load("https://neil0733.github.io/Tumb/WoodFloor/WoodFlooring_displacementMap.jpg");
 	FloordisplacementMap.wrapS = FloordisplacementMap.wrapT = THREE.RepeatWrapping;
-	FloordisplacementMap.repeat.set( 15, 15 );
+	FloordisplacementMap.repeat.set( 20, 20 );
 	const FloorglossMap = textureLoader.load("https://neil0733.github.io/Tumb/WoodFloor/WoodFlooring_glossMap.jpg");
 	FloorglossMap.wrapS = FloorglossMap.wrapT = THREE.RepeatWrapping;
-	FloorglossMap.repeat.set( 15, 15 );
+	FloorglossMap.repeat.set( 20, 20 );
 
 	//5. 載入 物品
 	//5.1. 載入 牆壁
 	const Mwall = new THREE.MeshStandardMaterial({ color: 0x577C8A, roughness : 0.7});
-	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 7 ), Mwall);
-	wall1.position.set(15, 3.5, 0);
+	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
+	wall1.position.set(20, 3.5, 0);
 	wall1.rotation.y = -Math.PI / 2;
 	scene.add( wall1 );
-	const wall2 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 7 ), Mwall);
-	wall2.position.set(0, 3.5, 15);
+	const wall2 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
+	wall2.position.set(0, 3.5, 20);
 	wall2.rotation.y = Math.PI;
 	scene.add( wall2 );
-	const wall3 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 7 ), Mwall);
-	wall3.position.set(-15, 3.5, 0);
+	const wall3 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
+	wall3.position.set(-20, 3.5, 0);
 	wall3.rotation.y = Math.PI / 2;
 	scene.add( wall3 );
-	const wall4 = new THREE.Mesh(new THREE.PlaneGeometry( 30, 7 ), Mwall);
-	wall4.position.set(0, 3.5, -15);
+	const wall4 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
+	wall4.position.set(0, 3.5, -20);
 	scene.add( wall4 );
 	//5.2. 載入 天花板
 	const Mcelling = new THREE.MeshStandardMaterial({ color: 0x9B90C2 });
-	const celling = new THREE.Mesh(new THREE.PlaneGeometry( 30, 30 ), Mcelling);
+	const celling = new THREE.Mesh(new THREE.PlaneGeometry( 40, 40 ), Mcelling);
 	celling.position.set(0, 7, 0);
 	celling.rotation.x = Math.PI/2;
 	scene.add( celling );
@@ -147,7 +147,7 @@
 		displacementScale: 0.1,
 		roughnessMap: FloorglossMap, roughness: 0.6
 	});
-	const floor = new THREE.Mesh(new THREE.PlaneGeometry( 30, 30 ), Mfloor);
+	const floor = new THREE.Mesh(new THREE.PlaneGeometry( 40, 40 ), Mfloor);
 	floor.position.set(0, 0, 0);
 	floor.rotation.x = - Math.PI / 2;
 	scene.add( floor );
@@ -184,7 +184,7 @@
 		function (gltfScene) {
 			loadedexcavator = gltfScene;
 			gltfScene.scene.rotation.y = 0;
-			gltfScene.scene.position.set(0, 1, 0);
+			gltfScene.scene.position.set(0, 1, -5);
 			gltfScene.scene.scale.set(1, 1, 1);
 			scene.add(gltfScene.scene);
 		}
@@ -197,12 +197,12 @@
 		function (gltfScene) {
 			loadmountain = gltfScene;
 			gltfScene.scene.rotation.y = -Math.PI;
-			gltfScene.scene.position.set(0.35, 0.1, -8);
+			gltfScene.scene.position.set(0.35, 0.1, -13);
 			gltfScene.scene.scale.set(0.07, 0.07, 0.07);
 			scene.add(gltfScene.scene);
 			// 幫護國神山加聚光燈;
 			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/6, 1 ,1.5);
-			spotLight.position.set(0, 2, -10);
+			spotLight.position.set(0, 2, -15);
 			spotLight.castShadow = true;
 			spotLight.target = gltfScene.scene;
 			scene.add( spotLight );
