@@ -91,8 +91,6 @@
 <div id="blocker">
     <div id="instructions">
         <span style="font-size:80px">南山公墓x元宇宙</span>
-		<button type="button"  id="guide">導覽模式</button>
-		<button type="button"  onclick="alert('Hello world!')">參觀模式</button>
     </div>
 </div>
 
@@ -289,8 +287,8 @@
 			gltfScene.scene.scale.set(0.05, 0.05, 0.05);
 			scene.add(gltfScene.scene);
 			// 幫巴克禮墓加聚光燈;
-			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/7, 1 ,1.5);
-			spotLight.position.set( 8, 2, -12 );
+			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/6, 1 ,1.5);
+			spotLight.position.set( 8, 2.5, -11 );
 			spotLight.castShadow = true;
 			spotLight.target = gltfScene.scene;
 			scene.add( spotLight );
