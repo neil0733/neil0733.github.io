@@ -215,8 +215,8 @@
         direction.z = Number(moveForward) - Number(moveBackward)
         direction.x = Number(moveLeft) - Number(moveRight)
         // direction.normalize() // 向量正規化（長度為 1），確保每個方向保持一定移動量
-        if (moveForward || moveBackward) velocity.z -= direction.z * 50.0 * delta
-        if (moveLeft || moveRight) velocity.x -= direction.x * 50.0 * delta
+        if (moveForward || moveBackward) velocity.z -= direction.z * 30.0 * delta
+        if (moveLeft || moveRight) velocity.x -= direction.x * 30.0 * delta
 
         // 根據速度值移動控制器位置
         plc.moveRight(velocity.x * delta)
@@ -336,6 +336,12 @@
 			gltfScene.scene.position.set(0.35, 0.1, -8);
 			gltfScene.scene.scale.set(0.07, 0.07, 0.07);
 			scene.add(gltfScene.scene);
+			// 幫護國神山加聚光燈;
+			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/6, 1 ,1.5);
+			spotLight.position.set(0, 2, -10);
+			spotLight.castShadow = true;
+			spotLight.target = gltfScene.scene;
+			scene.add( spotLight );
 		}
 	)
 	//6. 載入 光線
