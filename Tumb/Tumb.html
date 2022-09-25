@@ -325,7 +325,19 @@
 			scene.add(gltfScene.scene);
 		}
 	)
-
+	//5.6 載入 護國神山
+	let loadmountain
+	const glftLoader2 = new THREE.GLTFLoader();
+	glftLoader2.load(
+		'https://neil0733.github.io/Tumb/mountain.glb', 
+		function (gltfScene) {
+			loadmountain = gltfScene;
+			gltfScene.scene.rotation.y = Math.PI;
+			gltfScene.scene.position.set(0.35, 0.1, -8);
+			gltfScene.scene.scale.set(0.07, 0.07, 0.07);
+			scene.add(gltfScene.scene);
+		}
+	)
 	//6. 載入 光線
 	const Alight = new THREE.AmbientLight( 0x151515 ); // soft white light
 	scene.add( Alight );
