@@ -37,7 +37,8 @@
 
 <div id="dialog">
     <span id="DialogText">歡迎光臨南山公墓 × 元宇宙</span><br>
-	<button type="button" class="button" id="guide" onclick="Next()">ˇ</button>
+	<button type="button" class="button" id="Next" onclick="NextBack(this)">ˇ</button>
+	<button type="button" class="button" id="Back" onclick="NextBack(this)">ˇ</button>
 </div>
 <div id="transition"></div>
 
@@ -68,10 +69,16 @@
 	gsap.fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:10})
 	var i = 0;
 	const DialogText = document.getElementById("DialogText");
-	function Next(){
-		var music = new Audio('https://neil0733.github.io/Tumb/Next.mp3');
-		music.play();
-		i = i + 1;
+	function NextBack(Choice){
+		if(Choice.id == "Next"){
+			var music = new Audio('https://neil0733.github.io/Tumb/Next.mp3');
+			music.play();
+			i = i + 1;
+		} else{
+			var Backmusic = new Audio('https://neil0733.github.io/Tumb/Back.mp3');
+			Backmusic.play();
+			i = i - 1;
+		};
 		switch (i) {
 		    case 0:
 			    DialogText.innerText = "歡迎光臨南山公墓 × 元宇宙"
