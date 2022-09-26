@@ -94,7 +94,7 @@
 	.to(camera.rotation, {y:Math.PI/2*3, duration:0.01})
 	.fromTo(camera.position,{x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:6})
 	.to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
-	.fromTo(camera.position,{x:25, y:5, z:0}, {x:19, y:5, z:-6, duration:6})
+	.fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:12})
 	
 	//4. 載入 Texture
 	const textureLoader = new THREE.TextureLoader();
@@ -165,12 +165,6 @@
 			spotLight.castShadow = true;
 			spotLight.target = gltfScene.scene;
 			scene.add( spotLight );
-		},
-		(xhr) => {
-			console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
-		},
-		(error) => {
-			console.log(error)
 		}
 	)
 	//5.6 載入 推土機
@@ -203,6 +197,12 @@
 			spotLight.castShadow = true;
 			spotLight.target = gltfScene.scene;
 			scene.add( spotLight );
+		},
+		(xhr) => {
+			console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+		},
+		(error) => {
+			console.log(error)
 		}
 	)
 
