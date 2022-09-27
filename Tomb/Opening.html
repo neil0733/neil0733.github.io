@@ -232,9 +232,8 @@
 	function ( data ) {
 		const paths = data.paths;
 		const group = new THREE.Group();
-		group.scale.multiplyScalar( 0.25 );
 		group.position.set(0.35, 1, -13);
-		group.scale.y *= - 1;
+
 		for ( let i = 0; i < paths.length; i ++ ) {
 			const path = paths[ i ];
 			const material = new THREE.MeshBasicMaterial( {
@@ -242,7 +241,7 @@
 				side: THREE.DoubleSide,
 				depthWrite: false
 			} );
-			const shapes = SVGLoader.createShapes( path );
+			const shapes = THREE.SVGLoader.createShapes( path );
 			for ( let j = 0; j < shapes.length; j ++ ) {
 
 				const shape = shapes[ j ];
