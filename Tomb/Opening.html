@@ -68,6 +68,7 @@
 <script src="https://neil0733.github.io/js/PointerLockControls.js"></script>
 <script src="https://neil0733.github.io/js/GLTFLoader.js"></script>
 <script src="https://neil0733.github.io/js/CSS2DRenderer.js"></script>
+<script src="https://neil0733.github.io/js/SVGLoader.js"></script>
 <script src="https://neil0733.github.io/js/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script>
@@ -222,25 +223,37 @@
 		}
 	)
 	//5.6 載入 字板
-	//5.6.1 載入 王雨卿墓
-	let loadBarclayWord
-	const SvgLoader = new THREE.SVGLoader();
-	SvgLoader.load(
-		'https://neil0733.github.io/Tomb/Word/Barclay.1.svg', 
-		function (Svg) {
-			loadBarclayWord = Svg;
-			gltfScene.scene.rotation.y = -Math.PI/2;
-			gltfScene.scene.position.set(0, 0.1, 15);
-			gltfScene.scene.scale.set(0.04, 0.04, 0.04);
-			scene.add(gltfScene.scene);
-			// 幫王雨卿墓加聚光燈;
-			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/6, 1 ,1.5);
-			spotLight.position.set(0, 2, 13);
-			spotLight.castShadow = true;
-			spotLight.target = gltfScene.scene;
-			scene.add( spotLight );
+	//5.6.1 載入 巴克禮
+	const svgLoader = new THREE.SVGLoader();
+	svgLoader.load(
+	// resource URL
+	'https://neil0733.github.io/Tomb/Word/Barclay.1.svg',
+	// called when the resource is loaded
+	function ( data ) {
+		const paths = data.paths;
+		const group = new THREE.Group();
+		group.scale.multiplyScalar( 0.25 );
+		group.position.set(0.35, 1, -13);
+		group.scale.y *= - 1;
+		for ( let i = 0; i < paths.length; i ++ ) {
+			const path = paths[ i ];
+			const material = new THREE.MeshBasicMaterial( {
+				color: path.color,
+				side: THREE.DoubleSide,
+				depthWrite: false
+			} );
+			const shapes = SVGLoader.createShapes( path );
+			for ( let j = 0; j < shapes.length; j ++ ) {
+
+				const shape = shapes[ j ];
+				const geometry = new THREE.ShapeGeometry( shape );
+				const mesh = new THREE.Mesh( geometry, material );
+				group.add( mesh );
+			}
 		}
-	)
+		scene.add( group );
+	}
+	);
 
 	//6. 載入 光線
 	const Alight = new THREE.AmbientLight( 0x151515 ); // soft white light
