@@ -83,7 +83,7 @@
 <div id="Barclay_Modal" class="modal">
 	<div class="modal-content">
 		<span class="close"  onmousedown="off(this)">&times;</span>
-		<img src="https://neil0733.github.io/Tumb/Barclay.jpg" width="320" height="429"></img>
+		<img src="https://neil0733.github.io/Tomb/Barclay.jpg" width="320" height="429"></img>
         <p>巴克禮：以下為文案。<br>圖片取自"<a href="https://tcnn.org.tw/archives/47147">我的性命獻互祢──巴克禮牧師誕生170年紀念</a>"</p>
 	</div>
 </div>
@@ -101,6 +101,7 @@
 <script src="https://neil0733.github.io/js/three.js"></script>
 <script src="https://neil0733.github.io/js/PointerLockControls.js"></script>
 <script src="https://neil0733.github.io/js/GLTFLoader.js"></script>
+<script src="https://neil0733.github.io/js/SVGLoader.js"></script>
 <script src="https://neil0733.github.io/js/CSS2DRenderer.js"></script>
 <script>
 	const scene = new THREE.Scene();
@@ -230,16 +231,16 @@
 	//4. 載入 Texture
 	const textureLoader = new THREE.TextureLoader();
 	//4.1. 載入 地板的 Texture
-	const Floorbasecolor = textureLoader.load("https://neil0733.github.io/Tumb/WoodFloor/WoodFlooring_basecolor.jpg");
+	const Floorbasecolor = textureLoader.load("https://neil0733.github.io/Tomb/WoodFloor/WoodFlooring_basecolor.jpg");
 	Floorbasecolor.wrapS = Floorbasecolor.wrapT = THREE.RepeatWrapping;
 	Floorbasecolor.repeat.set( 20, 20 );
-	const FloornormalMap = textureLoader.load("https://neil0733.github.io/Tumb/WoodFloor/WoodFlooring_normalMap.jpg");
+	const FloornormalMap = textureLoader.load("https://neil0733.github.io/Tomb/WoodFloor/WoodFlooring_normalMap.jpg");
 	FloornormalMap.wrapS = FloornormalMap.wrapT = THREE.RepeatWrapping;
 	FloornormalMap.repeat.set( 20, 20 );
-	const FloordisplacementMap = textureLoader.load("https://neil0733.github.io/Tumb/WoodFloor/WoodFlooring_displacementMap.jpg");
+	const FloordisplacementMap = textureLoader.load("https://neil0733.github.io/Tomb/WoodFloor/WoodFlooring_displacementMap.jpg");
 	FloordisplacementMap.wrapS = FloordisplacementMap.wrapT = THREE.RepeatWrapping;
 	FloordisplacementMap.repeat.set( 20, 20 );
-	const FloorglossMap = textureLoader.load("https://neil0733.github.io/Tumb/WoodFloor/WoodFlooring_glossMap.jpg");
+	const FloorglossMap = textureLoader.load("https://neil0733.github.io/Tomb/WoodFloor/WoodFlooring_glossMap.jpg");
 	FloorglossMap.wrapS = FloorglossMap.wrapT = THREE.RepeatWrapping;
 	FloorglossMap.repeat.set( 20, 20 );
 
@@ -283,7 +284,7 @@
 	let loadedModel
 	const glftLoader = new THREE.GLTFLoader();
 	glftLoader.load(
-		'https://neil0733.github.io/Tumb/Barclay.glb', 
+		'https://neil0733.github.io/Tomb/Barclay.glb', 
 		function (gltfScene) {
 			loadedModel = gltfScene;
 			gltfScene.scene.rotation.y = - Math.PI / 2;
@@ -318,7 +319,7 @@
 	let loadedexcavator
 	const glftLoader1 = new THREE.GLTFLoader();
 	glftLoader1.load(
-		'https://neil0733.github.io/Tumb/excavator.glb', 
+		'https://neil0733.github.io/Tomb/excavator.glb', 
 		function (gltfScene) {
 			loadedexcavator = gltfScene;
 			gltfScene.scene.rotation.y = 0;
@@ -331,7 +332,7 @@
 	let loadmountain
 	const glftLoader2 = new THREE.GLTFLoader();
 	glftLoader2.load(
-		'https://neil0733.github.io/Tumb/mountain.glb', 
+		'https://neil0733.github.io/Tomb/mountain.glb', 
 		function (gltfScene) {
 			loadmountain = gltfScene;
 			gltfScene.scene.rotation.y = Math.PI;
@@ -349,7 +350,7 @@
 	//5.5.4 載入 王雨卿墓
 		let loadWong
 	glftLoader.load(
-		'https://neil0733.github.io/Tumb/wong.glb', 
+		'https://neil0733.github.io/Tomb/wong.glb', 
 		function (gltfScene) {
 			loadWong = gltfScene;
 			gltfScene.scene.rotation.y = -Math.PI/2;
