@@ -205,6 +205,24 @@
 			console.log(error)
 		}
 	)
+	//5.7 載入 王雨卿墓
+		let loadWong
+	glftLoader.load(
+		'https://neil0733.github.io/Tumb/wong.glb', 
+		function (gltfScene) {
+			loadWong = gltfScene;
+			gltfScene.scene.rotation.y = -Math.PI;
+			gltfScene.scene.position.set(0, 0.1, 15);
+			gltfScene.scene.scale.set(0.07, 0.07, 0.07);
+			scene.add(gltfScene.scene);
+			// 幫王雨卿墓加聚光燈;
+			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/6, 1 ,1.5);
+			spotLight.position.set(0, 2, 13);
+			spotLight.castShadow = true;
+			spotLight.target = gltfScene.scene;
+			scene.add( spotLight );
+		}
+	)
 
 	//6. 載入 光線
 	const Alight = new THREE.AmbientLight( 0x151515 ); // soft white light
