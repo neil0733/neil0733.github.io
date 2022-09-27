@@ -210,9 +210,9 @@
 		'https://neil0733.github.io/Tumb/wong.glb', 
 		function (gltfScene) {
 			loadWong = gltfScene;
-			gltfScene.scene.rotation.y = -Math.PI;
+			gltfScene.scene.rotation.y = -Math.PI/2;
 			gltfScene.scene.position.set(0, 0.1, 15);
-			gltfScene.scene.scale.set(0.07, 0.07, 0.07);
+			gltfScene.scene.scale.set(0.04, 0.04, 0.04);
 			scene.add(gltfScene.scene);
 			// 幫王雨卿墓加聚光燈;
 			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/6, 1 ,1.5);
