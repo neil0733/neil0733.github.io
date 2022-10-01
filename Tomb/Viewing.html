@@ -289,7 +289,7 @@
 			gltfScene.scene.scale.set(0.04, 0.04, 0.04);
 			scene.add(gltfScene.scene);
 			// 幫王雨卿墓加聚光燈;
-			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/6, 1 ,1.5);
+			const spotLight = new THREE.SpotLight( 0xffffff, 1, 0, Math.PI/6, 1 ,1.5);
 			spotLight.position.set(0, 2, 13);
 			spotLight.castShadow = true;
 			spotLight.target = gltfScene.scene;
