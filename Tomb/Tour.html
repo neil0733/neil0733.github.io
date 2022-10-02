@@ -117,10 +117,12 @@
 			case 8: 
 			    DialogText.innerText = "也因為人們固有對於死亡的恐懼，逐漸被大家遺忘"
 				gsap.to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
-				gsap.fromTo(camera.position, {x:2, y:0.8, z:-15}, {x:-2, y:0.8, z:-15, duration:6})
+				gsap.fromTo(camera.position, {x:0.5, y:0.8, z:-15}, {x:-0.5, y:0.8, z:-15, duration:6})
 			break
 			case 9: 
 			    DialogText.innerText = "這個企劃以3D虛擬實境網站展示明代至民國時期代具表性的墓葬建築，帶領大家了解四百多年來台灣喪葬文化的演變"
+				gsap.to(camera.rotation, {x:-Math.PI/6, y:0, z:0, duration:0.01})
+				gsap.fromTo(camera.position, {x:10, y:4, z:25}, {x:-10, y:4, z:25, duration:10})
 			break
 		}	
 	}
@@ -160,7 +162,7 @@
 	wall4.position.set(0, 3.5, -20);
 	scene.add( wall4 );
 	//5.2. 載入 天花板
-	const Mcelling = new THREE.MeshStandardMaterial({ color: 0x9B90C2 });
+	const Mcelling = new THREE.MeshStandardMaterial({ color: 0x81C7D4 });
 	const celling = new THREE.Mesh(new THREE.PlaneGeometry( 40, 40 ), Mcelling);
 	celling.position.set(0, 7, 0);
 	celling.rotation.x = Math.PI/2;
