@@ -26,6 +26,7 @@
 				color: white;
 				font-size: 40px;
 				cursor: pointer;
+				background-color: rgba(240, 240, 240, 0.2);
 			}
 			.button:hover {
 				background-color: rgba(240, 240, 240, 0.7);
@@ -36,9 +37,10 @@
 <body>
 
 <div id="dialog">
-    <span id="DialogText">歡迎光臨南山公墓 × 元宇宙</span><br>
-	<button type="button" class="button" id="Next" onclick="NextBack(this)">ˇ</button>
-	<button type="button" class="button" id="Back" onclick="NextBack(this)">ˇ</button>
+    <span id="DialogText">歡迎光臨南山公墓 × 元宇宙</span>
+	<button type="button" class="button" id="Back" onclick="NextBack(this)"><</button>
+	<button type="button" class="button" id="Next" onclick="NextBack(this)">></button>
+	
 </div>
 <div id="transition"></div>
 
@@ -88,7 +90,7 @@
 			break
 			case 1: 
 			    DialogText.innerText = "在這裡，我們將會帶領你了解南山公墓的文化與墓葬特色"
-				gsap.to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01})
+				gsap.to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
 				gsap.fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:6})
 			break
 			case 2: 
@@ -104,7 +106,23 @@
 			case 5: 
 			    DialogText.innerText = "其中的墓葬形式，有傳統漢式、日式、天主教式、基督教式、佛教式，更有全世界獨有的日漢合併的墓葬形式"
 			break
-		}
+			case 6: 
+			    DialogText.innerText = "蘊含豐富的墓葬建築、古道地貌、軍事遺構、歷史名人、生態環境、考古遺址、文人詩詞、彩繪花磚、石雕作品"
+			break
+			case 7: 
+			    DialogText.innerText = "但近年來，南山墓群因為都市更新等因素，面臨迫遷的危機"
+				gsap.to(camera.rotation, {x:0, y:Math.PI/2, z:0, duration:0.01})
+				gsap.fromTo(camera.position, {x:5, y:1.7, z:-14}, {x:5, y:1.7, z:-5, duration:6})
+			break
+			case 8: 
+			    DialogText.innerText = "也因為人們固有對於死亡的恐懼，逐漸被大家遺忘"
+				gsap.to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
+				gsap.fromTo(camera.position, {x:2, y:0.8, z:-15}, {x:-2, y:0.8, z:-15, duration:6})
+			break
+			case 9: 
+			    DialogText.innerText = "這個企劃以3D虛擬實境網站展示明代至民國時期代具表性的墓葬建築，帶領大家了解四百多年來台灣喪葬文化的演變"
+			break
+		}	
 	}
 
 	//4. 載入 Texture
