@@ -301,7 +301,7 @@
 	const svgLoader = new THREE.SVGLoader();
 	svgLoader.load(
 	// resource URL
-	'https://neil0733.github.io/Tomb/Word/Barclay.1.svg',
+	'https://neil0733.github.io/Tomb/Word/Barclay.1.pic.svg',
 	// called when the resource is loaded
 	function ( data ) {
 		const paths = data.paths;
@@ -327,18 +327,36 @@
 			}
 		}
 		scene.add( group );
-		
-	},
-	// called when loading is in progresses
-	function ( xhr ) {
+	}
+	);
+	svgLoader.load(
+	// resource URL
+	'https://neil0733.github.io/Tomb/Word/Barclay.2.pic.svg',
+	// called when the resource is loaded
+	function ( data ) {
+		const paths = data.paths;
+		const group = new THREE.Group();
+		group.position.set(19.5, 4, 13);
+		group.scale.multiplyScalar( 0.015 );
+		group.rotation.set(Math.PI, Math.PI/2, 0);
 
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+		for ( let i = 0; i < paths.length; i ++ ) {
+			const path = paths[ i ];
+			const material = new THREE.MeshBasicMaterial( {
+				color: 0xffffff,
+				side: THREE.DoubleSide,
+				depthWrite: false
+			} );
+			const shapes = THREE.SVGLoader.createShapes( path );
+			for ( let j = 0; j < shapes.length; j ++ ) {
 
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened' );
+				const shape = shapes[ j ];
+				const geometry = new THREE.ShapeGeometry( shape );
+				const mesh = new THREE.Mesh( geometry, material );
+				group.add( mesh );
+			}
+		}
+		scene.add( group );
 	}
 	);
 	//6. 載入 光線
