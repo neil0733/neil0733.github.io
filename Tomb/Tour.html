@@ -280,6 +280,24 @@
 			scene.add( spotLight );
 		}
 	)
+	//5.5.5 載入 施瓊芳墓
+	let loadSi
+	glftLoader.load(
+		'https://neil0733.github.io/Tomb/si.glb', 
+		function (gltfScene) {
+			loadSi = gltfScene;
+			gltfScene.scene.rotation.y = Math.PI/4*3;
+			gltfScene.scene.position.set(15, 0.6, -15);
+			gltfScene.scene.scale.set(0.2, 0.2, 0.2);
+			scene.add(gltfScene.scene);
+			// 幫施瓊芳墓加聚光燈;
+			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/2, 1 ,1.5);
+			spotLight.position.set(15, 2, -15);
+			spotLight.castShadow = true;
+			spotLight.target = gltfScene.scene;
+			scene.add( spotLight );
+		}
+	)
 	//5.6 載入 字板
 	//5.6.1 載入 巴克禮
 	const svgLoader = new THREE.SVGLoader();

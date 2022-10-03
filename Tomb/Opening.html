@@ -156,13 +156,12 @@
 		'https://neil0733.github.io/Tomb/Barclay.glb', 
 		function (gltfScene) {
 			loadedModel = gltfScene;
-			gltfScene.scene.rotation.y = - Math.PI / 2;
-			gltfScene.scene.position.set(8, 0, -8);
+			gltfScene.scene.position.set(15, 0, 10);
 			gltfScene.scene.scale.set(0.05, 0.05, 0.05);
 			scene.add(gltfScene.scene);
 			// 幫巴克禮墓加聚光燈;
-			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/7, 1 ,1.5);
-			spotLight.position.set( 8, 2, -12 );
+			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/8, 1 ,1.5);
+			spotLight.position.set( 12, 2.5, 10 );
 			spotLight.castShadow = true;
 			spotLight.target = gltfScene.scene;
 			scene.add( spotLight );
@@ -222,22 +221,72 @@
 			scene.add( spotLight );
 		}
 	)
+	//5.5.5 載入 施瓊芳墓
+	let loadSi
+	glftLoader.load(
+		'https://neil0733.github.io/Tomb/si.glb', 
+		function (gltfScene) {
+			loadSi = gltfScene;
+			gltfScene.scene.rotation.y = Math.PI/4*3;
+			gltfScene.scene.position.set(15, 0.6, -15);
+			gltfScene.scene.scale.set(0.2, 0.2, 0.2);
+			scene.add(gltfScene.scene);
+			// 幫施瓊芳墓加聚光燈;
+			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/2, 1 ,1.5);
+			spotLight.position.set(15, 2, -15);
+			spotLight.castShadow = true;
+			spotLight.target = gltfScene.scene;
+			scene.add( spotLight );
+		}
+	)
 	//5.6 載入 字板
 	//5.6.1 載入 巴克禮
 	const svgLoader = new THREE.SVGLoader();
 	svgLoader.load(
 	// resource URL
-	'https://neil0733.github.io/Tomb/Word/Barclay.1.svg',
+	'https://neil0733.github.io/Tomb/Word/Barclay.1.pic.svg',
 	// called when the resource is loaded
 	function ( data ) {
 		const paths = data.paths;
 		const group = new THREE.Group();
-		group.position.set(0.35, 1, -13);
+		group.position.set(19.5, 3.5, 9);
+		group.scale.multiplyScalar( 0.01 );
+		group.rotation.set(Math.PI, Math.PI/2, 0);
 
 		for ( let i = 0; i < paths.length; i ++ ) {
 			const path = paths[ i ];
 			const material = new THREE.MeshBasicMaterial( {
-				color: path.color,
+				color: 0xffffff,
+				side: THREE.DoubleSide,
+				depthWrite: false
+			} );
+			const shapes = THREE.SVGLoader.createShapes( path );
+			for ( let j = 0; j < shapes.length; j ++ ) {
+
+				const shape = shapes[ j ];
+				const geometry = new THREE.ShapeGeometry( shape );
+				const mesh = new THREE.Mesh( geometry, material );
+				group.add( mesh );
+			}
+		}
+		scene.add( group );
+	}
+	);
+	svgLoader.load(
+	// resource URL
+	'https://neil0733.github.io/Tomb/Word/Barclay.2.pic.svg',
+	// called when the resource is loaded
+	function ( data ) {
+		const paths = data.paths;
+		const group = new THREE.Group();
+		group.position.set(19.5, 3.5, 12);
+		group.scale.multiplyScalar( 0.01 );
+		group.rotation.set(Math.PI, Math.PI/2, 0);
+
+		for ( let i = 0; i < paths.length; i ++ ) {
+			const path = paths[ i ];
+			const material = new THREE.MeshBasicMaterial( {
+				color: 0xffffff,
 				side: THREE.DoubleSide,
 				depthWrite: false
 			} );
