@@ -156,7 +156,22 @@
 			case 18: 
 			    DialogText.innerText = "介紹完墓主人，接著就讓我們來看看「漢式墓」的相關構造與介紹吧！"
 			break
-			
+			case 19: 
+			    DialogText.innerText = "墓碑：又稱為「墓牌」，造型多樣，以前在窮苦的時候甚至只會有墓堆，而未有墓碑"
+				gsap.to(camera.rotation, {x:0, y:-Math.PI/4, z:0, duration:0.01})
+				gsap.fromTo(camera.position, {x:12, y:1.5, z:-10}, {x:14, y:1.5, z:-14, duration:10})
+			break
+			case 20: 
+			    DialogText.innerText = "平常在墓碑上一眼看見即是死者姓名、籍貫功名、年紀後嗣等，而用來鐫刻碑文的地方稱為「碑身」，也是墓碑的主體"
+			break
+			case 21: 
+			    DialogText.innerText = "墓桌：又稱「供桌、酒菜桌」，祭祀時用來擺放供品、花束等。通常與墓碑同寬"
+			break
+			case 22: 
+			    DialogText.innerText = "且側邊會有簡單雕飾，而底座通常採櫃台腳（而施瓊芳墓也以這樣的方式表現）"
+				gsap.to(camera.rotation, {x:0, y:0, z:0, duration:0.01})
+				gsap.fromTo(camera.position, {x:10, y:4, z:25}, {x:-10, y:4, z:25, duration:10})
+			break			
 		}	
 	}
 
