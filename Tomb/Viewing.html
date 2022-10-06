@@ -51,7 +51,6 @@
 <script src="https://neil0733.github.io/js/GLTFLoader.js"></script>
 <script src="https://neil0733.github.io/js/SVGLoader.js"></script>
 <script src="https://neil0733.github.io/js/CSS2DRenderer.js"></script>
-<script src="https://neil0733.github.io/js/VRButton.js"></script>
 <script>
 	const scene = new THREE.Scene();
 	//1. camera 設定
@@ -71,8 +70,6 @@
 	labelRenderer.domElement.style.position = 'absolute';
 	labelRenderer.domElement.style.top = 0;
 	document.body.appendChild(labelRenderer.domElement);
-	//2.2. vr 的 renderer 設定
-	document.body.appendChild( VRButton.createButton( renderer ) );
 	
 	//3. 視角控制 設定：使用 Pointer Lock Controls
 	//參考：https://github.com/DezChuang/ironman-three.js/blob/master/day21_pointerLockControls1/index.js
