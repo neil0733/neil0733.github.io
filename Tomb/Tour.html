@@ -230,7 +230,7 @@
 	//5.5 載入 模型
 	const ModelData = [
 	    {"name":"Barclay","x":15,"y":0,"z":10,"rotation":0,"scale":0.05,"SLangle":8,"SLx":12,"SLy":2.5,"SLz":10},
-		{"name":"excavator","x":0,"y":1,"z":-5,"rotation":0,"scale":1,"SLangle":8,"SLx":12,"SLy":2.5,"SLz":10},
+		{"name":"excavator","x":0,"y":1,"z":-5,"rotation":0,"scale":1,"SLangle":8,"SLx":0,"SLy":2.5,"SLz":-10},
 		{"name":"mountain","x":0.35,"y":0.1,"z":-13,"rotation":1,"scale":0.07,"SLangle":6,"SLx":0,"SLy":2,"SLz":-15},
 		{"name":"wong","x":0,"y":0.1,"z":15,"rotation":0.5,"scale":0.04,"SLangle":6,"SLx":0,"SLy":2,"SLz":13},
 		{"name":"si","x":15,"y":0.6,"z":-15,"rotation":0.75,"scale":0.2,"SLangle":2,"SLx":15,"SLy":2,"SLz":-15}
@@ -324,47 +324,10 @@
 	}
 	);
 	//6. 載入 光線
-	const Alight = new THREE.AmbientLight( 0x151515 ); // soft white light
+	const Alight = new THREE.AmbientLight( 0x000000 );
 	scene.add( Alight );
-
-	const lightcolor = 0xFAD689;
-	const lightstrength = 0.13;
-	const light1 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light1.position.set( 10, 4.5, -10 );
-	light1.castShadow = true;
-	scene.add( light1 );
-	const light2 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light2.position.set( 10, 4.5, 0 );
-	light2.castShadow = true;
-	scene.add( light2 );
-	const light3 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light3.position.set( 10, 4.5, 10 );
-	light3.castShadow = true;
-	scene.add( light3 );
-	const light4 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light4.position.set( 0, 4.5, -10 );
-	light4.castShadow = true;
-	scene.add( light4 );
-	const light5 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light5.position.set( 0, 4.5, 0 );
-	light5.castShadow = true;
-	scene.add( light5 );
-	const light6 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light6.position.set( 0, 4.5, 10 );
-	light6.castShadow = true;
-	scene.add( light6 );
-	const light7 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light7.position.set( -10, 4.5, -10 );
-	light7.castShadow = true;
-	scene.add( light7 );
-	const light8 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light8.position.set( -10, 4.5, 0 );
-	light8.castShadow = true;
-	scene.add( light8 );
-	const light9 = new THREE.PointLight( lightcolor, lightstrength, 100 );
-	light9.position.set( -10, 4.5, 10 );
-	light9.castShadow = true;
-	scene.add( light9 );
+	const directionalLight = new THREE.DirectionalLight( 0xFAD689, 0.7 );
+	scene.add( directionalLight );
 
 	function Drawscene(){
 		renderer.render( scene, camera );
