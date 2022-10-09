@@ -226,7 +226,7 @@
 	scene.add( floor );
 	//5.4 載入 圖片
 	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 4.8, 3 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
-	NanPic.position.set(19.8, 2.5, -11);
+	NanPic.position.set(19.8, 2.7, -12.5);
 	NanPic.rotation.y = -Math.PI / 2;
 	scene.add( NanPic );
 	//5.5 載入 模型
@@ -234,8 +234,8 @@
 		{"name":"excavator","x":0,"y":1,"z":-5,"rotation":0,"scale":1,"SLangle":8,"SLx":0,"SLy":7,"SLz":-12},
 		{"name":"mountain","x":0.35,"y":0.1,"z":-13,"rotation":1,"scale":0.07,"SLangle":6,"SLx":0,"SLy":2,"SLz":-15},
 		{"name":"si","x":15,"y":0.6,"z":0,"rotation":0.5,"scale":0.2,"SLangle":6,"SLx":10,"SLy":2,"SLz":0},
-		{"name":"Barclay","x":15,"y":0,"z":13,"rotation":0,"scale":0.05,"SLangle":8,"SLx":12,"SLy":2.5,"SLz":13},
-		{"name":"wong","x":10,"y":0.1,"z":15,"rotation":0.5,"scale":0.04,"SLangle":6,"SLx":10,"SLy":2,"SLz":13}
+		{"name":"Barclay","x":17,"y":0,"z":13,"rotation":0,"scale":0.05,"SLangle":6,"SLx":12,"SLy":2.5,"SLz":13},
+		{"name":"wong","x":8,"y":0.1,"z":15,"rotation":0.5,"scale":0.04,"SLangle":6,"SLx":8,"SLy":2,"SLz":13}
 	];
 	var ModelLoader = new THREE.GLTFLoader();
 	for (let i = 0; i < ModelData.length; i++) {
@@ -264,12 +264,12 @@
 	}
 	//5.6 載入 字板
 	const WordData = [
-	    {"name":"Intro.1.pic","x":19.5,"y":4.5,"z":-18,"scale":0.015,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Si.1.pic","x":15,"y":2,"z":-6,"scale":0.008,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Si.2.pic","x":19.5,"y":4.5,"z":-5.9,"scale":0.015,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Si.3.pic","x":19.5,"y":4.1,"z":-1.3,"scale":0.015,"Rx":1,"Ry":0.5,"Rz":0},
-	    {"name":"Barclay.1.pic","x":15,"y":3,"z":9,"scale":0.008,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Barclay.2.pic","x":19.5,"y":4.5,"z":13.5,"scale":0.015,"Rx":1,"Ry":0.5,"Rz":0}
+	    {"name":"Intro.1.pic","x":19.8,"y":4.5,"z":-18,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Si.1.pic","x":15,"y":2,"z":4,"scale":0.006,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Si.2.pic","x":19.8,"y":4.5,"z":-4.5,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Si.3.pic","x":19.8,"y":2.5,"z":-4.5,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+	    {"name":"Barclay.1.pic","x":17,"y":2,"z":15,"scale":0.006,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Barclay.2.pic","x":19.8,"y":4.5,"z":9,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0}
 	];
 	const svgLoader = new THREE.SVGLoader();
 	for (let i = 0; i < WordData.length; i++) {
