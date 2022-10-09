@@ -7,9 +7,8 @@
 			body { margin: 0; }	
 			#dialog {
 			    position: absolute;
-				left: 50%;
-				top: 85%;
-				transform: translate(-50%, -50%);
+				left: 10%;
+				top: 75%;
 				width: 80%;
 				height: 20%;
 				background-color: rgba(0, 0, 0, 0.5);
@@ -18,6 +17,17 @@
 				color: #ffffff;
 				text-align: center;
 				font-size: 40px;
+				display: -webkit-box;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+			}
+			#pic {
+			    position: absolute;
+				left: 10%;
+				top: 0%;
+				width: 80%;
+				height: 70%;
+				text-align: center;
 				display: -webkit-box;
 				-webkit-box-pack: center;
 				-webkit-box-align: center;
@@ -36,6 +46,7 @@
 	</head>
 
 <body>
+<div id="pic"></div>
 <div id="dialog">
     <table width="100%">
         <tr>
@@ -87,6 +98,7 @@
 			Backmusic.play();
 			i = i - 1;
 		};
+		var Img = document.createElement('img');
 		switch (i) {
 		    case 0:
 			    DialogText.innerText = "歡迎光臨南山公墓 × 元宇宙"
@@ -103,7 +115,9 @@
 				gsap.fromTo(camera.position, {x:5, y:1.7, z:-9}, {x:12, y:1.7, z:-15, duration:2.5})
 			break
 			case 3: 
-			    DialogText.innerText = "南山公墓：位於台南南區桶盤淺一帶，是原臺灣府城的南郊，為全台最大墓葬群"
+			    DialogText.innerText = "南山公墓：位於台南南區，是原臺灣府城的南郊，舊稱桶盤淺，為全台最大墓葬群"
+				Img.src="https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg"
+				document.getElementById("pic").appendChild( Img );
 			break
 			case 4: 
 			    DialogText.innerText = "包含了荷治、明鄭、清領、日治到戰後各個時期的墓葬，是台灣歷史的見證"
@@ -230,7 +244,7 @@
 	//5.5 載入 模型
 	const ModelData = [
 	    {"name":"Barclay","x":15,"y":0,"z":10,"rotation":0,"scale":0.05,"SLangle":8,"SLx":12,"SLy":2.5,"SLz":10},
-		{"name":"excavator","x":0,"y":1,"z":-5,"rotation":0,"scale":1,"SLangle":8,"SLx":0,"SLy":2.5,"SLz":-10},
+		{"name":"excavator","x":0,"y":1,"z":-5,"rotation":0,"scale":1,"SLangle":8,"SLx":0,"SLy":7,"SLz":-12},
 		{"name":"mountain","x":0.35,"y":0.1,"z":-13,"rotation":1,"scale":0.07,"SLangle":6,"SLx":0,"SLy":2,"SLz":-15},
 		{"name":"wong","x":0,"y":0.1,"z":15,"rotation":0.5,"scale":0.04,"SLangle":6,"SLx":0,"SLy":2,"SLz":13},
 		{"name":"si","x":15,"y":0.6,"z":-15,"rotation":0.75,"scale":0.2,"SLangle":2,"SLx":15,"SLy":2,"SLz":-15}
@@ -261,68 +275,47 @@
     )
 	}
 	//5.6 載入 字板
-	//5.6.1 載入 巴克禮
+	const WordData = [
+	    {"name":"Barclay.1.pic","x":19.5,"y":3.5,"z":9,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Barclay.2.pic","x":19.5,"y":3.5,"z":12,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0}
+	];
 	const svgLoader = new THREE.SVGLoader();
-	svgLoader.load(
-	// resource URL
-	'https://neil0733.github.io/Tomb/Word/Barclay.1.pic.svg',
+	for (let i = 0; i < WordData.length; i++) {
+    let Word = WordData[i];
+    let WordName = "https://neil0733.github.io/Tomb/Word/" + Word.name + ".svg";
+	svgLoader.load( WordName,
 	// called when the resource is loaded
-	function ( data ) {
-		const paths = data.paths;
-		const group = new THREE.Group();
-		group.position.set(19.5, 3.5, 9);
-		group.scale.multiplyScalar( 0.01 );
-		group.rotation.set(Math.PI, Math.PI/2, 0);
+		function ( data ) {
+			const paths = data.paths;
+			const group = new THREE.Group();
+			group.position.x = parseFloat(Word.x);
+			group.position.y = parseFloat(Word.y);
+			group.position.z = parseFloat(Word.z);
+			group.scale.multiplyScalar( parseFloat(Word.scale) );
+			group.rotation.x = Math.PI*parseFloat(Word.Rx);
+			group.rotation.y = Math.PI*parseFloat(Word.Ry);
+			group.rotation.z = Math.PI*parseFloat(Word.Rz);
 
-		for ( let i = 0; i < paths.length; i ++ ) {
-			const path = paths[ i ];
-			const material = new THREE.MeshBasicMaterial( {
-				color: 0xffffff,
-				side: THREE.DoubleSide,
-				depthWrite: false
-			} );
-			const shapes = THREE.SVGLoader.createShapes( path );
-			for ( let j = 0; j < shapes.length; j ++ ) {
-
-				const shape = shapes[ j ];
-				const geometry = new THREE.ShapeGeometry( shape );
-				const mesh = new THREE.Mesh( geometry, material );
-				group.add( mesh );
+			for ( let j = 0; j < paths.length; j ++ ) {
+				const path = paths[ j ];
+				const material = new THREE.MeshBasicMaterial( {
+					color: 0xffffff,
+					side: THREE.DoubleSide,
+					depthWrite: false
+				} );
+				const shapes = THREE.SVGLoader.createShapes( path );
+				for ( let k = 0; k < shapes.length; k ++ ) {
+					const shape = shapes[ k ];
+					const geometry = new THREE.ShapeGeometry( shape );
+					const mesh = new THREE.Mesh( geometry, material );
+					group.add( mesh );
+				}
 			}
-		}
 		scene.add( group );
-	}
-	);
-	svgLoader.load(
-	// resource URL
-	'https://neil0733.github.io/Tomb/Word/Barclay.2.pic.svg',
-	// called when the resource is loaded
-	function ( data ) {
-		const paths = data.paths;
-		const group = new THREE.Group();
-		group.position.set(19.5, 3.5, 12);
-		group.scale.multiplyScalar( 0.01 );
-		group.rotation.set(Math.PI, Math.PI/2, 0);
-
-		for ( let i = 0; i < paths.length; i ++ ) {
-			const path = paths[ i ];
-			const material = new THREE.MeshBasicMaterial( {
-				color: 0xffffff,
-				side: THREE.DoubleSide,
-				depthWrite: false
-			} );
-			const shapes = THREE.SVGLoader.createShapes( path );
-			for ( let j = 0; j < shapes.length; j ++ ) {
-
-				const shape = shapes[ j ];
-				const geometry = new THREE.ShapeGeometry( shape );
-				const mesh = new THREE.Mesh( geometry, material );
-				group.add( mesh );
-			}
 		}
-		scene.add( group );
-	}
-	);
+	)
+	};
+
 	//6. 載入 光線
 	const Alight = new THREE.AmbientLight( 0x000000 );
 	scene.add( Alight );
