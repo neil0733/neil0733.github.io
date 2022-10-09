@@ -230,7 +230,7 @@
 	scene.add( floor );
 	//5.4 載入 圖片
 	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 4.8, 3 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
-	NanPic.position.set(19.8, 2, -11);
+	NanPic.position.set(19.8, 2.5, -11);
 	NanPic.rotation.y = -Math.PI / 2;
 	scene.add( NanPic );
 	//5.5 載入 模型
@@ -238,7 +238,7 @@
 		{"name":"excavator","x":0,"y":1,"z":-5,"rotation":0,"scale":1,"SLangle":8,"SLx":0,"SLy":7,"SLz":-12},
 		{"name":"mountain","x":0.35,"y":0.1,"z":-13,"rotation":1,"scale":0.07,"SLangle":6,"SLx":0,"SLy":2,"SLz":-15},
 		{"name":"si","x":15,"y":0.6,"z":0,"rotation":0.5,"scale":0.2,"SLangle":6,"SLx":10,"SLy":2,"SLz":0},
-		{"name":"Barclay","x":15,"y":0,"z":10,"rotation":0,"scale":0.05,"SLangle":8,"SLx":12,"SLy":2.5,"SLz":10},
+		{"name":"Barclay","x":15,"y":0,"z":13,"rotation":0,"scale":0.05,"SLangle":8,"SLx":12,"SLy":2.5,"SLz":13},
 		{"name":"wong","x":0,"y":0.1,"z":15,"rotation":0.5,"scale":0.04,"SLangle":6,"SLx":0,"SLy":2,"SLz":13}
 	];
 	var ModelLoader = new THREE.GLTFLoader();
@@ -269,8 +269,8 @@
 	//5.6 載入 字板
 	const WordData = [
 	    {"name":"Intro.1.pic","x":19.5,"y":4.5,"z":-18,"scale":0.015,"Rx":1,"Ry":0.5,"Rz":0},
-	    {"name":"Barclay.1.pic","x":19.5,"y":4.5,"z":8,"scale":0.015,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Barclay.2.pic","x":19.5,"y":4,"z":13,"scale":0.015,"Rx":1,"Ry":0.5,"Rz":0}
+	    {"name":"Barclay.1.pic","x":19.5,"y":4.5,"z":9,"scale":0.015,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Barclay.2.pic","x":19.5,"y":4.5,"z":14,"scale":0.015,"Rx":1,"Ry":0.5,"Rz":0}
 	];
 	const svgLoader = new THREE.SVGLoader();
 	for (let i = 0; i < WordData.length; i++) {
