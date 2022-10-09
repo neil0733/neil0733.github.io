@@ -38,7 +38,6 @@
 				cursor: pointer;
 				background-color: rgba(240, 240, 240, 0.2);
 				border:  0px solid white;
-				visibility: visible;
 			}
 			.button:hover {
 				background-color: rgba(240, 240, 240, 0.7);
@@ -89,8 +88,10 @@
 	var i = 0;
 	const DialogText = document.getElementById("DialogText");
 	const Next = document.getElementById("Next");
+	const Back = document.getElementById("Back");
 	var a0 = gsap.timeline()
 	a0.to(Next, {visibility: "hidden", duration:0.01})
+	  .to(Back, {visibility: "hidden", duration:0.01})
 	  .to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
 	  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:10})
 	  .to(Next, {visibility: "visible", duration:0.01})
@@ -109,6 +110,7 @@
 			    DialogText.innerText = "歡迎光臨南山公墓 × 元宇宙"
 				var a0 = gsap.timeline()
 				a0.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
 				  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:6})
 				  .to(Next, {visibility: "visible", duration:0.01})
@@ -117,17 +119,21 @@
 			    DialogText.innerText = "在這裡，我們將會帶領你了解南山公墓的文化與墓葬特色"
 				var a1 = gsap.timeline()
 				a1.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
 				  .fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:4})
 				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 2: 
 			    DialogText.innerText = "首先，我們先來看看什麼是南山公墓"
 				var a2 = gsap.timeline()
 				a2.to(Next, {visibility: "hidden", duration:0.01})
-				  .fromTo(camera.position, {x:5, y:1.7, z:-9}, {x:16, y:1.7, z:-16, duration:2.5})
-				  .to(camera.rotation, {x:Math.PI/12, y:Math.PI/2*3, z:0, duration:2.5},0)
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-9}, {x:16, y:1.7, z:-15, duration:2.5})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:2.5},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 3: 
 			    DialogText.innerText = "南山公墓：位於台南南區，是原臺灣府城的南郊，舊稱桶盤淺，為全台最大墓葬群"
@@ -143,18 +149,33 @@
 			break
 			case 7: 
 			    DialogText.innerText = "但近年來，南山墓群因為都市更新等因素，面臨迫遷的危機"
-				gsap.to(camera.rotation, {x:0, y:Math.PI/2, z:0, duration:0.01})
-				gsap.fromTo(camera.position, {x:5, y:1.7, z:-14}, {x:5, y:1.7, z:-5, duration:6})
+				var a7 = gsap.timeline()
+				a7.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/2, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-14}, {x:5, y:1.7, z:-5, duration:4})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 8: 
 			    DialogText.innerText = "也因為人們固有對於死亡的恐懼，逐漸被大家遺忘"
-				gsap.to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
-				gsap.fromTo(camera.position, {x:0.5, y:0.8, z:-15}, {x:-0.5, y:0.8, z:-15, duration:6})
+				var a8 = gsap.timeline()
+				a8.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:0.5, y:0.8, z:-15}, {x:-0.5, y:0.8, z:-15, duration:4})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 9: 
 			    DialogText.innerText = "這個企劃以3D虛擬實境網站展示明代至民國時期代具表性的墓葬建築，帶領大家了解四百多年來台灣喪葬文化的演變"
-				gsap.to(camera.rotation, {x:-Math.PI/12, y:0, z:0, duration:0.01})
-				gsap.fromTo(camera.position, {x:10, y:4, z:25}, {x:-10, y:4, z:25, duration:10})
+				var a9 = gsap.timeline()
+				a9.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:-Math.PI/12, y:0, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:10, y:4, z:25}, {x:-10, y:4, z:25, duration:6})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 10: 
 			    DialogText.innerText = "讓我們先從漢人墓葬開始吧！"
@@ -220,7 +241,7 @@
 
 	//5. 載入 物品
 	//5.1. 載入 牆壁
-	const Mwall = new THREE.MeshBasicMaterial({ color: 0x577C8A});
+	const Mwall = new THREE.MeshBasicMaterial({ color: 0x4A593D});
 	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
 	wall1.position.set(20, 3.5, 0);
 	wall1.rotation.y = -Math.PI / 2;
@@ -237,7 +258,7 @@
 	wall4.position.set(0, 3.5, -20);
 	scene.add( wall4 );
 	//5.2. 載入 天花板
-	const Mcelling = new THREE.MeshBasicMaterial({ color: 0x81C7D4 });
+	const Mcelling = new THREE.MeshBasicMaterial({ color: 0x43341B });
 	const celling = new THREE.Mesh(new THREE.PlaneGeometry( 40, 40 ), Mcelling);
 	celling.position.set(0, 7, 0);
 	celling.rotation.x = Math.PI/2;
@@ -256,7 +277,7 @@
 	scene.add( floor );
 	//5.4 載入 圖片
 	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 4.8, 3 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
-	NanPic.position.set(19.8, 2.5, -15);
+	NanPic.position.set(19.8, 2, -15);
 	NanPic.rotation.y = -Math.PI / 2;
 	scene.add( NanPic );
 	//5.5 載入 模型
@@ -270,7 +291,7 @@
 	var ModelLoader = new THREE.GLTFLoader();
 	for (let i = 0; i < ModelData.length; i++) {
     let Model = ModelData[i];
-    let ModelName = "https://neil0733.github.io/Tomb/" + Model.name + ".glb";
+    let ModelName = "https://neil0733.github.io/Tomb/Model/" + Model.name + ".glb";
     ModelLoader.load( ModelName,
 	    function (gltfScene) {
 			let loadedModel = gltfScene;
