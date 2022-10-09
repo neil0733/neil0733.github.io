@@ -115,7 +115,7 @@
 
 	//5. 載入 物品
 	//5.1. 載入 牆壁
-	const Mwall = new THREE.MeshStandardMaterial({ color: 0x577C8A, roughness : 0.7});
+	const Mwall = new THREE.MeshBasicMaterial({ color: 0x577C8A});
 	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
 	wall1.position.set(20, 3.5, 0);
 	wall1.rotation.y = -Math.PI / 2;
@@ -132,7 +132,7 @@
 	wall4.position.set(0, 3.5, -20);
 	scene.add( wall4 );
 	//5.2. 載入 天花板
-	const Mcelling = new THREE.MeshStandardMaterial({ color: 0x9B90C2 });
+	const Mcelling = new THREE.MeshBasicMaterial({ color: 0x9B90C2 });
 	const celling = new THREE.Mesh(new THREE.PlaneGeometry( 40, 40 ), Mcelling);
 	celling.position.set(0, 7, 0);
 	celling.rotation.x = Math.PI/2;
@@ -150,8 +150,8 @@
 	floor.rotation.x = - Math.PI / 2;
 	scene.add( floor );
 	//5.4 載入 圖片
-	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 3.2, 2 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
-	NanPic.position.set(15, 2.5, -18);
+	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 4.8, 3 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
+	NanPic.position.set(19.8, 2.5, -15);
 	NanPic.rotation.y = -Math.PI / 2;
 	scene.add( NanPic );
 	//5.5 載入 模型

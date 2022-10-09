@@ -38,6 +38,7 @@
 				cursor: pointer;
 				background-color: rgba(240, 240, 240, 0.2);
 				border:  0px solid white;
+				visibility: visible;
 			}
 			.button:hover {
 				background-color: rgba(240, 240, 240, 0.7);
@@ -85,9 +86,14 @@
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
 
 	//3.1. 導覽文字、動畫：
-	gsap.fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:10})
 	var i = 0;
 	const DialogText = document.getElementById("DialogText");
+	const Next = document.getElementById("Next");
+	var a0 = gsap.timeline()
+	a0.to(Next, {visibility: "hidden", duration:0.01})
+	  .to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
+	  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:10})
+	  .to(Next, {visibility: "visible", duration:0.01})
 	function NextBack(Choice){
 		if(Choice.id == "Next"){
 			var music = new Audio('https://neil0733.github.io/Tomb/Next.mp3');
@@ -98,27 +104,33 @@
 			Backmusic.play();
 			i = i - 1;
 		};
-		var Img = document.createElement('img');
-		var PicDiv = document.getElementById("pic");
 		switch (i) {
 		    case 0:
 			    DialogText.innerText = "歡迎光臨南山公墓 × 元宇宙"
-				gsap.to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
-				gsap.fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:10})
+				var a0 = gsap.timeline()
+				a0.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
+				  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:6})
+				  .to(Next, {visibility: "visible", duration:0.01})
 			break
 			case 1: 
 			    DialogText.innerText = "在這裡，我們將會帶領你了解南山公墓的文化與墓葬特色"
-				gsap.to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
-				gsap.fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:6})
+				var a1 = gsap.timeline()
+				a1.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:4})
+				  .to(Next, {visibility: "visible", duration:0.01})
 			break
 			case 2: 
 			    DialogText.innerText = "首先，我們先來看看什麼是南山公墓"
-				gsap.fromTo(camera.position, {x:5, y:1.7, z:-9}, {x:12, y:1.7, z:-15, duration:2.5})
+				var a2 = gsap.timeline()
+				a2.to(Next, {visibility: "hidden", duration:0.01})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-9}, {x:16, y:1.7, z:-16, duration:2.5})
+				  .to(camera.rotation, {x:Math.PI/12, y:Math.PI/2*3, z:0, duration:2.5},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
 			break
 			case 3: 
 			    DialogText.innerText = "南山公墓：位於台南南區，是原臺灣府城的南郊，舊稱桶盤淺，為全台最大墓葬群"
-				Img.src="https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg"
-				PicDiv.appendChild( Img );
 			break
 			case 4: 
 			    DialogText.innerText = "包含了荷治、明鄭、清領、日治到戰後各個時期的墓葬，是台灣歷史的見證"
@@ -208,7 +220,7 @@
 
 	//5. 載入 物品
 	//5.1. 載入 牆壁
-	const Mwall = new THREE.MeshStandardMaterial({ color: 0x577C8A, roughness : 0.7});
+	const Mwall = new THREE.MeshBasicMaterial({ color: 0x577C8A});
 	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
 	wall1.position.set(20, 3.5, 0);
 	wall1.rotation.y = -Math.PI / 2;
@@ -225,7 +237,7 @@
 	wall4.position.set(0, 3.5, -20);
 	scene.add( wall4 );
 	//5.2. 載入 天花板
-	const Mcelling = new THREE.MeshStandardMaterial({ color: 0x81C7D4 });
+	const Mcelling = new THREE.MeshBasicMaterial({ color: 0x81C7D4 });
 	const celling = new THREE.Mesh(new THREE.PlaneGeometry( 40, 40 ), Mcelling);
 	celling.position.set(0, 7, 0);
 	celling.rotation.x = Math.PI/2;
@@ -243,8 +255,8 @@
 	floor.rotation.x = - Math.PI / 2;
 	scene.add( floor );
 	//5.4 載入 圖片
-	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 3.2, 2 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
-	NanPic.position.set(15, 2.5, -18);
+	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 4.8, 3 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
+	NanPic.position.set(19.8, 2.5, -15);
 	NanPic.rotation.y = -Math.PI / 2;
 	scene.add( NanPic );
 	//5.5 載入 模型
