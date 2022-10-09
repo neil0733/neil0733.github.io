@@ -24,7 +24,7 @@
 			#pic {
 			    position: absolute;
 				left: 10%;
-				top: 0%;
+				top: 5%;
 				width: 80%;
 				height: 70%;
 				text-align: center;
@@ -99,6 +99,7 @@
 			i = i - 1;
 		};
 		var Img = document.createElement('img');
+		var PicDiv = document.getElementById("pic");
 		switch (i) {
 		    case 0:
 			    DialogText.innerText = "歡迎光臨南山公墓 × 元宇宙"
@@ -117,7 +118,7 @@
 			case 3: 
 			    DialogText.innerText = "南山公墓：位於台南南區，是原臺灣府城的南郊，舊稱桶盤淺，為全台最大墓葬群"
 				Img.src="https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg"
-				document.getElementById("pic").appendChild( Img );
+				PicDiv.appendChild( Img );
 			break
 			case 4: 
 			    DialogText.innerText = "包含了荷治、明鄭、清領、日治到戰後各個時期的墓葬，是台灣歷史的見證"
@@ -229,7 +230,7 @@
 	celling.position.set(0, 7, 0);
 	celling.rotation.x = Math.PI/2;
 	scene.add( celling );
-	//5.4. 載入 地板
+	//5.3. 載入 地板
 	const Mfloor = new THREE.MeshStandardMaterial({
 		map: Floorbasecolor,
 		normalMap: FloornormalMap,
@@ -241,13 +242,18 @@
 	floor.position.set(0, 0, 0);
 	floor.rotation.x = - Math.PI / 2;
 	scene.add( floor );
+	//5.4 載入 圖片
+	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 3.2, 2 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
+	NanPic.position.set(15, 2.5, -18);
+	NanPic.rotation.y = -Math.PI / 2;
+	scene.add( NanPic );
 	//5.5 載入 模型
 	const ModelData = [
-	    {"name":"Barclay","x":15,"y":0,"z":10,"rotation":0,"scale":0.05,"SLangle":8,"SLx":12,"SLy":2.5,"SLz":10},
 		{"name":"excavator","x":0,"y":1,"z":-5,"rotation":0,"scale":1,"SLangle":8,"SLx":0,"SLy":7,"SLz":-12},
 		{"name":"mountain","x":0.35,"y":0.1,"z":-13,"rotation":1,"scale":0.07,"SLangle":6,"SLx":0,"SLy":2,"SLz":-15},
-		{"name":"wong","x":0,"y":0.1,"z":15,"rotation":0.5,"scale":0.04,"SLangle":6,"SLx":0,"SLy":2,"SLz":13},
-		{"name":"si","x":15,"y":0.6,"z":-15,"rotation":0.75,"scale":0.2,"SLangle":2,"SLx":15,"SLy":2,"SLz":-15}
+		{"name":"si","x":15,"y":0.6,"z":0,"rotation":0.5,"scale":0.2,"SLangle":6,"SLx":10,"SLy":2,"SLz":0},
+		{"name":"Barclay","x":15,"y":0,"z":10,"rotation":0,"scale":0.05,"SLangle":8,"SLx":12,"SLy":2.5,"SLz":10},
+		{"name":"wong","x":0,"y":0.1,"z":15,"rotation":0.5,"scale":0.04,"SLangle":6,"SLx":0,"SLy":2,"SLz":13}
 	];
 	var ModelLoader = new THREE.GLTFLoader();
 	for (let i = 0; i < ModelData.length; i++) {
