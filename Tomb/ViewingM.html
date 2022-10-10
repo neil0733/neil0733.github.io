@@ -47,12 +47,10 @@
 </div>
 
 <script src="https://neil0733.github.io/js/three.js"></script>
-<script src="https://neil0733.github.io/js/CSS2DRenderer.js"></script>
 <script type="module">
-	//檔案本身要改，改成module版本的
 	import * as THREE from 'https://neil0733.github.io/js/three.js';
 	import { VRButton } from 'https://neil0733.github.io/js/VRButton.module.js';
-	import { XRControllerModelFactory } from '../../libs/three/jsm/XRControllerModelFactory.js';
+	//import { XRControllerModelFactory } from '../../libs/three/jsm/XRControllerModelFactory.js';
 	import { PointerLockControls } from 'https://neil0733.github.io/js/PointerLockControls.module.js';
 	import { GLTFLoader } from 'https://neil0733.github.io/js/GLTFLoader.module.js';
 	import { SVGLoader } from 'https://neil0733.github.io/js/SVGLoader.module.js';
@@ -69,12 +67,6 @@
 	renderer.shadowMap.enabled = true
     renderer.shadowMap.type = 2 // THREE.PCFSoftShadowMap
 	document.body.appendChild( renderer.domElement );
-	//2.1. label 的 renderer 設定
-	labelRenderer = new THREE.CSS2DRenderer();
-	labelRenderer.setSize( window.innerWidth, window.innerHeight);
-	labelRenderer.domElement.style.position = 'absolute';
-	labelRenderer.domElement.style.top = 0;
-	document.body.appendChild(labelRenderer.domElement);
 	
 	//3. 視角控制 設定：使用 Pointer Lock Controls
 	//參考：https://github.com/DezChuang/ironman-three.js/blob/master/day21_pointerLockControls1/index.js
@@ -242,7 +234,7 @@
 		{"name":"Barclay","x":17,"y":0,"z":13,"rotation":0,"scale":0.05,"SLangle":6,"SLx":12,"SLy":2.5,"SLz":13},
 		{"name":"wong","x":8,"y":0.1,"z":16,"rotation":0.5,"scale":0.04,"SLangle":6,"SLx":8,"SLy":2,"SLz":13}
 	];
-	var ModelLoader = new THREE.GLTFLoader();
+	var ModelLoader = new GLTFLoader();
 	for (let i = 0; i < ModelData.length; i++) {
     let Model = ModelData[i];
     let ModelName = "https://neil0733.github.io/Tomb/Model/" + Model.name + ".glb";
@@ -277,7 +269,7 @@
 		{"name":"Barclay.2.pic","x":19.8,"y":4.5,"z":9,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
 		{"name":"Wong.2.pic","x":14,"y":4.5,"z":19.8,"scale":0.01,"Rx":1,"Ry":1,"Rz":0}
 	];
-	const svgLoader = new THREE.SVGLoader();
+	const svgLoader = new SVGLoader();
 	for (let i = 0; i < WordData.length; i++) {
     let Word = WordData[i];
     let WordName = "https://neil0733.github.io/Tomb/Word/" + Word.name + ".svg";
