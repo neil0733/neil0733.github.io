@@ -47,17 +47,16 @@
 </div>
 
 <script src="https://neil0733.github.io/js/three.js"></script>
-<script src="https://neil0733.github.io/js/GLTFLoader.js"></script>
-<script src="https://neil0733.github.io/js/SVGLoader.js"></script>
 <script src="https://neil0733.github.io/js/CSS2DRenderer.js"></script>
 <script type="module">
 	//檔案本身要改，改成module版本的
 	import * as THREE from 'https://neil0733.github.io/js/three.js';
-	import { VRButton } from '../../libs/VRButton.js';
+	import { VRButton } from 'https://neil0733.github.io/js/VRButton.module.js';
 	import { XRControllerModelFactory } from '../../libs/three/jsm/XRControllerModelFactory.js';
-	
 	import { PointerLockControls } from 'https://neil0733.github.io/js/PointerLockControls.module.js';
+	import { GLTFLoader } from 'https://neil0733.github.io/js/GLTFLoader.module.js';
 	import { SVGLoader } from 'https://neil0733.github.io/js/SVGLoader.module.js';
+	
 	const scene = new THREE.Scene();
 	//1. camera 設定
 	var camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 1000 );
