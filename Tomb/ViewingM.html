@@ -32,6 +32,13 @@
 				cursor: pointer;
 			}
 		</style>
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://neil0733.github.io/js/three.module.js",
+				}
+			}
+		</script>
 	</head>
 
 <body>
@@ -47,7 +54,7 @@
 </div>
 
 <script type="module">
-	import * as THREE from '../js/three.module.js';
+	import THREE from 'three';
 	import { VRButton } from '../js/VRButton.module.js';
 	//import { XRControllerModelFactory } from '../../libs/three/jsm/XRControllerModelFactory.js';
 	import { PointerLockControls } from '../js/PointerLockControls.module.js';
