@@ -285,6 +285,24 @@
 	for (let i = 0; i < WordData.length; i++) {
     let Word = WordData[i];
     let WordName = "https://neil0733.github.io/Tomb/Word/" + Word.name + ".svg";
+	/**let data = svgLoader.parse(WordName);
+data.paths.forEach(dp => {
+  let shapes = dp.toShapes(true);
+  shapes.forEach(sh => {
+    let g = new THREE.ExtrudeBufferGeometry(sh, {bevelEnabled: false, depth: 2});
+    g.center();
+    let m = new THREE.MeshLambertMaterial({color: 0xFFFFFF});
+    let o = new THREE.Mesh(g, m);
+    o.scale.setScalar(1);
+	o.position.x = parseFloat(Word.x);
+	o.position.y = parseFloat(Word.y);
+	o.position.z = parseFloat(Word.z);
+	o.rotation.x = Math.PI*parseFloat(Word.Rx);
+	o.rotation.y = Math.PI*parseFloat(Word.Ry);
+	o.rotation.z = Math.PI*parseFloat(Word.Rz);
+    scene.add(o);
+  });
+  });**/
 	svgLoader.load( WordName,
 	// called when the resource is loaded
 		function ( data ) {
@@ -317,20 +335,13 @@
 		}
 	)
 	};
+
 	//6. 載入 光線
 	const Alight = new THREE.AmbientLight( 0x000000 );
 	scene.add( Alight );
 	const directionalLight = new THREE.DirectionalLight( 0xFAD689, 0.7 );
 	scene.add( directionalLight );
 
-	/**
-	function Drawscene(){
-	    pointerLockControlsRender();
-		renderer.render( scene, camera );
-		window.requestAnimationFrame(Drawscene);
-	};
-	Drawscene();
-	**/
 	renderer.setAnimationLoop( function () {
 		pointerLockControlsRender();
 		renderer.render( scene, camera );
