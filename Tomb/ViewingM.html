@@ -53,7 +53,6 @@
 		E：進入/解除滑鼠鎖定<br>
 		W/A/S/D：前/左/右/後移動
 		</span>
-		<button type="button" onclick="start()">開始</button>
     </div>
 </div>
 
@@ -79,6 +78,7 @@
 	document.body.appendChild( renderer.domElement );
 	
 	document.body.appendChild( VRButton.createButton( renderer ) );
+	renderer.xr.enabled = true;
 
 	//3. 視角控制 設定：使用 Pointer Lock Controls
 	//參考：https://github.com/DezChuang/ironman-three.js/blob/master/day21_pointerLockControls1/index.js
@@ -323,16 +323,18 @@
 	const directionalLight = new THREE.DirectionalLight( 0xFAD689, 0.7 );
 	scene.add( directionalLight );
 
+	/**
 	function Drawscene(){
 	    pointerLockControlsRender();
 		renderer.render( scene, camera );
 		window.requestAnimationFrame(Drawscene);
 	};
 	Drawscene();
-	
-	function start(){
-		plc.unlock();
-	}
+	**/
+	renderer.setAnimationLoop( function () {
+		pointerLockControlsRender();
+		renderer.render( scene, camera );
+	} );
 
 </script>
 </body>
