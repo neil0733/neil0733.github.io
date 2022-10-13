@@ -112,7 +112,7 @@
 				a0.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
-				  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:6})
+				  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:4})
 				  .to(Next, {visibility: "visible", duration:0.01})
 			break
 			case 1: 
@@ -121,7 +121,7 @@
 				a1.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:4})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:3})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -130,7 +130,7 @@
 				var a2 = gsap.timeline()
 				a2.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .fromTo(camera.position, {x:5, y:1.7, z:-9}, {x:16, y:1.7, z:-15, duration:2.5})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-9}, {x:16, y:2.3, z:-12.5, duration:2.5})
 				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:2.5},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
@@ -140,12 +140,33 @@
 			break
 			case 4: 
 			    DialogText.innerText = "包含了荷治、明鄭、清領、日治到戰後各個時期的墓葬，是台灣歷史的見證"
+				var a4 = gsap.timeline()
+				a4.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01},0)
+				  .fromTo(camera.position, {x:2, y:3, z:-2}, {x:2, y:3, z:10, duration:5})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 5: 
 			    DialogText.innerText = "其中的墓葬形式，有傳統漢式、日式、天主教式、基督教式、佛教式，更有全世界獨有的日漢合併的墓葬形式"
+				var a5 = gsap.timeline()
+				a5.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01},0)
+				  .fromTo(camera.position, {x:10, y:3, z:2}, {x:-5, y:3, z:2, duration:5})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 6: 
 			    DialogText.innerText = "蘊含豐富的墓葬建築、古道地貌、軍事遺構、歷史名人、生態環境、考古遺址、文人詩詞、彩繪花磚、石雕作品"
+				var a6 = gsap.timeline()
+				a6.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/4*5, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:7, y:1.7, z:-7}, {x:-7, y:1.7, z:7, duration:6})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 7: 
 			    DialogText.innerText = "但近年來，南山墓群因為都市更新等因素，面臨迫遷的危機"
@@ -206,11 +227,23 @@
 			break
 			case 19: 
 			    DialogText.innerText = "墓碑：又稱為「墓牌」，造型多樣，以前在窮苦的時候甚至只會有墓堆，而未有墓碑"
-				gsap.to(camera.rotation, {x:0, y:-Math.PI/4, z:0, duration:0.01})
-				gsap.fromTo(camera.position, {x:12, y:1.5, z:-10}, {x:14, y:1.5, z:-14, duration:10})
+				var a19 = gsap.timeline()
+				a19.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:8, y:1.5, z:0}, {x:13, y:1, z:0, duration:4})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 20: 
 			    DialogText.innerText = "平常在墓碑上一眼看見即是死者姓名、籍貫功名、年紀後嗣等，而用來鐫刻碑文的地方稱為「碑身」，也是墓碑的主體"
+				var a20 = gsap.timeline()
+				a20.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:13, y:1, z:0}, {x:13.4, y:1.1, z:0, duration:1})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 21: 
 			    DialogText.innerText = "墓桌：又稱「供桌、酒菜桌」，祭祀時用來擺放供品、花束等。通常與墓碑同寬"
@@ -277,7 +310,7 @@
 	scene.add( floor );
 	//5.4 載入 圖片
 	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 4.8, 3 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
-	NanPic.position.set(19.8, 2, -15);
+	NanPic.position.set(19.8, 2.7, -12.5);
 	NanPic.rotation.y = -Math.PI / 2;
 	scene.add( NanPic );
 	//5.5 載入 模型
@@ -315,8 +348,14 @@
 	}
 	//5.6 載入 字板
 	const WordData = [
-	    {"name":"Barclay.1.pic","x":19.5,"y":3.5,"z":9,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Barclay.2.pic","x":19.5,"y":3.5,"z":12,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0}
+		{"name":"Intro.1.pic","x":19.8,"y":4.5,"z":-18,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Si.1.pic","x":15,"y":2,"z":4,"scale":0.006,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Si.2.pic","x":19.8,"y":4.5,"z":-4.5,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Si.3.pic","x":19.8,"y":2.5,"z":-4.5,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+	    {"name":"Barclay.1.pic","x":17,"y":2,"z":15,"scale":0.006,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Barclay.2.pic","x":19.8,"y":4.5,"z":9,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Wong.1.pic","x":7,"y":2,"z":17,"scale":0.006,"Rx":1,"Ry":1,"Rz":0},
+		{"name":"Wong.2.pic","x":13,"y":4.5,"z":19.8,"scale":0.01,"Rx":1,"Ry":1,"Rz":0}
 	];
 	const svgLoader = new THREE.SVGLoader();
 	for (let i = 0; i < WordData.length; i++) {
