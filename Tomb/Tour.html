@@ -241,12 +241,19 @@
 				a20.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:13, y:1, z:0}, {x:13.4, y:1.1, z:0, duration:1})
+				  .fromTo(camera.position, {x:13, y:1, z:0}, {x:13.4, y:1.05, z:0, duration:1})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 21: 
 			    DialogText.innerText = "墓桌：又稱「供桌、酒菜桌」，祭祀時用來擺放供品、花束等。通常與墓碑同寬"
+				var a21 = gsap.timeline()
+				a21.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:13.4, y:1.05, z:0}, {x:13.4, y:0.9, z:0, duration:1})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 22: 
 			    DialogText.innerText = "且側邊會有簡單雕飾，而底座通常採櫃台腳（而施瓊芳墓也以這樣的方式表現）"
