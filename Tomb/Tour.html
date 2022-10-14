@@ -21,7 +21,7 @@
 				-webkit-box-pack: center;
 				-webkit-box-align: center;
 			}
-			#pic {
+			#picdiv {
 			    position: absolute;
 				left: 10%;
 				top: 5%;
@@ -46,7 +46,7 @@
 	</head>
 
 <body>
-<div id="pic"></div>
+<div id="picdiv"><img id="pic" src=""></div>
 <div id="dialog">
     <table width="100%">
         <tr>
@@ -89,6 +89,7 @@
 	const DialogText = document.getElementById("DialogText");
 	const Next = document.getElementById("Next");
 	const Back = document.getElementById("Back");
+	const Pic = document.getElementById("pic");
 	var a0 = gsap.timeline()
 	a0.to(Next, {visibility: "hidden", duration:0.01})
 	  .to(Back, {visibility: "hidden", duration:0.01})
@@ -112,7 +113,7 @@
 				a0.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
-				  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:4})
+				  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:3})
 				  .to(Next, {visibility: "visible", duration:0.01})
 			break
 			case 1: 
@@ -203,6 +204,7 @@
 			break
 			case 11: 
 			    DialogText.innerText = "先來介紹一下這個墓的主人：施瓊芳"
+				Pic.src = ""
 			break
 			case 12: 
 			    DialogText.innerText = "施瓊芳，原名為施龍文，在中舉之後即改名為施瓊芳"
@@ -218,6 +220,7 @@
 			break
 			case 16: 
 			    DialogText.innerText = "與兒子施士洁是臺灣科舉史上唯一的父子檔進士"
+				Pic.src = "https://neil0733.github.io/Tomb/Picture/sisije.jpg"
 			break
 			case 17: 
 			    DialogText.innerText = "目前施瓊芳之墓被台南市政府，選定為直轄市古蹟"
@@ -334,6 +337,7 @@
 				  .fromTo(camera.position, {x:13.4, y:0.7, z:0}, {x:13.4, y:0.5, z:0, duration:1})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
+				  Pic.src = "https://neil0733.github.io/Tomb/Picture/Barclay.jpg"
 			break
 			case 30: 
 			    DialogText.innerText = "－創立台南聚珍堂（台灣第一間新式印刷機構），將第一台新版印刷機帶進台灣"
