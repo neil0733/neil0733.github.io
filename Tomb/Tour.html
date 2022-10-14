@@ -94,7 +94,7 @@
 	a0.to(Next, {visibility: "hidden", duration:0.01})
 	  .to(Back, {visibility: "hidden", duration:0.01})
 	  .to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
-	  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:10})
+	  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:4})
 	  .to(Next, {visibility: "visible", duration:0.01})
 	function NextBack(Choice){
 		if(Choice.id == "Next"){
@@ -113,7 +113,7 @@
 				a0.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
-				  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:3})
+				  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:4})
 				  .to(Next, {visibility: "visible", duration:0.01})
 			break
 			case 1: 
@@ -284,7 +284,7 @@
 				var a23 = gsap.timeline()
 				a23.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:13.5, y:1.1, z:-0.5, duration:1})
+				  .to(camera.position, {x:14, y:1.1, z:-0.6, duration:1})
 				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
@@ -294,8 +294,8 @@
 				var a24 = gsap.timeline()
 				a24.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI/12*22, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:13.4, y:0.7, z:0}, {x:13.4, y:0.5, z:0, duration:1})
+				  .to(camera.position, {x:11, y:1.5, z:-1.5, duration:1})
+				  .to(camera.rotation, {x:-Math.PI/12, y:Math.PI/2*3, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
