@@ -214,9 +214,11 @@
 			break
 			case 14: 
 			    DialogText.innerText = "在經歷了四次的會試未中，終於在1845年考中進士，是府城的第一位進士"
+				Pic.src = ""
 			break
 			case 15: 
 			    DialogText.innerText = "未在分發時赴任江蘇等地的職位，最後返鄉為鄉努力；曾勸募修建育嬰堂、義民祠、藥王廟等公共設施"
+				Pic.src = "https://neil0733.github.io/Tomb/Picture/Yào wáng.jpg"
 			break
 			case 16: 
 			    DialogText.innerText = "與兒子施士洁是臺灣科舉史上唯一的父子檔進士"
@@ -242,8 +244,8 @@
 				var a19 = gsap.timeline()
 				a19.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:8, y:1.5, z:0}, {x:13, y:1, z:0, duration:4})
+				  .to(camera.position, {x:13, y:1, z:0, duration:2})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -252,8 +254,8 @@
 				var a20 = gsap.timeline()
 				a20.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:13, y:1, z:0}, {x:13.4, y:1.05, z:0, duration:1})
+				  .to(camera.position, {x:13.4, y:1.05, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -262,8 +264,8 @@
 				var a21 = gsap.timeline()
 				a21.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:13.4, y:1.05, z:0}, {x:13.4, y:0.7, z:0, duration:1})
+				  .to(camera.position, {x:13.4, y:0.7, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -272,8 +274,8 @@
 				var a22 = gsap.timeline()
 				a22.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI/12*22, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:13.4, y:0.7, z:0}, {x:13.4, y:0.5, z:0, duration:1})
+				  .to(camera.position, {x:13.5, y:0.6, z:-0.1, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/12*21, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -282,8 +284,8 @@
 				var a23 = gsap.timeline()
 				a23.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI/12*22, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:13.4, y:0.7, z:0}, {x:13.4, y:0.5, z:0, duration:1})
+				  .to(camera.position, {x:13.5, y:1.1, z:-0.5, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
