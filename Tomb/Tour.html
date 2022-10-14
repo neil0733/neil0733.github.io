@@ -224,9 +224,18 @@
 			break
 			case 17: 
 			    DialogText.innerText = "目前施瓊芳之墓被台南市政府，選定為直轄市古蹟"
+				Pic.src = "https://neil0733.github.io/Tomb/Picture/si tomb.jpg"
 			break
 			case 18: 
 			    DialogText.innerText = "介紹完墓主人，接著就讓我們來看看「漢式墓」的相關構造與介紹吧！"
+				var a18 = gsap.timeline()
+				a18.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:1.5, z:0, duration:2.5})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:2.5},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+				Pic.src = ""
 			break
 			case 19: 
 			    DialogText.innerText = "墓碑：又稱為「墓牌」，造型多樣，以前在窮苦的時候甚至只會有墓堆，而未有墓碑"
