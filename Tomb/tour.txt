@@ -180,3 +180,44 @@
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
+			case 24: 
+			    DialogText.innerText = "墓手：由墓碑向前且向外延伸，兩側對稱"
+				var a24 = gsap.timeline()
+				a24.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:11, y:1.5, z:-1.5, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(camera.position, {x:11, y:1.5, z:1, duration:2})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 25: 
+			    DialogText.innerText = "墓手可分為縱向為伸，橫向為屈，一伸一屈為一組，將墓界定出該有的樣貌與大小型式"
+				var a24 = gsap.timeline()
+				a24.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:11, y:1.5, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/12*19, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 26: 
+			    DialogText.innerText = "墓埕：通常是墳前半圓形區，包含墓手所圍出來的空間"
+				var a25 = gsap.timeline()
+				a25.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:1.2, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 27: 
+			    DialogText.innerText = "而墓埕又可分為內外埕，規模較大的墓內埕會鋪設磚，如施瓊芳的墓即此"
+				var a26 = gsap.timeline()
+				a26.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:1.2, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
