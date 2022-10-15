@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>南山公墓x元宇宙</title>
+		<style>
+			body { margin: 0; }	
+			#dialog {
+			    position: absolute;
+				left: 10%;
+				top: 75%;
+				width: 80%;
+				height: 20%;
+				background-color: rgba(0, 0, 0, 0.5);
+				border:  8px solid white;
+				border-radius: 12px;
+				color: #ffffff;
+				text-align: center;
+				font-size: 40px;
+				display: -webkit-box;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+			}
+			#picdiv {
+			    position: absolute;
+				left: 10%;
+				top: 5%;
+				width: 80%;
+				height: 70%;
+				text-align: center;
+				display: -webkit-box;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+			}
+			.button {
+				color: white;
+				font-size: 40px;
+				cursor: pointer;
+				background-color: rgba(240, 240, 240, 0.2);
+				border:  0px solid white;
+			}
+			.button:hover {
+				background-color: rgba(240, 240, 240, 0.7);
+			}
+		</style>
+	</head>
+
+<body>
+<div id="picdiv"><img id="pic" src="" height="90%"></div>
+<div id="dialog">
+    <table width="100%">
+        <tr>
+            <td width="90%"><span id="DialogText">歡迎光臨南山公墓 × 元宇宙</span></td>
+            <td width="10%">
+			    <button type="button" class="button" id="Back" onclick="NextBack(this)">▲</button><br>
+				<button type="button" class="button" id="Next" onclick="NextBack(this)">▼</button>
+			</td>
+        </tr>
+	</table>
+</div>
+<div id="transition"></div>
+
+<script src="https://neil0733.github.io/js/three.js"></script>
+<script src="https://neil0733.github.io/js/PointerLockControls.js"></script>
+<script src="https://neil0733.github.io/js/GLTFLoader.js"></script>
+<script src="https://neil0733.github.io/js/CSS2DRenderer.js"></script>
+<script src="https://neil0733.github.io/js/SVGLoader.js"></script>
+<script src="https://neil0733.github.io/js/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script>
+	const scene = new THREE.Scene();
+	//1. camera 設定
+	var camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+	camera.rotation.set(Math.PI/4, Math.PI/4*3, -Math.PI/6);
+
+	//2. renderer 設定
+	const renderer = new THREE.WebGLRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.shadowMap.enabled = true
+    renderer.shadowMap.type = 2 // THREE.PCFSoftShadowMap
+	document.body.appendChild( renderer.domElement );
+	
+	//3. 視角控制 設定：使用 Pointer Lock Controls
+	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
+
+	//3.1. 導覽文字、動畫：
+	var i = 33;
+	const DialogText = document.getElementById("DialogText");
+	const Next = document.getElementById("Next");
+	const Back = document.getElementById("Back");
+	const Pic = document.getElementById("pic");
+	var a0 = gsap.timeline()
+	a0.to(Next, {visibility: "hidden", duration:0.01})
+	  .to(Back, {visibility: "hidden", duration:0.01})
+	  .to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
+	  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:4})
+	  .to(Next, {visibility: "visible", duration:0.01})
+	function NextBack(Choice){
+		if(Choice.id == "Next"){
+			var music = new Audio('https://neil0733.github.io/Tomb/Next.mp3');
+			music.play();
+			i = i + 1;
+		} else{
+			var Backmusic = new Audio('https://neil0733.github.io/Tomb/Back.mp3');
+			Backmusic.play();
+			i = i - 1;
+		};
+		switch (i) {
+
+			case 45: 
+			    DialogText.innerText = "當時路思義教堂剛建好，是個相當具代表性且宏偉磅礴的作品，因此大家也期望自己的墓以這樣子呈現"
+				var a45 = gsap.timeline()
+				a45.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 46: 
+			    DialogText.innerText = "也造就南山公墓裡有許多另類建構方式的「路思義教堂」！"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+		}
+	}
+
+	//4. 載入 Texture
+	const textureLoader = new THREE.TextureLoader();
+	//4.1. 載入 地板的 Texture
+	const Floorbasecolor = textureLoader.load("https://neil0733.github.io/Tomb/WoodFloor/WoodFlooring_basecolor.jpg");
+	Floorbasecolor.wrapS = Floorbasecolor.wrapT = THREE.RepeatWrapping;
+	Floorbasecolor.repeat.set( 20, 20 );
+	const FloornormalMap = textureLoader.load("https://neil0733.github.io/Tomb/WoodFloor/WoodFlooring_normalMap.jpg");
+	FloornormalMap.wrapS = FloornormalMap.wrapT = THREE.RepeatWrapping;
+	FloornormalMap.repeat.set( 20, 20 );
+	const FloordisplacementMap = textureLoader.load("https://neil0733.github.io/Tomb/WoodFloor/WoodFlooring_displacementMap.jpg");
+	FloordisplacementMap.wrapS = FloordisplacementMap.wrapT = THREE.RepeatWrapping;
+	FloordisplacementMap.repeat.set( 20, 20 );
+	const FloorglossMap = textureLoader.load("https://neil0733.github.io/Tomb/WoodFloor/WoodFlooring_glossMap.jpg");
+	FloorglossMap.wrapS = FloorglossMap.wrapT = THREE.RepeatWrapping;
+	FloorglossMap.repeat.set( 20, 20 );
+
+	//5. 載入 物品
+	//5.1. 載入 牆壁
+	const Mwall = new THREE.MeshBasicMaterial({ color: 0x4A593D});
+	const wall1 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
+	wall1.position.set(20, 3.5, 0);
+	wall1.rotation.y = -Math.PI / 2;
+	scene.add( wall1 );
+	const wall2 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
+	wall2.position.set(0, 3.5, 20);
+	wall2.rotation.y = Math.PI;
+	scene.add( wall2 );
+	const wall3 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
+	wall3.position.set(-20, 3.5, 0);
+	wall3.rotation.y = Math.PI / 2;
+	scene.add( wall3 );
+	const wall4 = new THREE.Mesh(new THREE.PlaneGeometry( 40, 7 ), Mwall);
+	wall4.position.set(0, 3.5, -20);
+	scene.add( wall4 );
+	//5.2. 載入 天花板
+	const Mcelling = new THREE.MeshBasicMaterial({ color: 0x43341B });
+	const celling = new THREE.Mesh(new THREE.PlaneGeometry( 40, 40 ), Mcelling);
+	celling.position.set(0, 7, 0);
+	celling.rotation.x = Math.PI/2;
+	scene.add( celling );
+	//5.3. 載入 地板
+	const Mfloor = new THREE.MeshStandardMaterial({
+		map: Floorbasecolor,
+		normalMap: FloornormalMap,
+		displacementMap: FloordisplacementMap,
+		displacementScale: 0.1,
+		roughnessMap: FloorglossMap, roughness: 0.6
+	});
+	const floor = new THREE.Mesh(new THREE.PlaneGeometry( 40, 40 ), Mfloor);
+	floor.position.set(0, 0, 0);
+	floor.rotation.x = - Math.PI / 2;
+	scene.add( floor );
+	//5.4 載入 圖片
+	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 4.8, 3 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
+	NanPic.position.set(19.8, 2.7, -12.5);
+	NanPic.rotation.y = -Math.PI / 2;
+	scene.add( NanPic );
+	//5.5 載入 模型
+	const ModelData = [
+		{"name":"excavator","x":0,"y":1,"z":-5,"rotation":0,"scale":1,"SLangle":8,"SLx":0,"SLy":7,"SLz":-12},
+		{"name":"mountain","x":0.35,"y":0.1,"z":-13,"rotation":1,"scale":0.07,"SLangle":6,"SLx":0,"SLy":2,"SLz":-15},
+		{"name":"si","x":15,"y":0.6,"z":0,"rotation":0.5,"scale":0.2,"SLangle":6,"SLx":10,"SLy":2,"SLz":0},
+		{"name":"Barclay","x":17,"y":0,"z":13,"rotation":0,"scale":0.05,"SLangle":6,"SLx":12,"SLy":2.5,"SLz":13},
+		{"name":"wong","x":8,"y":0.1,"z":17,"rotation":0.5,"scale":0.04,"SLangle":6,"SLx":8,"SLy":2,"SLz":13}
+	];
+	var ModelLoader = new THREE.GLTFLoader();
+	for (let i = 0; i < ModelData.length; i++) {
+    let Model = ModelData[i];
+    let ModelName = "https://neil0733.github.io/Tomb/Model/" + Model.name + ".glb";
+    ModelLoader.load( ModelName,
+	    function (gltfScene) {
+			let loadedModel = gltfScene;
+			gltfScene.scene.position.x = parseFloat(Model.x);
+			gltfScene.scene.position.y = parseFloat(Model.y);
+			gltfScene.scene.position.z = parseFloat(Model.z);
+			gltfScene.scene.rotation.y = Math.PI*parseFloat(Model.rotation);
+			gltfScene.scene.scale.multiplyScalar( parseFloat(Model.scale) );
+			scene.add(gltfScene.scene);
+			// 加聚光燈;
+			const spotLight = new THREE.SpotLight( 0xffffff, 2, 0, Math.PI/parseFloat(Model.SLangle), 1 ,1.5);
+			spotLight.position.x = parseFloat(Model.SLx);
+			spotLight.position.y = parseFloat(Model.SLy);
+			spotLight.position.z = parseFloat(Model.SLz);
+			spotLight.castShadow = true;
+			spotLight.target = gltfScene.scene;
+			scene.add( spotLight );
+		},
+		(xhr) => { console.log(xhr.loaded/xhr.total) }
+    )
+	}
+
+	//6. 載入 光線
+	const Alight = new THREE.AmbientLight( 0x000000 );
+	scene.add( Alight );
+	const directionalLight = new THREE.DirectionalLight( 0xFAD689, 0.7 );
+	scene.add( directionalLight );
+
+	function Drawscene(){
+		renderer.render( scene, camera );
+		window.requestAnimationFrame(Drawscene);
+	};
+	Drawscene();
+
+</script>
+</body>
+</html>
