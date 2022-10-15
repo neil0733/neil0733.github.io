@@ -234,10 +234,19 @@
 	floor.rotation.x = - Math.PI / 2;
 	scene.add( floor );
 	//5.4 載入 圖片
-	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 4.8, 3 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
-	NanPic.position.set(19.8, 2.7, -12.5);
-	NanPic.rotation.y = -Math.PI / 2;
+	const PicData = [
+		{"name":"nan-shan tomb","sx":4.8,"sy":3,"x":19.8,"y":2.7,"z":-12.5,"rotation":-0.5},
+		{"name":"process1","sx":1.5,"sy":2,"x":-19.8,"y":2.7,"z":15,"rotation":0.5},
+		{"name":"process2","sx":2,"sy":1.5,"x":-19.8,"y":2.7,"z":12,"rotation":0.5}
+	]
+	for (let i = 0; i < PicData.length; i++) {
+    let Pic = PicData[i];
+	let PicName = "https://neil0733.github.io/Tomb/Picture/" + Pic.name + ".jpg";
+	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( parseFloat(Pic.sx), parseFloat(Pic.sy) ), new THREE.MeshBasicMaterial({map: textureLoader.load(PicName)}));
+	NanPic.position.set(parseFloat(Pic.x), parseFloat(Pic.y), parseFloat(Pic.z));
+	NanPic.rotation.y = Math.PI*parseFloat(Pic.rotation);
 	scene.add( NanPic );
+    }
 	//5.5 載入 模型
 	const ModelData = [
 		{"name":"excavator","x":0,"y":1,"z":-5,"rotation":0,"scale":1,"SLangle":8,"SLx":0,"SLy":7,"SLz":-12},
@@ -280,7 +289,9 @@
 	    {"name":"Barclay.1.pic","x":17,"y":2,"z":15,"scale":0.006,"Rx":1,"Ry":0.5,"Rz":0},
 		{"name":"Barclay.2.pic","x":19.8,"y":4.5,"z":9,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
 		{"name":"Wong.1.pic","x":7,"y":2,"z":17,"scale":0.006,"Rx":1,"Ry":1,"Rz":0},
-		{"name":"Wong.2.pic","x":13,"y":4.5,"z":19.8,"scale":0.01,"Rx":1,"Ry":1,"Rz":0}
+		{"name":"Wong.2.pic","x":13,"y":4.5,"z":19.8,"scale":0.01,"Rx":1,"Ry":1,"Rz":0},
+		{"name":"Process.1.pic","x":-19.8,"y":0.7,"z":15,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.2.pic","x":-19.8,"y":0.7,"z":12,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0}
 	];
 	const svgLoader = new SVGLoader();
 	for (let i = 0; i < WordData.length; i++) {
