@@ -85,7 +85,7 @@
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
 
 	//3.1. 導覽文字、動畫：
-	var i = 46;
+	var i = 51;
 	const DialogText = document.getElementById("DialogText");
 	const Next = document.getElementById("Next");
 	const Back = document.getElementById("Back");
@@ -108,68 +108,14 @@
 		};
 		switch (i) {
 
-			case 47: 
-			    DialogText.innerText = "接著我們看到日式墓。日式墓的主人是王雨卿"
-				var a47 = gsap.timeline()
-				a47.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:8, y:0.7, z:15, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-				Pic.src = ""
-			break
-			case 48: 
-			    DialogText.innerText = "王雨卿出生於1907年，在雖然短暫的生命旅途中，卻成就許多耀眼的事蹟，就讓我們一起認識他吧！"
-				var a48 = gsap.timeline()
-				a48.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:8, y:0.7, z:15, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-				Pic.src = "https://neil0733.github.io/Tomb/Picture/wong.jpg"
-			break
-			case 49: 
-			    DialogText.innerText = "靠著自學考上台灣公學校乙種本科正教員資格考試、日本文部省中等教員生理衛生科"
-				var a49 = gsap.timeline()
-				a49.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:8, y:0.7, z:14, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-				Pic.src = ""
-			break
-			case 50: 
-			    DialogText.innerText = "此外也考上動物科檢定考試。該考試相當困難，在日治時期僅有兩位台籍人士通過，其中一位即為王雨卿"
-				var a50 = gsap.timeline()
-				a50.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:9, y:0.6, z:17, duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
-				  .to(camera.position, {x:8, y:0.7, z:13, duration:2})
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-			break
-			case 51: 
-			    DialogText.innerText = "取得教師資格後，便擔任台南師範學校博物科教師。閒暇之餘會採集多種生物研究，也發表與蝴蝶、蝦子、蝙蝠等論文"
-				var a51 = gsap.timeline()
-				a51.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:10, y:0.6, z:17, duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
-				  .to(camera.position, {x:8, y:0.6, z:17, duration:2})
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-			break
 			case 52: 
 			    DialogText.innerText = "相當熱衷「世界語」，遂也成立「啟南綠友會」，可見當時即有國際化的遠見與思考的想法"
 				var a46 = gsap.timeline()
 				a46.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(camera.position, {x:5, y:0.6, z:17, duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01})
+				  .to(camera.position, {x:7, y:0.6, z:17, duration:2})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
