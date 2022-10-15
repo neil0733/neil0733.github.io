@@ -85,7 +85,7 @@
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
 
 	//3.1. 導覽文字、動畫：
-	var i = 34;
+	var i = 0;
 	const DialogText = document.getElementById("DialogText");
 	const Next = document.getElementById("Next");
 	const Back = document.getElementById("Back");
@@ -107,7 +107,304 @@
 			i = i - 1;
 		};
 		switch (i) {
-
+		    case 0:
+			    DialogText.innerText = "歡迎光臨南山公墓 × 元宇宙"
+				var a0 = gsap.timeline()
+				a0.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:Math.PI/4, y:Math.PI/4*3, z:-Math.PI/6, duration:0.01})
+				  .fromTo(camera.position,{x:25, y:5, z:0}, {x:13, y:5, z:-12, duration:4})
+				  .to(Next, {visibility: "visible", duration:0.01})
+			break
+			case 1: 
+			    DialogText.innerText = "在這裡，我們將會帶領你了解南山公墓的文化與墓葬特色"
+				var a1 = gsap.timeline()
+				a1.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:3})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 2: 
+			    DialogText.innerText = "首先，我們先來看看什麼是南山公墓"
+				var a2 = gsap.timeline()
+				a2.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-9}, {x:16, y:2.3, z:-12.5, duration:2.5})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:2.5},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 3: 
+			    DialogText.innerText = "南山公墓：位於台南南區，是原臺灣府城的南郊，舊稱桶盤淺，為全台最大墓葬群"
+			break
+			case 4: 
+			    DialogText.innerText = "包含了荷治、明鄭、清領、日治到戰後各個時期的墓葬，是台灣歷史的見證"
+				var a4 = gsap.timeline()
+				a4.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01},0)
+				  .fromTo(camera.position, {x:2, y:3, z:-2}, {x:2, y:3, z:10, duration:5})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 5: 
+			    DialogText.innerText = "其中的墓葬形式，有傳統漢式、日式、天主教式、基督教式、佛教式，更有全世界獨有的日漢合併的墓葬形式"
+				var a5 = gsap.timeline()
+				a5.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01},0)
+				  .fromTo(camera.position, {x:10, y:3, z:2}, {x:-5, y:3, z:2, duration:5})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 6: 
+			    DialogText.innerText = "蘊含豐富的墓葬建築、古道地貌、軍事遺構、歷史名人、生態環境、考古遺址、文人詩詞、彩繪花磚、石雕作品"
+				var a6 = gsap.timeline()
+				a6.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/4*5, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:7, y:1.7, z:-7}, {x:-7, y:1.7, z:7, duration:6})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 7: 
+			    DialogText.innerText = "但近年來，南山墓群因為都市更新等因素，面臨迫遷的危機"
+				var a7 = gsap.timeline()
+				a7.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/2, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-14}, {x:5, y:1.7, z:-5, duration:4})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 8: 
+			    DialogText.innerText = "也因為人們固有對於死亡的恐懼，逐漸被大家遺忘"
+				var a8 = gsap.timeline()
+				a8.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:0.5, y:0.8, z:-15}, {x:-0.5, y:0.8, z:-15, duration:4})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 9: 
+			    DialogText.innerText = "這個企劃以3D虛擬實境網站展示明代至民國時期代具表性的墓葬建築，帶領大家了解四百多年來台灣喪葬文化的演變"
+				var a9 = gsap.timeline()
+				a9.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.rotation, {x:-Math.PI/12, y:0, z:0, duration:0.01})
+				  .fromTo(camera.position, {x:10, y:4, z:25}, {x:-10, y:4, z:25, duration:6})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 10: 
+			    DialogText.innerText = "讓我們先從漢人墓葬開始吧！"
+			break
+			case 11: 
+			    DialogText.innerText = "先來介紹一下這個墓的主人：施瓊芳"
+				Pic.src = ""
+			break
+			case 12: 
+			    DialogText.innerText = "施瓊芳，原名為施龍文，在中舉之後即改名為施瓊芳"
+			break
+			case 13: 
+			    DialogText.innerText = "關於施瓊芳的一些小知識："
+			break
+			case 14: 
+			    DialogText.innerText = "在經歷了四次的會試未中，終於在1845年考中進士，是府城的第一位進士"
+				Pic.src = ""
+			break
+			case 15: 
+			    DialogText.innerText = "未在分發時赴任江蘇等地的職位，最後返鄉為鄉努力；曾勸募修建育嬰堂、義民祠、藥王廟等公共設施"
+				Pic.src = "https://neil0733.github.io/Tomb/Picture/Yào wáng.jpg"
+			break
+			case 16: 
+			    DialogText.innerText = "與兒子施士洁是臺灣科舉史上唯一的父子檔進士"
+				Pic.src = "https://neil0733.github.io/Tomb/Picture/sisije.jpg"
+			break
+			case 17: 
+			    DialogText.innerText = "目前施瓊芳之墓被台南市政府，選定為直轄市古蹟"
+				Pic.src = "https://neil0733.github.io/Tomb/Picture/si tomb.jpg"
+			break
+			case 18: 
+			    DialogText.innerText = "介紹完墓主人，接著就讓我們來看看「漢式墓」的相關構造與介紹吧！"
+				var a18 = gsap.timeline()
+				a18.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:1.5, z:0, duration:2.5})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:2.5},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+				Pic.src = ""
+			break
+			case 19: 
+			    DialogText.innerText = "墓碑：又稱為「墓牌」，造型多樣，以前在窮苦的時候甚至只會有墓堆，而未有墓碑"
+				var a19 = gsap.timeline()
+				a19.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:13, y:1, z:0, duration:2})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 20: 
+			    DialogText.innerText = "平常在墓碑上一眼看見即是死者姓名、籍貫功名、年紀後嗣等，而用來鐫刻碑文的地方稱為「碑身」，也是墓碑的主體"
+				var a20 = gsap.timeline()
+				a20.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:13.4, y:1.05, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 21: 
+			    DialogText.innerText = "墓桌：又稱「供桌、酒菜桌」，祭祀時用來擺放供品、花束等。通常與墓碑同寬"
+				var a21 = gsap.timeline()
+				a21.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:13.4, y:0.7, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 22: 
+			    DialogText.innerText = "且側邊會有簡單雕飾，而底座通常採櫃台腳（而施瓊芳墓也以這樣的方式表現）"
+				var a22 = gsap.timeline()
+				a22.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:13.5, y:0.6, z:-0.1, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/12*21, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 23: 
+			    DialogText.innerText = "墓耳：又稱為「翅仔」或「肩石」，通常用來固定墓碑，而造型多變，而施瓊芳墓的墓耳則是降低些微高度與墓碑相連"
+				var a23 = gsap.timeline()
+				a23.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.1, z:-0.6, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 24: 
+			    DialogText.innerText = "墓手：由墓碑向前且向外延伸，兩側對稱"
+				var a24 = gsap.timeline()
+				a24.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:11, y:1.5, z:-1.5, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(camera.position, {x:11, y:1.5, z:1, duration:2})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 25: 
+			    DialogText.innerText = "墓手可分為縱向為伸，橫向為屈，一伸一屈為一組，將墓界定出該有的樣貌與大小型式"
+				var a25 = gsap.timeline()
+				a25.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:11, y:1.5, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/12*19, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 26: 
+			    DialogText.innerText = "墓埕：通常是墳前半圓形區，包含墓手所圍出來的空間"
+				var a26 = gsap.timeline()
+				a26.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:1.2, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 27: 
+			    DialogText.innerText = "而墓埕又可分為內外埕，規模較大的墓內埕會鋪設磚，如施瓊芳的墓即此"
+				var a27 = gsap.timeline()
+				a27.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:1.2, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			case 28: 
+			    DialogText.innerText = "墓龜：墓龜即整個墓後方隆起的區塊，為埋葬亡者之處"
+				var a28 = gsap.timeline()
+				a28.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:20, y:2, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2, z:0, duration:1},0)
+				  .to(camera.position, {x:18, y:2, z:0, duration:3})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 29: 
+			    DialogText.innerText = "在傳統裡墓龜具有聚財、長壽等意，且亡者的枯骨可以吸收天地之精華"
+				var a29 = gsap.timeline()
+				a29.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:20, y:2, z:0, duration:3})
+				  .to(camera.rotation, {x:0, y:Math.PI/2, z:0, duration:3},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 30: 
+			    DialogText.innerText = "接下來，我們看到基督教風格的墓葬。先介紹墓主：巴克禮牧師"
+				var a30 = gsap.timeline()
+				a30.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1, z:13, duration:3})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:3},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+				Pic.src = ""
+			break
+			case 31: 
+			    DialogText.innerText = "巴克禮牧師，全名為湯瑪斯．巴克禮（Thomas Barclay）。關於巴克禮牧師的小知識，以及對於台灣的貢獻："
+				var a31 = gsap.timeline()
+				a31.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:12, y:1, z:13, duration:3})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:3},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+				Pic.src = "https://neil0733.github.io/Tomb/Picture/Barclay.jpg"
+			break
+			case 32: 
+			    DialogText.innerText = "－創立台南聚珍堂（台灣第一間新式印刷機構），將第一台新版印刷機帶進台灣"
+				var a32 = gsap.timeline()
+				a32.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1, z:13, duration:3})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:3},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+				Pic.src = ""
+			break
+			case 33: 
+			    DialogText.innerText = "創立台灣第一所西式大學－台南神學院"
+				var a33 = gsap.timeline()
+				a33.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:15, y:1, z:14, duration:3})
+				  .to(camera.rotation, {x:0, y:Math.PI*2, z:0, duration:3},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+				Pic.src = "https://neil0733.github.io/Tomb/Picture/TTCS.jpg"
+			break
+			case 34: 
+			    DialogText.innerText = "印製台灣民間第一份報紙，即台灣基督長老教會機關刊物《台灣府城教會報》"
+				var a34 = gsap.timeline()
+				a34.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:17, y:1, z:14, duration:3})
+				  .to(camera.rotation, {x:0, y:Math.PI*2, z:0, duration:3},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+				Pic.src = "https://neil0733.github.io/Tomb/Picture/Taiwan Church News.jpg"
+			break
 			case 35: 
 			    DialogText.innerText = "先將聖經翻譯成台語羅馬拼音，而後又翻譯白話字新約聖經，替台灣信仰基督教的人帶來改變"
 				var a35 = gsap.timeline()
