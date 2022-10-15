@@ -85,7 +85,7 @@
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
 
 	//3.1. 導覽文字、動畫：
-	var i = 51;
+	var i = 54;
 	const DialogText = document.getElementById("DialogText");
 	const Next = document.getElementById("Next");
 	const Back = document.getElementById("Back");
@@ -107,50 +107,18 @@
 			i = i - 1;
 		};
 		switch (i) {
-
-			case 52: 
-			    DialogText.innerText = "相當熱衷「世界語」，遂也成立「啟南綠友會」，可見當時即有國際化的遠見與思考的想法"
-				var a46 = gsap.timeline()
-				a46.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:5, y:0.6, z:17, duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01})
-				  .to(camera.position, {x:7, y:0.6, z:17, duration:2})
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-			break
-			case 53: 
-			    DialogText.innerText = "身為博物學家，在標寫物種時他除了使用拉丁文外，也會撰寫其「羅馬拼音」，同時也不忘寫下「世界語」"
-				var a46 = gsap.timeline()
-				a46.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-			break
-			case 54: 
-			    DialogText.innerText = "與妻子佐伯操接皈依佛教，因此在他們的墓上，可見並非留下他們的本名，而是他們的戒名"
-				var a46 = gsap.timeline()
-				a46.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-			break
 			case 55: 
-			    DialogText.innerText = "不過在墓的背面則留下「俗名王雨卿」等字"
+			    DialogText.innerText = "不過在墓的側面則留下「俗名王雨卿」等字"
 				var a46 = gsap.timeline()
 				a46.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.position, {x:7, y:0.8, z:17, duration:1})
 				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 56: 
-			    DialogText.innerText = "也造就南山公墓裡有許多另類建構方式的「路思義教堂」！"
+			    DialogText.innerText = "接下來讓我們仔細的介紹墓的細節吧！日式墓也被稱作「三段墓」"
 				var a46 = gsap.timeline()
 				a46.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
@@ -160,7 +128,157 @@
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
 			case 57: 
-			    DialogText.innerText = "也造就南山公墓裡有許多另類建構方式的「路思義教堂」！"
+			    DialogText.innerText = "三段墓由上往下看，可以看見三塊石頭皆呈現正方形，互相堆疊，而三塊石頭分別為："
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 58: 
+			    DialogText.innerText = "竿石：又稱為「天石」，用來鐫刻亡者之名，許多日式墓是家族合葬之墓，大多會刻上ＯＯ家之墓，而非單位亡者之名"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 59: 
+			    DialogText.innerText = "上台石、下台石：分別稱為「人石」、「地石」，如果這三塊石頭堆疊的好，象徵天地人三者調合"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 60: 
+			    DialogText.innerText = "接著介紹日式墓的其他部分"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 61: 
+			    DialogText.innerText = "芝石：最底座部分的石塊，芝石下方即為亡者們骨灰的石櫃"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 62: 
+			    DialogText.innerText = "水鉢：中間凹槽放置水，即是供奉給祖先。兩側則有「花立」即置花的地方"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 63: 
+			    DialogText.innerText = "香爐：又稱「香立」，放置香的地方"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 64: 
+			    DialogText.innerText = "下方有塊「拜石」，是塊可掀起的石板，當今天有需要納骨時，將拜石上方（包含拜石）移開即可納骨"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 65: 
+			    DialogText.innerText = "接著就來到我們的台灣特有種：日漢墓"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 66: 
+			    DialogText.innerText = "日漢墓，就字面上意思即結合日式墓與漢式墓特色所建立的墓"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 67: 
+			    DialogText.innerText = "雖說是日漢墓，但其實日漢墓之間並沒有特意規定要擷取日式與漢式的哪些特色，因此日漢墓有許多表現的方式"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 68: 
+			    DialogText.innerText = "而我們收錄的薛家祖墓，雖沒有特別大的來頭與背景，不過依然是值得欣賞的一座墓"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 69: 
+			    DialogText.innerText = "承襲漢是墓擁有的墓龜、墓手、墓埕，不過墓手不像原先傳統漢式墓有縱橫兩向，而僅有一個方向平整的圍繞著整座墓"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 70: 
+			    DialogText.innerText = "同時也承襲日式墓三疊石、鐫刻墓碑文字、香爐、水鉢之形式"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 71: 
+			    DialogText.innerText = "特別的是兩側也建造了日本景觀中最常見的石燈籠，別有一番趣味"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 72: 
+			    DialogText.innerText = "感謝大家參與者場導覽！接下來可以進入參觀模式自由參觀"
 				var a46 = gsap.timeline()
 				a46.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
