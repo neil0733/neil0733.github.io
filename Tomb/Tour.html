@@ -85,7 +85,7 @@
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
 
 	//3.1. 導覽文字、動畫：
-	var i = 33;
+	var i = 0;
 	const DialogText = document.getElementById("DialogText");
 	const Next = document.getElementById("Next");
 	const Back = document.getElementById("Back");
@@ -604,7 +604,7 @@
 		{"name":"mountain","x":0.35,"y":0.1,"z":-13,"rotation":1,"scale":0.07,"SLangle":6,"SLx":0,"SLy":2,"SLz":-15},
 		{"name":"si","x":15,"y":0.6,"z":0,"rotation":0.5,"scale":0.2,"SLangle":6,"SLx":10,"SLy":2,"SLz":0},
 		{"name":"Barclay","x":17,"y":0,"z":13,"rotation":0,"scale":0.05,"SLangle":6,"SLx":12,"SLy":2.5,"SLz":13},
-		{"name":"wong","x":8,"y":0.1,"z":17,"rotation":0.5,"scale":0.04,"SLangle":6,"SLx":8,"SLy":2,"SLz":13}
+		{"name":"wong","x":8,"y":0.1,"z":17,"rotation":1,"scale":0.04,"SLangle":6,"SLx":6,"SLy":2,"SLz":13}
 	];
 	var ModelLoader = new THREE.GLTFLoader();
 	for (let i = 0; i < ModelData.length; i++) {
