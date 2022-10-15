@@ -296,3 +296,14 @@
 				  .to(Back, {visibility: "visible", duration:0.01})
 				Pic.src = "https://neil0733.github.io/Tomb/Picture/Taiwan Church News.jpg"
 			break
+			case 35: 
+			    DialogText.innerText = "先將聖經翻譯成台語羅馬拼音，而後又翻譯白話字新約聖經，替台灣信仰基督教的人帶來改變"
+				var a35 = gsap.timeline()
+				a35.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:12, y:1, z:13, duration:3})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:3},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+				Pic.src = ""
+			break
