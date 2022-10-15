@@ -186,7 +186,7 @@
 				a24.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.position, {x:11, y:1.5, z:-1.5, duration:1})
-				  .to(camera.rotation, {x:Math.PI/4, y:0, z:0, duration:1},0)
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
 				  .to(camera.position, {x:11, y:1.5, z:1, duration:2})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
@@ -196,8 +196,8 @@
 				var a25 = gsap.timeline()
 				a25.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:11, y:1.5, z:-1.5, duration:1})
-				  .to(camera.rotation, {x:Math.PI/4, y:0, z:0, duration:1},0)
+				  .to(camera.position, {x:11, y:1.5, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/12*19, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -206,8 +206,8 @@
 				var a26 = gsap.timeline()
 				a26.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI/12*22, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:13.4, y:0.7, z:0}, {x:13.4, y:0.5, z:0, duration:1})
+				  .to(camera.position, {x:8, y:1.2, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -216,11 +216,10 @@
 				var a27 = gsap.timeline()
 				a27.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.rotation, {x:0, y:Math.PI/12*22, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:13.4, y:0.7, z:0}, {x:13.4, y:0.5, z:0, duration:1})
+				  .to(camera.position, {x:8, y:1.2, z:0, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
-			break
 			case 28: 
 			    DialogText.innerText = "墓龜：墓龜即整個墓後方隆起的區塊，為埋葬亡者之處"
 				var a28 = gsap.timeline()
