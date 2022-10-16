@@ -292,29 +292,29 @@
 	}
 	//5.6 載入 字板
 	const WordData = [
-	    {"name":"Center.pic","x":1.7,"y":0.2,"z":-10.5,"scale":0.02,"Rx":1.5,"Ry":1,"Rz":0},
-	    {"name":"Intro.1.pic","x":19.8,"y":4.5,"z":-18,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Si.1.pic","x":15,"y":2,"z":4,"scale":0.006,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Si.2.pic","x":19.8,"y":4.5,"z":-4.5,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Si.3.pic","x":19.8,"y":2.5,"z":-4.5,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
-	    {"name":"Barclay.1.pic","x":17,"y":2,"z":15,"scale":0.006,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Barclay.2.pic","x":19.8,"y":4.5,"z":9,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
-		{"name":"Wong.1.pic","x":7,"y":2,"z":17,"scale":0.006,"Rx":1,"Ry":1,"Rz":0},
-		{"name":"Wong.2.pic","x":13,"y":4.5,"z":19.8,"scale":0.01,"Rx":1,"Ry":1,"Rz":0},
-		{"name":"Sheu.1.pic","x":1,"y":4.5,"z":19.8,"scale":0.01,"Rx":1,"Ry":1,"Rz":0},
-		{"name":"Process.0.pic","x":-19.8,"y":4,"z":17,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
-		{"name":"Process.1.pic","x":-19.8,"y":1.6,"z":13.5,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
-		{"name":"Process.2.pic","x":-19.8,"y":1.6,"z":10.7,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
-		{"name":"Process.3.pic","x":-19.8,"y":1.6,"z":7.8,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
-		{"name":"Member.1.pic","x":-19.8,"y":4.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0},
-		{"name":"Member.2.pic","x":-19.8,"y":3.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0},
-		{"name":"Member.3.pic","x":-19.8,"y":2.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0},
-		{"name":"Member.4.pic","x":-19.8,"y":1.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0}
+	    {"name":"Center","x":1.7,"y":0.2,"z":-10.5,"scale":0.02,"Rx":1.5,"Ry":1,"Rz":0},
+	    {"name":"Intro.1","x":19.8,"y":4.5,"z":-18,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Si.1","x":15,"y":2,"z":4,"scale":0.006,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Si.2","x":19.8,"y":4.5,"z":-4.5,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Si.3","x":19.8,"y":2.5,"z":-4.5,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+	    {"name":"Barclay.1","x":17,"y":2,"z":15,"scale":0.006,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Barclay.2","x":19.8,"y":4.5,"z":9,"scale":0.01,"Rx":1,"Ry":0.5,"Rz":0},
+		{"name":"Wong.1","x":7,"y":2,"z":17,"scale":0.006,"Rx":1,"Ry":1,"Rz":0},
+		{"name":"Wong.2","x":13,"y":4.5,"z":19.8,"scale":0.01,"Rx":1,"Ry":1,"Rz":0},
+		{"name":"Sheu.1","x":1,"y":4.5,"z":19.8,"scale":0.01,"Rx":1,"Ry":1,"Rz":0},
+		{"name":"Process.0","x":-19.8,"y":4,"z":17,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.1","x":-19.8,"y":1.6,"z":13.5,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.2","x":-19.8,"y":1.6,"z":10.7,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.3","x":-19.8,"y":1.6,"z":7.8,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Member.1","x":-19.8,"y":4.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Member.2","x":-19.8,"y":3.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Member.3","x":-19.8,"y":2.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Member.4","x":-19.8,"y":1.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0}
 	];
 	const svgLoader = new SVGLoader();
 	for (let i = 0; i < WordData.length; i++) {
     let Word = WordData[i];
-    let WordName = "https://neil0733.github.io/Tomb/Word/" + Word.name + ".svg";
+    let WordName = "https://neil0733.github.io/Tomb/Word/" + Word.name + ".pic.svg";
 	svgLoader.load( WordName,
 	// called when the resource is loaded
 		function ( data ) {
