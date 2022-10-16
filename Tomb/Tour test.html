@@ -343,17 +343,31 @@
 	floor.rotation.x = - Math.PI / 2;
 	scene.add( floor );
 	//5.4 載入 圖片
-	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( 4.8, 3 ), new THREE.MeshBasicMaterial({map: textureLoader.load("https://neil0733.github.io/Tomb/Picture/nan-shan tomb.jpg")}));
-	NanPic.position.set(19.8, 2.7, -12.5);
-	NanPic.rotation.y = -Math.PI / 2;
+	const PicData = [
+		{"name":"nan-shan tomb","sx":4.8,"sy":3,"x":19.8,"y":2.7,"z":-12.5,"rotation":-0.5},
+		{"name":"process1","sx":1.5,"sy":2,"x":-19.8,"y":2.7,"z":13,"rotation":0.5},
+		{"name":"process2","sx":2,"sy":1.5,"x":-19.8,"y":2.5,"z":10,"rotation":0.5},
+		{"name":"process3-1","sx":0.9,"sy":1.6,"x":-19.8,"y":2.5,"z":7.1,"rotation":0.5},
+		{"name":"process3-2","sx":0.9,"sy":1.6,"x":-19.8,"y":2.5,"z":6.1,"rotation":0.5},
+		{"name":"process4","sx":2.84,"sy":1.6,"x":-19.8,"y":2.5,"z":3,"rotation":0.5},
+		{"name":"c1","sx":1,"sy":1,"x":-19.8,"y":4,"z":-12,"rotation":0.5}
+	]
+	for (let i = 0; i < PicData.length; i++) {
+    let Pic = PicData[i];
+	let PicName = "https://neil0733.github.io/Tomb/Picture/" + Pic.name + ".jpg";
+	const NanPic = new THREE.Mesh(new THREE.PlaneGeometry( parseFloat(Pic.sx), parseFloat(Pic.sy) ), new THREE.MeshBasicMaterial({map: textureLoader.load(PicName)}));
+	NanPic.position.set(parseFloat(Pic.x), parseFloat(Pic.y), parseFloat(Pic.z));
+	NanPic.rotation.y = Math.PI*parseFloat(Pic.rotation);
 	scene.add( NanPic );
+    }
 	//5.5 載入 模型
 	const ModelData = [
 		{"name":"excavator","x":0,"y":1,"z":-5,"rotation":0,"scale":1,"SLangle":8,"SLx":0,"SLy":7,"SLz":-12},
 		{"name":"mountain","x":0.35,"y":0.1,"z":-13,"rotation":1,"scale":0.07,"SLangle":6,"SLx":0,"SLy":2,"SLz":-15},
 		{"name":"si","x":15,"y":0.6,"z":0,"rotation":0.5,"scale":0.2,"SLangle":6,"SLx":10,"SLy":2,"SLz":0},
 		{"name":"Barclay","x":17,"y":0,"z":13,"rotation":0,"scale":0.05,"SLangle":6,"SLx":12,"SLy":2.5,"SLz":13},
-		{"name":"wong","x":8,"y":0.1,"z":17,"rotation":1,"scale":0.04,"SLangle":6,"SLx":6,"SLy":2,"SLz":13}
+		{"name":"wong","x":8,"y":0.1,"z":17,"rotation":1,"scale":0.04,"SLangle":6,"SLx":6,"SLy":2,"SLz":13},
+		{"name":"sheu","x":-5,"y":-1.7,"z":18,"rotation":1.5,"scale":0.2,"SLangle":3,"SLx":-2,"SLy":1.5,"SLz":6}
 	];
 	var ModelLoader = new THREE.GLTFLoader();
 	for (let i = 0; i < ModelData.length; i++) {
@@ -380,7 +394,49 @@
 		(xhr) => { console.log(xhr.loaded/xhr.total) }
     )
 	}
+//5.6 載入 字板
+    const WordData = [
+		{"name":"Process.0.pic","x":-19.8,"y":4,"z":17,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.1.pic","x":-19.8,"y":1.6,"z":13.5,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.2.pic","x":-19.8,"y":1.6,"z":10.5,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.3.pic","x":-19.8,"y":1.6,"z":7.4,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0}
+	];
+	const svgLoader = new THREE.SVGLoader();
+	for (let i = 0; i < WordData.length; i++) {
+    let Word = WordData[i];
+    let WordName = "https://neil0733.github.io/Tomb/Word/" + Word.name + ".svg";
+	svgLoader.load( WordName,
+	// called when the resource is loaded
+		function ( data ) {
+			const paths = data.paths;
+			const group = new THREE.Group();
+			group.position.x = parseFloat(Word.x);
+			group.position.y = parseFloat(Word.y);
+			group.position.z = parseFloat(Word.z);
+			group.scale.multiplyScalar( parseFloat(Word.scale) );
+			group.rotation.x = Math.PI*parseFloat(Word.Rx);
+			group.rotation.y = Math.PI*parseFloat(Word.Ry);
+			group.rotation.z = Math.PI*parseFloat(Word.Rz);
 
+			for ( let j = 0; j < paths.length; j ++ ) {
+				const path = paths[ j ];
+				const material = new THREE.MeshBasicMaterial( {
+					color: 0xffffff,
+					side: THREE.DoubleSide,
+					depthWrite: false
+				} );
+				const shapes = SVGLoader.createShapes( path );
+				for ( let k = 0; k < shapes.length; k ++ ) {
+					const shape = shapes[ k ];
+					const geometry = new THREE.ShapeGeometry( shape );
+					const mesh = new THREE.Mesh( geometry, material );
+					group.add( mesh );
+				}
+			}
+		scene.add( group );
+		}
+	)
+	};
 	//6. 載入 光線
 	const Alight = new THREE.AmbientLight( 0x000000 );
 	scene.add( Alight );
