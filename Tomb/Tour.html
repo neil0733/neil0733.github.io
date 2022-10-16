@@ -122,7 +122,7 @@
 				a1.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:3})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:2})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -145,7 +145,7 @@
 				a4.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01},0)
-				  .fromTo(camera.position, {x:2, y:3, z:-2}, {x:2, y:3, z:10, duration:5})
+				  .fromTo(camera.position, {x:2, y:3, z:-2}, {x:2, y:3, z:10, duration:3})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -155,7 +155,7 @@
 				a5.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01},0)
-				  .fromTo(camera.position, {x:10, y:3, z:2}, {x:-5, y:3, z:2, duration:5})
+				  .fromTo(camera.position, {x:10, y:3, z:2}, {x:-5, y:3, z:2, duration:3})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -165,7 +165,7 @@
 				a6.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI/4*5, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:7, y:1.7, z:-7}, {x:-7, y:1.7, z:7, duration:6})
+				  .fromTo(camera.position, {x:7, y:1.7, z:-7}, {x:-7, y:1.7, z:7, duration:3})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -175,7 +175,7 @@
 				a7.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI/2, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:5, y:1.7, z:-14}, {x:5, y:1.7, z:-5, duration:4})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-14}, {x:5, y:1.7, z:-5, duration:3})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -195,7 +195,7 @@
 				a9.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:-Math.PI/12, y:0, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:10, y:4, z:25}, {x:-10, y:4, z:25, duration:6})
+				  .fromTo(camera.position, {x:10, y:4, z:25}, {x:-10, y:4, z:25, duration:4})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -629,6 +629,160 @@
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
+			case 55: 
+			    DialogText.innerText = "不過在墓的側面則留下「俗名王雨卿」等字"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:7, y:0.8, z:17, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 56: 
+			    DialogText.innerText = "接下來讓我們仔細的介紹墓的細節吧！日式墓也被稱作「三段墓」"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:1, z:15, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 57: 
+			    DialogText.innerText = "三段墓由上往下看，可以看見三塊石頭皆呈現正方形，互相堆疊，而三塊石頭分別為："
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:1.2, z:16, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(camera.position, {x:8, y:0.4, z:16, duration:2})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 58: 
+			    DialogText.innerText = "竿石：又稱為「天石」，用來鐫刻亡者之名，許多日式墓是家族合葬之墓，大多會刻上ＯＯ家之墓，而非單位亡者之名"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:0.8, z:16, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 59: 
+			    DialogText.innerText = "上台石、下台石：分別稱為「人石」、「地石」，如果這三塊石頭堆疊的好，象徵天地人三者調合"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:0.5, z:16, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(camera.position, {x:8, y:0.3, z:16, duration:1})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 60: 
+			    DialogText.innerText = "接著介紹日式墓的其他部分，因為王雨卿墓沒有部份構造，因此用模型作介紹"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:10.75, y:1, z:15, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 61: 
+			    DialogText.innerText = "芝石：最底座部分的石塊，芝石下方即為亡者們骨灰的石櫃"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:10.75, y:0.1, z:16, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 62: 
+			    DialogText.innerText = "水鉢：中間凹槽放置水，即是供奉給祖先。兩側則有「花立」即置花的地方"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:10.75, y:0.8, z:16, duration:1})
+				  .to(camera.rotation, {x:-Math.PI/4*3, y:0, z:Math.PI, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 63: 
+			    DialogText.innerText = "香爐：又稱「香立」，放置香的地方"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:10.75, y:0.6, z:16.5, duration:1})
+				  .to(camera.rotation, {x:-Math.PI/4*3, y:0, z:Math.PI, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 64: 
+			    DialogText.innerText = "下方有塊「拜石」，是塊可掀起的石板，當今天有需要納骨時，將拜石上方（包含拜石）移開即可納骨"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:10.75, y:0.6, z:16.5, duration:1})
+				  .to(camera.rotation, {x:-Math.PI/4*3, y:0, z:Math.PI, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 65: 
+			    DialogText.innerText = "接著就來到我們的台灣特有種：日漢墓"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:-3.2, y:1.7, z:1.2, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(camera.position, {x:-3.2, y:1.7, z:2.5, duration:2})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 66: 
+			    DialogText.innerText = "日漢墓，就字面上意思即結合日式墓與漢式墓特色所建立的墓"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:-3.2, y:1.7, z:6.5, duration:3})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:3},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 67: 
+			    DialogText.innerText = "雖說是日漢墓，但其實日漢墓之間並沒有特意規定要擷取日式與漢式的哪些特色，因此日漢墓有許多表現的方式"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:2.5, y:2.5, z:2, duration:0.01})
+				  .to(camera.rotation, {x:-Math.PI/4*3, y:0.6, z:2.8, duration:0.01})
+				  .to(camera.position, {x:2.5, y:4, z:8, duration:3})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 68: 
+			    DialogText.innerText = "而我們收錄的薛家祖墓，雖沒有特別大的來頭與背景，不過依然是值得欣賞的一座墓"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:3.5, y:2, z:7.5, duration:0.01})
+				  .to(camera.rotation, {x:0, y:Math.PI/2, z:0, duration:0.01})
+				  .to(camera.position, {x:3.5, y:2, z:15, duration:3})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 72: 
+			    DialogText.innerText = "感謝大家參與者場導覽！接下來可以進入參觀模式自由參觀"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
 		}
 	}
 
@@ -688,11 +842,17 @@
 	const PicData = [
 		{"name":"nan-shan tomb","sx":4.8,"sy":3,"x":19.8,"y":2.7,"z":-12.5,"rotation":-0.5},
 		{"name":"process1","sx":1.5,"sy":2,"x":-19.8,"y":2.7,"z":13,"rotation":0.5},
-		{"name":"process2","sx":2,"sy":1.5,"x":-19.8,"y":2.5,"z":10,"rotation":0.5},
-		{"name":"process3-1","sx":0.9,"sy":1.6,"x":-19.8,"y":2.5,"z":7.1,"rotation":0.5},
-		{"name":"process3-2","sx":0.9,"sy":1.6,"x":-19.8,"y":2.5,"z":6.1,"rotation":0.5},
-		{"name":"process4","sx":2.84,"sy":1.6,"x":-19.8,"y":2.5,"z":3,"rotation":0.5},
-		{"name":"c1","sx":1,"sy":1,"x":-19.8,"y":4,"z":-12,"rotation":0.5}
+		{"name":"process2","sx":2,"sy":1.5,"x":-19.8,"y":2.5,"z":10.2,"rotation":0.5},
+		{"name":"process3-1","sx":0.9,"sy":1.6,"x":-19.8,"y":2.5,"z":7.5,"rotation":0.5},
+		{"name":"process3-2","sx":0.9,"sy":1.6,"x":-19.8,"y":2.5,"z":6.5,"rotation":0.5},
+		{"name":"process4","sx":2.84,"sy":1.6,"x":-19.8,"y":2.5,"z":3.6,"rotation":0.5},
+		{"name":"process5","sx":2.84,"sy":1.6,"x":-19.8,"y":2.5,"z":-0.4,"rotation":0.5},
+		{"name":"process6","sx":2.84,"sy":1.6,"x":-19.8,"y":2.5,"z":-4.4,"rotation":0.5},
+		{"name":"threejs","sx":1.81,"sy":0.915,"x":-19.8,"y":4,"z":-4.4,"rotation":0.5},
+		{"name":"c1","sx":0.9,"sy":0.9,"x":-19.8,"y":4.1,"z":-12,"rotation":0.5},
+		{"name":"c2","sx":0.9,"sy":0.9,"x":-19.8,"y":3.1,"z":-12,"rotation":0.5},
+		{"name":"c3","sx":0.9,"sy":0.9,"x":-19.8,"y":2.1,"z":-12,"rotation":0.5},
+		{"name":"c4","sx":0.9,"sy":0.9,"x":-19.8,"y":1.1,"z":-12,"rotation":0.5}
 	]
 	for (let i = 0; i < PicData.length; i++) {
     let Pic = PicData[i];
@@ -709,6 +869,7 @@
 		{"name":"si","x":15,"y":0.6,"z":0,"rotation":0.5,"scale":0.2,"SLangle":6,"SLx":10,"SLy":2,"SLz":0},
 		{"name":"Barclay","x":17,"y":0,"z":13,"rotation":0,"scale":0.05,"SLangle":6,"SLx":12,"SLy":2.5,"SLz":13},
 		{"name":"wong","x":8,"y":0.1,"z":17,"rotation":1,"scale":0.04,"SLangle":6,"SLx":6,"SLy":2,"SLz":13},
+		{"name":"Jtomb","x":12,"y":0.1,"z":17,"rotation":0.5,"scale":0.05,"SLangle":6,"SLx":5,"SLy":2,"SLz":13},
 		{"name":"sheu","x":-5,"y":-1.7,"z":18,"rotation":1.5,"scale":0.2,"SLangle":3,"SLx":-2,"SLy":1.5,"SLz":6}
 	];
 	var ModelLoader = new THREE.GLTFLoader();
@@ -738,15 +899,23 @@
 	}
 //5.6 載入 字板
     const WordData = [
-		{"name":"Process.0.pic","x":-19.8,"y":4,"z":17,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
-		{"name":"Process.1.pic","x":-19.8,"y":1.6,"z":13.5,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
-		{"name":"Process.2.pic","x":-19.8,"y":1.6,"z":10.5,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
-		{"name":"Process.3.pic","x":-19.8,"y":1.6,"z":7.4,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0}
+	    {"name":"Center","x":1.7,"y":0.2,"z":-10.5,"scale":0.02,"Rx":1.5,"Ry":1,"Rz":0},
+		{"name":"Process.0","x":-19.8,"y":4,"z":17,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.1","x":-19.8,"y":1.6,"z":13.5,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.2","x":-19.8,"y":1.6,"z":10.7,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.3","x":-19.8,"y":1.6,"z":7.8,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.4","x":-19.8,"y":1.6,"z":4.1,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.5","x":-19.8,"y":1.6,"z":0.1,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Process.6","x":-19.8,"y":1.6,"z":-3.9,"scale":0.01,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Member.1","x":-19.8,"y":4.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Member.2","x":-19.8,"y":3.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Member.3","x":-19.8,"y":2.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0},
+		{"name":"Member.4","x":-19.8,"y":1.5,"z":-12.8,"scale":0.015,"Rx":1,"Ry":1.5,"Rz":0}
 	];
-	const svgLoader = new SVGLoader();
+	const svgLoader = new THREE.SVGLoader();
 	for (let i = 0; i < WordData.length; i++) {
     let Word = WordData[i];
-    let WordName = "https://neil0733.github.io/Tomb/Word/" + Word.name + ".svg";
+    let WordName = "https://neil0733.github.io/Tomb/Word/" + Word.name + ".pic.svg";
 	svgLoader.load( WordName,
 	// called when the resource is loaded
 		function ( data ) {
@@ -767,7 +936,7 @@
 					side: THREE.DoubleSide,
 					depthWrite: false
 				} );
-				const shapes = SVGLoader.createShapes( path );
+				const shapes = THREE.SVGLoader.createShapes( path );
 				for ( let k = 0; k < shapes.length; k ++ ) {
 					const shape = shapes[ k ];
 					const geometry = new THREE.ShapeGeometry( shape );
