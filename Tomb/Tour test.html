@@ -85,7 +85,7 @@
 	const plc = new THREE.PointerLockControls( camera, renderer.domElement );
 
 	//3.1. 導覽文字、動畫：
-	var i = 54;
+	var i = 58;
 	const DialogText = document.getElementById("DialogText");
 	const Next = document.getElementById("Next");
 	const Back = document.getElementById("Back");
@@ -107,53 +107,15 @@
 			i = i - 1;
 		};
 		switch (i) {
-			case 55: 
-			    DialogText.innerText = "不過在墓的側面則留下「俗名王雨卿」等字"
-				var a46 = gsap.timeline()
-				a46.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:7, y:0.8, z:17, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-			break
-			case 56: 
-			    DialogText.innerText = "接下來讓我們仔細的介紹墓的細節吧！日式墓也被稱作「三段墓」"
-				var a46 = gsap.timeline()
-				a46.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-			break
-			case 57: 
-			    DialogText.innerText = "三段墓由上往下看，可以看見三塊石頭皆呈現正方形，互相堆疊，而三塊石頭分別為："
-				var a46 = gsap.timeline()
-				a46.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-			break
-			case 58: 
-			    DialogText.innerText = "竿石：又稱為「天石」，用來鐫刻亡者之名，許多日式墓是家族合葬之墓，大多會刻上ＯＯ家之墓，而非單位亡者之名"
-				var a46 = gsap.timeline()
-				a46.to(Next, {visibility: "hidden", duration:0.01})
-				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
-				  .to(Next, {visibility: "visible", duration:0.01})
-				  .to(Back, {visibility: "visible", duration:0.01})
-			break
+
 			case 59: 
 			    DialogText.innerText = "上台石、下台石：分別稱為「人石」、「地石」，如果這三塊石頭堆疊的好，象徵天地人三者調合"
 				var a46 = gsap.timeline()
 				a46.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
-				  .to(camera.position, {x:14, y:1.2, z:13, duration:1})
-				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(camera.position, {x:8, y:0.5, z:16, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(camera.position, {x:8, y:0.3, z:16, duration:1})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -428,7 +390,7 @@
 					side: THREE.DoubleSide,
 					depthWrite: false
 				} );
-				const shapes = SVGLoader.createShapes( path );
+				const shapes = THREE.SVGLoader.createShapes( path );
 				for ( let k = 0; k < shapes.length; k ++ ) {
 					const shape = shapes[ k ];
 					const geometry = new THREE.ShapeGeometry( shape );

@@ -122,7 +122,7 @@
 				a1.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:3})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-12}, {x:5, y:1.7, z:-9, duration:2})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -145,7 +145,7 @@
 				a4.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:0.01},0)
-				  .fromTo(camera.position, {x:2, y:3, z:-2}, {x:2, y:3, z:10, duration:5})
+				  .fromTo(camera.position, {x:2, y:3, z:-2}, {x:2, y:3, z:10, duration:3})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -155,7 +155,7 @@
 				a5.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:0.01},0)
-				  .fromTo(camera.position, {x:10, y:3, z:2}, {x:-5, y:3, z:2, duration:5})
+				  .fromTo(camera.position, {x:10, y:3, z:2}, {x:-5, y:3, z:2, duration:3})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -165,7 +165,7 @@
 				a6.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI/4*5, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:7, y:1.7, z:-7}, {x:-7, y:1.7, z:7, duration:6})
+				  .fromTo(camera.position, {x:7, y:1.7, z:-7}, {x:-7, y:1.7, z:7, duration:3})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -175,7 +175,7 @@
 				a7.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:0, y:Math.PI/2, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:5, y:1.7, z:-14}, {x:5, y:1.7, z:-5, duration:4})
+				  .fromTo(camera.position, {x:5, y:1.7, z:-14}, {x:5, y:1.7, z:-5, duration:3})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -195,7 +195,7 @@
 				a9.to(Next, {visibility: "hidden", duration:0.01})
 				  .to(Back, {visibility: "hidden", duration:0.01})
 				  .to(camera.rotation, {x:-Math.PI/12, y:0, z:0, duration:0.01})
-				  .fromTo(camera.position, {x:10, y:4, z:25}, {x:-10, y:4, z:25, duration:6})
+				  .fromTo(camera.position, {x:10, y:4, z:25}, {x:-10, y:4, z:25, duration:4})
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
@@ -629,6 +629,47 @@
 				  .to(Next, {visibility: "visible", duration:0.01})
 				  .to(Back, {visibility: "visible", duration:0.01})
 			break
+			case 55: 
+			    DialogText.innerText = "不過在墓的側面則留下「俗名王雨卿」等字"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:7, y:0.8, z:17, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI/2*3, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 56: 
+			    DialogText.innerText = "接下來讓我們仔細的介紹墓的細節吧！日式墓也被稱作「三段墓」"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:1, z:15, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 57: 
+			    DialogText.innerText = "三段墓由上往下看，可以看見三塊石頭皆呈現正方形，互相堆疊，而三塊石頭分別為："
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:1.2, z:16, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(camera.position, {x:8, y:0.4, z:16, duration:2})
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
+			case 58: 
+			    DialogText.innerText = "竿石：又稱為「天石」，用來鐫刻亡者之名，許多日式墓是家族合葬之墓，大多會刻上ＯＯ家之墓，而非單位亡者之名"
+				var a46 = gsap.timeline()
+				a46.to(Next, {visibility: "hidden", duration:0.01})
+				  .to(Back, {visibility: "hidden", duration:0.01})
+				  .to(camera.position, {x:8, y:0.8, z:16, duration:1})
+				  .to(camera.rotation, {x:0, y:Math.PI, z:0, duration:1},0)
+				  .to(Next, {visibility: "visible", duration:0.01})
+				  .to(Back, {visibility: "visible", duration:0.01})
+			break
 		}
 	}
 
@@ -770,7 +811,7 @@
 					side: THREE.DoubleSide,
 					depthWrite: false
 				} );
-				const shapes = SVGLoader.createShapes( path );
+				const shapes = THREE.SVGLoader.createShapes( path );
 				for ( let k = 0; k < shapes.length; k ++ ) {
 					const shape = shapes[ k ];
 					const geometry = new THREE.ShapeGeometry( shape );
