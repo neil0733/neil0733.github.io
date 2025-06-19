@@ -60,7 +60,11 @@
 				model.position.set(1, 1, 0);
 				model.scale.set(0.01, 0.01, 0.01);
 				scene.add(model);
-			}, undefined, function (e) {
+			},
+			(xhr) => {
+				console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+			},
+			undefined, function (e) {
 				console.error(e);
 			});
 
