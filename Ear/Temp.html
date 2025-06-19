@@ -56,7 +56,7 @@
 			const glbUrl = 'https://drive.google.com/uc?export=download&id=1froSQb_9lEDFMlZbSMcm8xCIO7WmLgt3';
 
 			loader.setDRACOLoader(dracoLoader);
-			loader.load(glbUrl, function (gltf) {
+			loader.load('Temporal.glb', function (gltf) {
 				const model = gltf.scene;
 				model.position.set(1, 1, 0);
 				model.scale.set(0.01, 0.01, 0.01);
