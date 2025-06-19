@@ -72,6 +72,7 @@
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 				renderer.setSize(window.innerWidth, window.innerHeight);
+				render();
 			};
 
 			function animate() {
@@ -80,6 +81,9 @@
 				controls.update();
 				stats.update();
 				renderer.render(scene, camera);
+			};
+			function render() {
+				renderer.render(scene, camera)
 			}
 		</script>
 	</body>
